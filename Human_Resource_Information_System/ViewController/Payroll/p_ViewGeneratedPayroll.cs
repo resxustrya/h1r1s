@@ -568,12 +568,26 @@ namespace Human_Resource_Information_System
 
         private void dgv_list_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
 
         private void txt_dayswoked_TextChanged(object sender, EventArgs e)
         {
-
+            Double total = 0.00;
+            try
+            {
+                total = (daily_rate * Convert.ToDouble(txt_dayswoked.Text)) - Convert.ToDouble(txt_absent_amount.Text);
+                // txt_basic_pay.Text = total.ToString("0.00");
+                if(total <= 0)
+                {
+                    total = 0.00;
+                }
+            }
+            catch(Exception ex)
+            {
+                total = 0.00;
+            }
+            txt_basic_pay.Text = total.ToString("0.00");
         }
 
         private void txt_basic_pay_TextChanged(object sender, EventArgs e)

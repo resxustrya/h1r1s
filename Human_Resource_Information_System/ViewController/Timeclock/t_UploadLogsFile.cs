@@ -15,13 +15,14 @@ namespace Human_Resource_Information_System
 {
     public partial class t_UploadLogsFile : Form
     {
+
         private GlobalClass gc;
         private GlobalMethod gm;
         thisDatabase db = new thisDatabase();
+
         public t_UploadLogsFile()
         {
             InitializeComponent();
-           
         }
 
         private void t_UploadLogsFile_Load(object sender, EventArgs e)
@@ -79,12 +80,12 @@ namespace Human_Resource_Information_System
             
             if (String.IsNullOrEmpty(textBox1.Text))
             {
-                MessageBox.Show("Please select an excel file to import.");
+                MessageBox.Show("Please select a text or excel file to import.");
             }
             else
             {
-                        try
-                        {
+                     //   try
+                     //   {
                             //filename = textBox1.Text;
                             //xlApp = new Excel.Application();
                             //xlWorkBook = xlApp.Workbooks.Open(@filename, 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
@@ -159,7 +160,7 @@ namespace Human_Resource_Information_System
                                               col = "work_date,time_log,empid,status,source";
                                               val = "'" + work_date + "','" + time_log + "','" + empid + "','" + status + "','" + source + "'";
 
-
+                                               
                                               data = db.QueryBySQLCode("SELECT * FROM rssys.hr_tito2 WHERE empid = '" + empid + "' AND work_date='" + work_date + "' AND time_log='" + time_log + "'");
                                               if (data.Rows.Count < 1)
                                               {
@@ -182,11 +183,6 @@ namespace Human_Resource_Information_System
 
                                               }
 
-
-
-
-
-
                                           //}
 
 
@@ -197,16 +193,12 @@ namespace Human_Resource_Information_System
                                               
                                       //}
 
-                                     
-
                                 }
                                 else
-                            {
-                                //MessageBox.Show("File is Empty");
+                                {
+                                    //MessageBox.Show("File is Empty");
 
-                            }
-
-                             
+                                }
                             }
 
                           
@@ -226,10 +218,11 @@ namespace Human_Resource_Information_System
 
                             }
                             
-
+                            /*
                         }
                         catch (Exception ex)
                         {
+                            
                             DialogResult result = MessageBox.Show(ex.Message, "Confirmation", MessageBoxButtons.OK);
                             if (result == DialogResult.OK)
                             {
@@ -238,13 +231,13 @@ namespace Human_Resource_Information_System
                                 textBox1.Text = "";
                             }
                         }
-
+                        */
 
 
                 
             }
 
-            dips_list();
+           // dips_list();
                 
             }
 

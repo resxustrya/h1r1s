@@ -446,7 +446,6 @@ namespace Human_Resource_Information_System
                 {
                     RPT_RES_entry frm = new RPT_RES_entry(rpt_code, this.Text);
                     frm.print_payroll_summary((cbo_1.SelectedValue ?? "").ToString(), cbo_2frm.Text, (cbo_2frm.SelectedValue ?? "").ToString(), cbo_2to.Text, (cbo_2to.SelectedValue ?? "").ToString(), (cbo_3.SelectedValue ?? "").ToString(), cbo_4.Text, cbo_5.Text, chk_4.Checked, chk_5.Checked);
-
                     frm.ShowDialog();
 
                 }

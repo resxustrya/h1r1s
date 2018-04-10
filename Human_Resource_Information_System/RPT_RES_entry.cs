@@ -1629,8 +1629,8 @@ namespace Human_Resource_Information_System
             strSQL = "SELECT ep.*, d.dept_name, to_char(pp.date_from,'YYYY-MM-DD') AS date_from, to_char(pp.date_to,'YYYY-MM-DD') AS date_to, to_char(pp.date_from,'Month DD, YYYY') AS date_from_desc, to_char(pp.date_to,'Month DD, YYYY') AS date_to_desc, e.firstname, e.lastname, e.mi, e.tax_bracket FROM rssys.hr_emp_payroll ep LEFT JOIN rssys.hr_employee e ON e.empid=ep.empid LEFT JOIN rssys.hr_payrollpariod pp ON pp.pay_code=ep.ppid LEFT JOIN rssys.hr_department d ON e.department=d.deptid WHERE 1=1 " + WHERE + " " + ORDERBY + "";
 
             data.strSQL = strSQL;
-            rtxt_msg.Text = data.strSQL;
-            MessageBox.Show(data.strSQL);
+            //rtxt_msg.Text = data.strSQL;
+            //MessageBox.Show(data.strSQL);
             pnl_rpt_option_header.Hide();
             print();
         }
