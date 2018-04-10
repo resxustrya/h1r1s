@@ -28,6 +28,7 @@ namespace Human_Resource_Information_System
 
         private void p_ViewGeneratedPayroll_Load(object sender, EventArgs e)
         {
+            gc.load_payroll_period(cbo_payollperiod);
             disp_payroll();
         }
 
@@ -934,6 +935,60 @@ namespace Human_Resource_Information_System
         private void button1_Click(object sender, EventArgs e)
         {
             disp_payroll();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DataTable pay_period = null;
+            String date_from = "", date_to = "";
+            String pay_code = "";
+            if (cbo_payollperiod.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a payroll period.");
+                cbo_payollperiod.DroppedDown = true;
+                return;
+            }
+
+            pay_code = cbo_payollperiod.SelectedValue.ToString();
+          
+            try { dgv_list.Rows.Clear(); }
+            catch (Exception) { }
+            int i = 0;
+            String query = "SELECT p.pay_code,ep.emp_pay_code,emp.empid,CONCAT(emp.firstname, ' ',emp.lastname) as name, CONCAT(to_char(p.date_from, 'mm/dd/yyyy'),' To ',to_char(p.date_to, 'mm/dd/yyyy')) as period FROM rssys.hr_emp_payroll ep LEFT JOIN rssys.hr_employee emp ON emp.empid = ep.empid LEFT JOIN rssys.hr_payrollpariod p ON p.pay_code = ep.ppid";
+
+            query += " WHERE p.pay_code = '" + pay_code + "'";
+
+            
+
+            try
+            {
+                DataTable dt = db.QueryBySQLCode(query);
+
+                for (int r = 0; r < dt.Rows.Count; r++)
+                {
+                    i = dgv_list.Rows.Add();
+                    DataGridViewRow row = dgv_list.Rows[i];
+
+                    row.Cells["pay_code"].Value = dt.Rows[r]["emp_pay_code"].ToString();
+                    row.Cells["empname"].Value = dt.Rows[r]["name"].ToString();
+                    row.Cells["pay_period"].Value = dt.Rows[r]["period"].ToString();
+                    row.Cells["empid"].Value = dt.Rows[r]["empid"].ToString();
+                    row.Cells["ppid"].Value = dt.Rows[r]["pay_code"].ToString();
+                    i++;
+                }
+            }
+            catch { }
+            
+        }
+        private DataTable get_date(String code)
+        {
+            DataTable dt = null;
+            try
+            {
+                dt = db.QueryBySQLCode("SELECT date_from,date_to from rssys.hr_payrollpariod where pay_code='" + code + "'");
+            }
+            catch { }
+            return dt;
         }
     }
 }

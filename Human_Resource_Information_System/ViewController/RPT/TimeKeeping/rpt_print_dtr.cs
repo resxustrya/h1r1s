@@ -218,7 +218,7 @@ namespace Human_Resource_Information_System
         {
             int r = -1;
             String dtr_filename = "";
-            String sys_dir = System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName;
+            String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr\\";
             
             try
             {
@@ -231,15 +231,15 @@ namespace Human_Resource_Information_System
                         
                         try
                         {
-                            System.Diagnostics.Process.Start("chrome.exe", sys_dir + "/ViewController/RPT/TimeKeeping/dtr_pdf/" + dtr_filename);
+                            System.Diagnostics.Process.Start("chrome.exe", sys_dir + dtr_filename);
                         }
                         catch(Exception ex)
                         {
-                            System.Diagnostics.Process.Start("chrome.exe", sys_dir + "/ViewController/RPT/TimeKeeping/dtr_pdf/" + dtr_filename);
+                            System.Diagnostics.Process.Start("chrome.exe", sys_dir + dtr_filename);
                         }
                         catch
                         {
-                            System.Diagnostics.Process.Start("iexplore.exe", sys_dir + "/ViewController/RPT/TimeKeeping/dtr_pdf/" + dtr_filename);
+                            System.Diagnostics.Process.Start("iexplore.exe", sys_dir + dtr_filename);
                         }
                         
                     }
@@ -339,7 +339,7 @@ namespace Human_Resource_Information_System
                 filename = RandomString(5) + "_" + DateTime.Now.ToString("yyyy-MM-dd");
                 filename += ".pdf";
 
-                System.IO.FileStream fs = new FileStream(fileloc_dtr + "/ViewController/RPT/TimeKeeping/dtr_pdf/" + filename, FileMode.Create);
+                System.IO.FileStream fs = new FileStream("\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr\\" + filename, FileMode.Create);
                 Document document = new Document(PageSize.LEGAL, 25, 25, 30, 30);
 
                 PdfWriter.GetInstance(document, fs);
@@ -494,9 +494,9 @@ namespace Human_Resource_Information_System
                     MessageBox.Show("Failed on saving.");
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Operation failed");
+                MessageBox.Show(ex.Message);
             }
             //bgworker.RunWorkerAsync();
             pic_loading.Invoke(new Action(() => {

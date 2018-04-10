@@ -502,7 +502,7 @@ namespace Human_Resource_Information_System
         {
             int r = -1;
             String dtr_filename = "";
-            String sys_dir = System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName;
+            String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr_summary\\";
             try
             {
                 if (dgvl_dtr_sum_files.Rows.Count > 1)
@@ -515,17 +515,17 @@ namespace Human_Resource_Information_System
 
                         try
                         {
-                            System.Diagnostics.Process.Start("AcroRd3d2.exe", sys_dir + "/ViewController/RPT/TimeKeeping/dtr_summary_pdf/" + dtr_filename);
+                            System.Diagnostics.Process.Start("AcroRd3d2.exe", sys_dir + dtr_filename);
                             
                         }
                         catch (Exception ex)
                         {
-                            System.Diagnostics.Process.Start("chrome.exe", sys_dir + "/ViewController/RPT/TimeKeeping/dtr_summary_pdf/" + dtr_filename);
+                            System.Diagnostics.Process.Start("chrome.exe", sys_dir + dtr_filename);
                             
                         }
                         catch
                         {
-                            System.Diagnostics.Process.Start("iexplore.exe", sys_dir + "/ViewController/RPT/TimeKeeping/dtr_summary_pdf/" + dtr_filename);
+                            System.Diagnostics.Process.Start("iexplore.exe", sys_dir + dtr_filename);
                         }
 
                     }
@@ -634,8 +634,7 @@ namespace Human_Resource_Information_System
             filename += ".pdf";
 
 
-
-            System.IO.FileStream fs = new FileStream(fileloc_dtr + "/ViewController/RPT/TimeKeeping/dtr_summary_pdf/" + filename, FileMode.Create);
+            System.IO.FileStream fs = new FileStream("\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr_summary\\" + filename, FileMode.Create);
 
 
 
