@@ -11,7 +11,7 @@ namespace Human_Resource_Information_System
 {
     public class thisDatabase2
     {
-        public static String server = "localhost";// System.IO.File.ReadAllText(thisDatabase.driveloc + thisDatabase.comp_folder + "\\HRPublish\\serverDatabase.txt"); //
+        public static String server = System.IO.File.ReadAllText(thisDatabase.driveloc + thisDatabase.comp_folder + "\\HRPublish\\serverDatabase.txt"); //
         public static String lcl_db = thisDatabase.lcl_db;
         public static String svr_pass = thisDatabase.svr_pass;
         String schema = thisDatabase.schema_static;//*/
