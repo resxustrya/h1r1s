@@ -28,8 +28,8 @@
     <PublisherName>Right Apps Solutions and Services</PublisherName>
     <SuiteName>Right Apps -HRIS</SuiteName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>15</ApplicationRevision>
-    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationVersion>3.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -157,6 +157,7 @@
     </Compile>
     <Compile Include="Reports\ds_payroll.cs">
       <DependentUpon>ds_payroll.xsd</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\Payroll\cumulative_payroll.cs">
       <DependentUpon>cumulative_payroll.rpt</DependentUpon>

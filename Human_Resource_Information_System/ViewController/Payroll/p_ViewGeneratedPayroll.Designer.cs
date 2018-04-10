@@ -59,24 +59,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.txt_search = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtp_to = new System.Windows.Forms.DateTimePicker();
-            this.dtp_frm = new System.Windows.Forms.DateTimePicker();
             this.tpg_info = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.txt_min_rate = new System.Windows.Forms.Label();
-            this.txt_hourly_rate = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.txt_daily_rate = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.lbl_code = new System.Windows.Forms.Label();
-            this.txt_payroll_code = new System.Windows.Forms.Label();
-            this.txt_pay_rate = new System.Windows.Forms.Label();
-            this.txt_rate_type = new System.Windows.Forms.Label();
-            this.txt_empname = new System.Windows.Forms.Label();
-            this.txt_pay_period = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lbl_total_tax = new System.Windows.Forms.Label();
             this.btn_compute_payroll = new System.Windows.Forms.Button();
@@ -154,11 +138,26 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_min_rate = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txt_hourly_rate = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txt_pay_period = new System.Windows.Forms.Label();
+            this.txt_daily_rate = new System.Windows.Forms.Label();
+            this.txt_empname = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.lbl_code = new System.Windows.Forms.Label();
+            this.txt_payroll_code = new System.Windows.Forms.Label();
+            this.txt_pay_rate = new System.Windows.Forms.Label();
+            this.txt_rate_type = new System.Windows.Forms.Label();
+            this.cbo_payollperiod = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.pnl_sidebar.SuspendLayout();
             this.tbcntrl_option.SuspendLayout();
             this.tpg_opt_1.SuspendLayout();
@@ -332,7 +331,7 @@
             this.tpg_option_2.Controls.Add(this.panel9);
             this.tpg_option_2.Location = new System.Drawing.Point(4, 4);
             this.tpg_option_2.Name = "tpg_option_2";
-            this.tpg_option_2.Size = new System.Drawing.Size(189, 603);
+            this.tpg_option_2.Size = new System.Drawing.Size(189, 510);
             this.tpg_option_2.TabIndex = 3;
             this.tpg_option_2.UseVisualStyleBackColor = true;
             // 
@@ -343,7 +342,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(189, 603);
+            this.panel9.Size = new System.Drawing.Size(189, 510);
             this.panel9.TabIndex = 1;
             // 
             // groupBox8
@@ -394,7 +393,7 @@
             this.pnl_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_main.Location = new System.Drawing.Point(197, 0);
             this.pnl_main.Name = "pnl_main";
-            this.pnl_main.Size = new System.Drawing.Size(913, 538);
+            this.pnl_main.Size = new System.Drawing.Size(996, 538);
             this.pnl_main.TabIndex = 50;
             // 
             // tbcntrl_main
@@ -405,7 +404,7 @@
             this.tbcntrl_main.Location = new System.Drawing.Point(0, 0);
             this.tbcntrl_main.Name = "tbcntrl_main";
             this.tbcntrl_main.SelectedIndex = 0;
-            this.tbcntrl_main.Size = new System.Drawing.Size(913, 538);
+            this.tbcntrl_main.Size = new System.Drawing.Size(996, 538);
             this.tbcntrl_main.TabIndex = 1;
             this.tbcntrl_main.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbcntrl_main_Selecting);
             // 
@@ -415,7 +414,7 @@
             this.tpg_list.Location = new System.Drawing.Point(4, 24);
             this.tpg_list.Name = "tpg_list";
             this.tpg_list.Padding = new System.Windows.Forms.Padding(3);
-            this.tpg_list.Size = new System.Drawing.Size(905, 510);
+            this.tpg_list.Size = new System.Drawing.Size(988, 510);
             this.tpg_list.TabIndex = 0;
             this.tpg_list.Text = "Generated Payroll List";
             this.tpg_list.UseVisualStyleBackColor = true;
@@ -428,7 +427,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(899, 504);
+            this.panel7.Size = new System.Drawing.Size(982, 504);
             this.panel7.TabIndex = 0;
             // 
             // groupBox6
@@ -439,7 +438,7 @@
             this.groupBox6.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox6.Location = new System.Drawing.Point(0, 45);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(899, 459);
+            this.groupBox6.Size = new System.Drawing.Size(982, 459);
             this.groupBox6.TabIndex = 58;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Payroll Period List";
@@ -460,7 +459,7 @@
             this.dgv_list.ReadOnly = true;
             this.dgv_list.RowHeadersVisible = false;
             this.dgv_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_list.Size = new System.Drawing.Size(893, 438);
+            this.dgv_list.Size = new System.Drawing.Size(976, 438);
             this.dgv_list.TabIndex = 1;
             this.dgv_list.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_list_CellContentClick);
             this.dgv_list.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_list_CellContentClick);
@@ -502,16 +501,15 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.cbo_payollperiod);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.txt_search);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.dtp_to);
-            this.panel1.Controls.Add(this.dtp_frm);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(899, 45);
+            this.panel1.Size = new System.Drawing.Size(982, 45);
             this.panel1.TabIndex = 59;
             // 
             // button1
@@ -535,40 +533,6 @@
             this.txt_search.Size = new System.Drawing.Size(179, 21);
             this.txt_search.TabIndex = 71;
             this.txt_search.Tag = "Search Employee";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(233, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(21, 15);
-            this.label3.TabIndex = 70;
-            this.label3.Text = "To";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 15);
-            this.label2.TabIndex = 69;
-            this.label2.Text = "Transaction Dates";
-            // 
-            // dtp_to
-            // 
-            this.dtp_to.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_to.Location = new System.Drawing.Point(264, 12);
-            this.dtp_to.Name = "dtp_to";
-            this.dtp_to.Size = new System.Drawing.Size(103, 21);
-            this.dtp_to.TabIndex = 68;
-            // 
-            // dtp_frm
-            // 
-            this.dtp_frm.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_frm.Location = new System.Drawing.Point(124, 12);
-            this.dtp_frm.Name = "dtp_frm";
-            this.dtp_frm.Size = new System.Drawing.Size(103, 21);
-            this.dtp_frm.TabIndex = 67;
             // 
             // tpg_info
             // 
@@ -594,135 +558,6 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(899, 504);
             this.panel8.TabIndex = 1;
-            // 
-            // txt_min_rate
-            // 
-            this.txt_min_rate.AutoSize = true;
-            this.txt_min_rate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_min_rate.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txt_min_rate.Location = new System.Drawing.Point(803, 33);
-            this.txt_min_rate.Name = "txt_min_rate";
-            this.txt_min_rate.Size = new System.Drawing.Size(17, 15);
-            this.txt_min_rate.TabIndex = 103;
-            this.txt_min_rate.Text = "--";
-            // 
-            // txt_hourly_rate
-            // 
-            this.txt_hourly_rate.AutoSize = true;
-            this.txt_hourly_rate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_hourly_rate.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txt_hourly_rate.Location = new System.Drawing.Point(803, 9);
-            this.txt_hourly_rate.Name = "txt_hourly_rate";
-            this.txt_hourly_rate.Size = new System.Drawing.Size(17, 15);
-            this.txt_hourly_rate.TabIndex = 102;
-            this.txt_hourly_rate.Text = "--";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(711, 35);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(90, 13);
-            this.label44.TabIndex = 101;
-            this.label44.Text = "Minutes Rate :";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(711, 11);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(82, 13);
-            this.label21.TabIndex = 100;
-            this.label21.Text = "Hourly Rate :";
-            // 
-            // txt_daily_rate
-            // 
-            this.txt_daily_rate.AutoSize = true;
-            this.txt_daily_rate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_daily_rate.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txt_daily_rate.Location = new System.Drawing.Point(599, 33);
-            this.txt_daily_rate.Name = "txt_daily_rate";
-            this.txt_daily_rate.Size = new System.Drawing.Size(17, 15);
-            this.txt_daily_rate.TabIndex = 99;
-            this.txt_daily_rate.Text = "--";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(519, 35);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(74, 13);
-            this.label19.TabIndex = 98;
-            this.label19.Text = "Daily Rate :";
-            // 
-            // lbl_code
-            // 
-            this.lbl_code.AutoSize = true;
-            this.lbl_code.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_code.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lbl_code.Location = new System.Drawing.Point(413, 9);
-            this.lbl_code.Name = "lbl_code";
-            this.lbl_code.Size = new System.Drawing.Size(17, 15);
-            this.lbl_code.TabIndex = 97;
-            this.lbl_code.Text = "--";
-            this.lbl_code.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // txt_payroll_code
-            // 
-            this.txt_payroll_code.AutoSize = true;
-            this.txt_payroll_code.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_payroll_code.Location = new System.Drawing.Point(321, 11);
-            this.txt_payroll_code.Name = "txt_payroll_code";
-            this.txt_payroll_code.Size = new System.Drawing.Size(86, 13);
-            this.txt_payroll_code.TabIndex = 96;
-            this.txt_payroll_code.Text = "Payroll Code :";
-            // 
-            // txt_pay_rate
-            // 
-            this.txt_pay_rate.AutoSize = true;
-            this.txt_pay_rate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_pay_rate.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txt_pay_rate.Location = new System.Drawing.Point(599, 11);
-            this.txt_pay_rate.Name = "txt_pay_rate";
-            this.txt_pay_rate.Size = new System.Drawing.Size(17, 15);
-            this.txt_pay_rate.TabIndex = 95;
-            this.txt_pay_rate.Text = "--";
-            // 
-            // txt_rate_type
-            // 
-            this.txt_rate_type.AutoSize = true;
-            this.txt_rate_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_rate_type.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txt_rate_type.Location = new System.Drawing.Point(413, 31);
-            this.txt_rate_type.Name = "txt_rate_type";
-            this.txt_rate_type.Size = new System.Drawing.Size(17, 15);
-            this.txt_rate_type.TabIndex = 94;
-            this.txt_rate_type.Text = "--";
-            // 
-            // txt_empname
-            // 
-            this.txt_empname.AutoSize = true;
-            this.txt_empname.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_empname.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txt_empname.Location = new System.Drawing.Point(130, 31);
-            this.txt_empname.Name = "txt_empname";
-            this.txt_empname.Size = new System.Drawing.Size(17, 15);
-            this.txt_empname.TabIndex = 93;
-            this.txt_empname.Text = "--";
-            // 
-            // txt_pay_period
-            // 
-            this.txt_pay_period.AutoSize = true;
-            this.txt_pay_period.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_pay_period.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txt_pay_period.Location = new System.Drawing.Point(130, 9);
-            this.txt_pay_period.Name = "txt_pay_period";
-            this.txt_pay_period.Size = new System.Drawing.Size(17, 15);
-            this.txt_pay_period.TabIndex = 92;
-            this.txt_pay_period.Text = "--";
             // 
             // groupBox3
             // 
@@ -1553,46 +1388,6 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Days Worked";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(13, 33);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(103, 13);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Employee name :";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(519, 11);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 13);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Rate :";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(321, 35);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Rate Type :";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Payroll Pariod :";
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label1);
@@ -1617,16 +1412,219 @@
             this.panel2.Size = new System.Drawing.Size(899, 53);
             this.panel2.TabIndex = 104;
             // 
-            // RPT_DTR
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(13, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Payroll Pariod :";
+            // 
+            // txt_min_rate
+            // 
+            this.txt_min_rate.AutoSize = true;
+            this.txt_min_rate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_min_rate.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txt_min_rate.Location = new System.Drawing.Point(803, 33);
+            this.txt_min_rate.Name = "txt_min_rate";
+            this.txt_min_rate.Size = new System.Drawing.Size(17, 15);
+            this.txt_min_rate.TabIndex = 103;
+            this.txt_min_rate.Text = "--";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(321, 35);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(74, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Rate Type :";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(519, 11);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(42, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Rate :";
+            // 
+            // txt_hourly_rate
+            // 
+            this.txt_hourly_rate.AutoSize = true;
+            this.txt_hourly_rate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_hourly_rate.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txt_hourly_rate.Location = new System.Drawing.Point(803, 9);
+            this.txt_hourly_rate.Name = "txt_hourly_rate";
+            this.txt_hourly_rate.Size = new System.Drawing.Size(17, 15);
+            this.txt_hourly_rate.TabIndex = 102;
+            this.txt_hourly_rate.Text = "--";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.Location = new System.Drawing.Point(711, 35);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(90, 13);
+            this.label44.TabIndex = 101;
+            this.label44.Text = "Minutes Rate :";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(13, 33);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(103, 13);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Employee name :";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(711, 11);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(82, 13);
+            this.label21.TabIndex = 100;
+            this.label21.Text = "Hourly Rate :";
+            // 
+            // txt_pay_period
+            // 
+            this.txt_pay_period.AutoSize = true;
+            this.txt_pay_period.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_pay_period.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txt_pay_period.Location = new System.Drawing.Point(130, 9);
+            this.txt_pay_period.Name = "txt_pay_period";
+            this.txt_pay_period.Size = new System.Drawing.Size(17, 15);
+            this.txt_pay_period.TabIndex = 92;
+            this.txt_pay_period.Text = "--";
+            // 
+            // txt_daily_rate
+            // 
+            this.txt_daily_rate.AutoSize = true;
+            this.txt_daily_rate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_daily_rate.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txt_daily_rate.Location = new System.Drawing.Point(599, 33);
+            this.txt_daily_rate.Name = "txt_daily_rate";
+            this.txt_daily_rate.Size = new System.Drawing.Size(17, 15);
+            this.txt_daily_rate.TabIndex = 99;
+            this.txt_daily_rate.Text = "--";
+            // 
+            // txt_empname
+            // 
+            this.txt_empname.AutoSize = true;
+            this.txt_empname.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_empname.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txt_empname.Location = new System.Drawing.Point(130, 31);
+            this.txt_empname.Name = "txt_empname";
+            this.txt_empname.Size = new System.Drawing.Size(17, 15);
+            this.txt_empname.TabIndex = 93;
+            this.txt_empname.Text = "--";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(519, 35);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(74, 13);
+            this.label19.TabIndex = 98;
+            this.label19.Text = "Daily Rate :";
+            // 
+            // lbl_code
+            // 
+            this.lbl_code.AutoSize = true;
+            this.lbl_code.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_code.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lbl_code.Location = new System.Drawing.Point(413, 9);
+            this.lbl_code.Name = "lbl_code";
+            this.lbl_code.Size = new System.Drawing.Size(17, 15);
+            this.lbl_code.TabIndex = 97;
+            this.lbl_code.Text = "--";
+            this.lbl_code.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // txt_payroll_code
+            // 
+            this.txt_payroll_code.AutoSize = true;
+            this.txt_payroll_code.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_payroll_code.Location = new System.Drawing.Point(321, 11);
+            this.txt_payroll_code.Name = "txt_payroll_code";
+            this.txt_payroll_code.Size = new System.Drawing.Size(86, 13);
+            this.txt_payroll_code.TabIndex = 96;
+            this.txt_payroll_code.Text = "Payroll Code :";
+            // 
+            // txt_pay_rate
+            // 
+            this.txt_pay_rate.AutoSize = true;
+            this.txt_pay_rate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_pay_rate.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txt_pay_rate.Location = new System.Drawing.Point(599, 11);
+            this.txt_pay_rate.Name = "txt_pay_rate";
+            this.txt_pay_rate.Size = new System.Drawing.Size(17, 15);
+            this.txt_pay_rate.TabIndex = 95;
+            this.txt_pay_rate.Text = "--";
+            // 
+            // txt_rate_type
+            // 
+            this.txt_rate_type.AutoSize = true;
+            this.txt_rate_type.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_rate_type.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.txt_rate_type.Location = new System.Drawing.Point(413, 31);
+            this.txt_rate_type.Name = "txt_rate_type";
+            this.txt_rate_type.Size = new System.Drawing.Size(17, 15);
+            this.txt_rate_type.TabIndex = 94;
+            this.txt_rate_type.Text = "--";
+            // 
+            // cbo_payollperiod
+            // 
+            this.cbo_payollperiod.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbo_payollperiod.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbo_payollperiod.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cbo_payollperiod.FormattingEnabled = true;
+            this.cbo_payollperiod.Location = new System.Drawing.Point(91, 9);
+            this.cbo_payollperiod.Name = "cbo_payollperiod";
+            this.cbo_payollperiod.Size = new System.Drawing.Size(342, 23);
+            this.cbo_payollperiod.TabIndex = 72;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 15);
+            this.label2.TabIndex = 73;
+            this.label2.Text = "Payroll Period";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.OrangeRed;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.SystemColors.Info;
+            this.button2.Location = new System.Drawing.Point(439, 9);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(73, 23);
+            this.button2.TabIndex = 74;
+            this.button2.Text = "Filter";
+            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // p_ViewGeneratedPayroll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(1110, 538);
+            this.ClientSize = new System.Drawing.Size(1193, 538);
             this.Controls.Add(this.pnl_main);
             this.Controls.Add(this.pnl_sidebar);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "RPT_DTR";
+            this.Name = "p_ViewGeneratedPayroll";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "View Generated Payroll";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -1689,10 +1687,6 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.DataGridView dgv_list;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dtp_to;
-        private System.Windows.Forms.DateTimePicker dtp_frm;
         private System.Windows.Forms.TabPage tpg_info;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -1796,5 +1790,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txt_search;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbo_payollperiod;
+        private System.Windows.Forms.Button button2;
     }
 }
