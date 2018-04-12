@@ -79,7 +79,8 @@ namespace Human_Resource_Information_System
             }
             btn_submit.Enabled = false;
             pic_loading.Visible = true;
-            bgworker.RunWorkerAsync();
+            //bgworker.RunWorkerAsync();
+            generate_dtr();
         }
 
         private String compute_undertime(String empid, String timeout,String datein)
@@ -302,12 +303,14 @@ namespace Human_Resource_Information_System
 
         }
         private void bgworker_DoWork(object sender, DoWorkEventArgs e)
+        { }
+        private void generate_dtr()
         {
             String query = "", empid = "", date_from = "", date_to = "", pay_code = "", table = "hr_dtr_files", filename = "", code = "", col = "", val = "", date_in = "";
             DataTable pay_period = null;
             
 
-            query = "SELECT empid,firstname,lastname FROM rssys.hr_employee";
+            query = "SELECT empid, firstname, lastname FROM rssys.hr_employee";
             cbo_employee.Invoke(new Action(() => {
                 if (cbo_employee.SelectedIndex != -1)
                 {
@@ -332,9 +335,8 @@ namespace Human_Resource_Information_System
             }
             DateTime StartDate = DateTime.Parse(date_from);
             DateTime EndDate = DateTime.Parse(date_to);
-            try
-            {
-
+            //try
+            //{
 
                 filename = RandomString(5) + "_" + DateTime.Now.ToString("yyyy-MM-dd");
                 filename += ".pdf";
@@ -408,15 +410,16 @@ namespace Human_Resource_Information_System
                         t.AddCell(new PdfPCell(new Phrase("UT")) { HorizontalAlignment = Element.ALIGN_CENTER });
                         t.AddCell(new PdfPCell(new Phrase("OT")) { HorizontalAlignment = Element.ALIGN_CENTER });
 
-
+                        
 
                         query = "SELECT DISTINCT CONCAT(lastname,' ',firstname) AS name, t.source, e.empid, to_char(work_date, 'yyyy-MM-dd') AS work_date, (SELECT MIN(time_log) FROM rssys.hr_tito2 st WHERE work_date=t.work_date AND status='I' AND empid=t.empid) AS timein, (SELECT MAX(time_log) FROM rssys.hr_tito2 st WHERE work_date=t.work_date AND status='O' AND empid=t.empid) AS timeout FROM rssys.hr_tito2 t LEFT JOIN rssys.hr_employee e ON t.empid=e.empid WHERE e.empid = '" + empid + "' AND t.work_date BETWEEN '" + date_from + "' AND '" + date_to + "' ORDER BY work_date ";
 
-
+                        
                         DataTable dt = db.QueryBySQLCode(query);
 
                         String date_name = "", am_in = "", am_out = "", pm_in = "", pm_out = "", log_date = "", late = "", ut = "", ot_total = "";
                         int index = 0;
+                        
                         foreach (DateTime day in EachDay(StartDate, EndDate))
                         {
                             if (index != dt.Rows.Count)
@@ -493,11 +496,12 @@ namespace Human_Resource_Information_System
                 {
                     MessageBox.Show("Failed on saving.");
                 }
+                /*
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
-            }
+                MessageBox.Show("Trace error" +ex.Message);
+            }*/
             //bgworker.RunWorkerAsync();
             pic_loading.Invoke(new Action(() => {
                 pic_loading.Visible = false;
