@@ -265,7 +265,7 @@ namespace Human_Resource_Information_System
         {
             int r = -1;
             String dtr_filename = "", dtr_sum_id = "";
-            String sys_dir = System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName;
+            String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr\\";
             try
             {
                 if (dgvl_dtrfiles.Rows.Count > 1)
@@ -279,7 +279,7 @@ namespace Human_Resource_Information_System
                         DialogResult result = MessageBox.Show("Are you sure you want to delete this file?", "Confirmation", MessageBoxButtons.YesNo);
                         if (result == DialogResult.Yes)
                         {
-                            File.Delete(sys_dir + "/ViewController/RPT/TimeKeeping/dtr_pdf/" + dtr_filename);
+                            File.Delete(sys_dir + dtr_filename);
                             String query = "DELETE FROM rssys.hr_dtr_files WHERE dtr_id = '" + dtr_sum_id + "'";
                             db.QueryBySQLCode(query);
                             MessageBox.Show("File successfully deleted");
