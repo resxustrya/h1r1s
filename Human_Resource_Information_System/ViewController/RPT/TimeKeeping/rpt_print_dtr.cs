@@ -79,8 +79,8 @@ namespace Human_Resource_Information_System
             }
             btn_submit.Enabled = false;
             pic_loading.Visible = true;
-            //bgworker.RunWorkerAsync();
-            generate_dtr();
+            bgworker.RunWorkerAsync();
+            
         }
 
         private String compute_undertime(String empid, String timeout,String datein)
@@ -303,9 +303,7 @@ namespace Human_Resource_Information_System
 
         }
         private void bgworker_DoWork(object sender, DoWorkEventArgs e)
-        { }
-        private void generate_dtr()
-        {
+        { 
             String query = "", empid = "", date_from = "", date_to = "", pay_code = "", table = "hr_dtr_files", filename = "", code = "", col = "", val = "", date_in = "";
             DataTable pay_period = null;
             
@@ -335,8 +333,8 @@ namespace Human_Resource_Information_System
             }
             DateTime StartDate = DateTime.Parse(date_from);
             DateTime EndDate = DateTime.Parse(date_to);
-            //try
-            //{
+            try
+            {
 
                 filename = RandomString(5) + "_" + DateTime.Now.ToString("yyyy-MM-dd");
                 filename += ".pdf";
@@ -496,12 +494,12 @@ namespace Human_Resource_Information_System
                 {
                     MessageBox.Show("Failed on saving.");
                 }
-                /*
+                
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Trace error" +ex.Message);
-            }*/
+                MessageBox.Show("Program Error. \n Please contact the software provider.");
+            }
             //bgworker.RunWorkerAsync();
             pic_loading.Invoke(new Action(() => {
                 pic_loading.Visible = false;
