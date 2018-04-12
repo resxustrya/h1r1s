@@ -414,7 +414,7 @@ namespace Human_Resource_Information_System
 
                         query = "SELECT DISTINCT CONCAT(lastname,' ',firstname) AS name, t.source, e.empid, to_char(work_date, 'yyyy-MM-dd') AS work_date, (SELECT MIN(time_log) FROM rssys.hr_tito2 st WHERE work_date=t.work_date AND status='I' AND empid=t.empid) AS timein, (SELECT MAX(time_log) FROM rssys.hr_tito2 st WHERE work_date=t.work_date AND status='O' AND empid=t.empid) AS timeout FROM rssys.hr_tito2 t LEFT JOIN rssys.hr_employee e ON t.empid=e.empid WHERE e.empid = '" + empid + "' AND t.work_date BETWEEN '" + date_from + "' AND '" + date_to + "' ORDER BY work_date ";
 
-                        MessageBox.Show(query);
+                       
                         DataTable dt = db.QueryBySQLCode(query);
 
                         String date_name = "", am_in = "", am_out = "", pm_in = "", pm_out = "", log_date = "", late = "", ut = "", ot_total = "";
