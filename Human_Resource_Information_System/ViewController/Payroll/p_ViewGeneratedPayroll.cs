@@ -806,6 +806,11 @@ namespace Human_Resource_Information_System
            // calculate_net();
         }
 
+        private void cbo_payollperiod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void txt_sss_a_TextChanged(object sender, EventArgs e)
         {
             calculate_net();

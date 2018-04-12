@@ -59,11 +59,6 @@ namespace Human_Resource_Information_System
         private void btn_upload_Click(object sender, EventArgs e)
         {
 
-            //Excel.Application xlApp;
-            //Excel.Workbook xlWorkBook;
-            //Excel.Worksheet xlWorkSheet;
-            //Excel.Range range;
-
 
             int rCnt = 0;
             int rw = 0;
@@ -84,165 +79,101 @@ namespace Human_Resource_Information_System
             }
             else
             {
-                     //   try
-                     //   {
-                            //filename = textBox1.Text;
-                            //xlApp = new Excel.Application();
-                            //xlWorkBook = xlApp.Workbooks.Open(@filename, 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
-                            //xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+                      
+                String pattern = "\\s+";
+                String replacement = " ";
+                Regex rgx = new Regex(pattern);
+                String input = textBox1.Text;
+                StreamReader sr = new StreamReader(textBox1.Text);
+                DataTable bio_empid = null;
+                String bio_id = "";
+                while(line !=null)
+                {
+                    line= sr.ReadLine();
+                    if(line!=null)
+                    {
+                        try
+                        {
+                            String yow = line;
+                            string result = rgx.Replace(yow, replacement);
 
-                            //range = xlWorkSheet.UsedRange;
-                            //rw = range.Rows.Count;
-                            //cl = range.Columns.Count;
-                            //pbar.Maximum = rw;
-                            String pattern = "\\s+";
-                            String replacement = " ";
-                            Regex rgx = new Regex(pattern);
-                            String input = textBox1.Text;
-                            StreamReader sr = new StreamReader(textBox1.Text);
-                            DataTable bio_empid = null;
-                            String bio_id = "";
-                            while(line !=null)
+                            string[] split = result.Split(' ');
+
+                            bio_id = split[0]; //get employee id WHERE biometric='split[0]'
+
+                            bio_empid = db.QueryBySQLCode("SELECT empid FROM rssys.hr_employee WHERE biometric = '" + bio_id + "'");
+                            if (bio_empid.Rows.Count > 0)
+                            {
+                                empid = bio_empid.Rows[0]["empid"].ToString();
+                            }
+                            else { continue; }
+                            if (bio_empid.Rows.Count > 0)
                             {
 
-                                line= sr.ReadLine();
-                                if(line!=null)
+                                work_date = split[1].ToString();
+                                time_log = split[2];
+                                in_out = split[3];
+                                staticval = split[4];
+
+                                pbar.Show();
+
+
+                                if (in_out == staticval)
                                 {
-                                     String yow  = line;
-                                     string result = rgx.Replace(yow, replacement);
-
-                                     string[]split = result.Split(' ');
-                                      
-                                      bio_id = split[0]; //get employee id WHERE biometric='split[0]'
-                                        
-                                      bio_empid = db.QueryBySQLCode("SELECT empid FROM rssys.hr_employee WHERE biometric = '" + bio_id + "'");
-                                      if (bio_empid.Rows.Count > 0)
-                                      {
-                                          empid = bio_empid.Rows[0]["empid"].ToString();
-                                      }
-                                      else { continue; }
-                                                                  
-                                      work_date = split[1];
-                                      time_log = split[2];
-                                      in_out = split[3];
-                                      staticval = split[4];
-
-                                      pbar.Show();
-                                      //for (rCnt = 2; rCnt <= rw; rCnt++)
-                                      //{
-
-
-                                      //    if (rCnt != 1)
-                                      //    {
-                                              //empid = getString(range, rCnt, 1);
-                                              //work_date = getDateString(range, rCnt, 2);
-                                              //time_log = getTimeString(range, rCnt, 3);
-                                              //in_out = getString(range, rCnt, 4);
-                                              //staticval = getString(range, rCnt, 5);
-
-                                              //empid = "";
-                                              //work_date = "";
-                                              //time_log = "";
-                                              //in_out = "";
-                                              //staticval = "";
-
-                                              if (in_out == staticval)
-                                              {
-                                                  status = "O";
-                                              }
-                                              else
-                                              {
-                                                  status = "I";
-                                              }
-                                              source = "M";
-
-
-                                              col = "work_date,time_log,empid,status,source";
-                                              val = "'" + work_date + "','" + time_log + "','" + empid + "','" + status + "','" + source + "'";
-
-                                               
-                                              data = db.QueryBySQLCode("SELECT * FROM rssys.hr_tito2 WHERE empid = '" + empid + "' AND work_date='" + work_date + "' AND time_log='" + time_log + "'");
-                                              if (data.Rows.Count < 1)
-                                              {
-                                                  data = null;
-                                                  data = db.QueryBySQLCode("SELECT * FROM rssys.hr_tito2 WHERE empid = '" + empid + "' AND work_date='" + work_date + "' AND status='" + status + "'");
-
-                                                  if (data.Rows.Count > 0)
-                                                  {
-
-
-
-                                                  }
-                                                  else
-                                                  {
-
-                                                      db.InsertOnTable(table, col, val);
-                                                      data = null;
-
-                                                  }
-
-                                              }
-
-                                          //}
-
-
-                                              if (rCnt != 100 || rCnt < 100)
-                                              {
-                                                  pbar.Value = rCnt++;
-                                              }
-                                              
-                                      //}
-
+                                    status = "O";
                                 }
                                 else
                                 {
-                                    //MessageBox.Show("File is Empty");
+                                    status = "I";
+                                }
+                                source = "M";
 
+                                col = "work_date,time_log,empid,status,source";
+                                val = "'" + work_date + "','" + time_log + "','" + empid + "','" + status + "','" + source + "'";
+
+
+                                data = db.QueryBySQLCode("SELECT * FROM rssys.hr_tito2 WHERE empid = '" + empid + "' AND work_date='" + work_date + "' AND time_log='" + time_log + "'");
+                                if (data.Rows.Count < 1)
+                                {
+                                    data = null;
+                                    data = db.QueryBySQLCode("SELECT * FROM rssys.hr_tito2 WHERE empid = '" + empid + "' AND work_date='" + work_date + "' AND status='" + status + "'");
+
+                                    if (data.Rows.Count <= 0)
+                                    {
+                                        db.InsertOnTable(table, col, val);
+                                        data = null;
+                                    }
+                                }
+
+                                if (rCnt != 100 || rCnt < 100)
+                                {
+                                    pbar.Value = rCnt++;
                                 }
                             }
-
-                          
-
-                            sr.Close();
-                            DialogResult results = MessageBox.Show("File Uploaded", "Confirmation", MessageBoxButtons.OK);
-                            if (results == DialogResult.OK)
-                            {
-                                pbar.Value = 0;
-                                pbar.Hide();
-                                textBox1.Text = "";
-                            }
-
-                            if (rw > 0)
-                            {
-                                
-
-                            }
-                            
-                            /*
                         }
-                        catch (Exception ex)
+                        catch (Exception er)
                         {
                             
-                            DialogResult result = MessageBox.Show(ex.Message, "Confirmation", MessageBoxButtons.OK);
-                            if (result == DialogResult.OK)
-                            {
-                                pbar.Value = 0;
-                                pbar.Hide();
-                                textBox1.Text = "";
-                            }
                         }
-                        */
+                    }
+                }
 
-
-                
+                sr.Close();
+                DialogResult results = MessageBox.Show("File Uploaded", "Confirmation", MessageBoxButtons.OK);
+                if (results == DialogResult.OK)
+                {
+                    pbar.Value = 0;
+                    pbar.Hide();
+                    textBox1.Text = "";
+                }
             }
 
-           // dips_list();
+            dips_list();
                 
-            }
+        }
 
 
-         public String getTimeString(Excel.Range range, int row, int col)
+        public String getTimeString(Excel.Range range, int row, int col)
         {
             DateTime dt = DateTime.Now;
             String dtstr = "";

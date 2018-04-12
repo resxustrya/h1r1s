@@ -71,6 +71,7 @@ namespace Human_Resource_Information_System
         }
         private void btn_submit_Click(object sender, EventArgs e)
         {
+            
             if (cbo_payollperiod.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select a payroll period.");
