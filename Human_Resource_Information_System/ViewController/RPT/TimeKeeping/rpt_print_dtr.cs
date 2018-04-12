@@ -330,8 +330,8 @@ namespace Human_Resource_Information_System
 
             if (pay_period.Rows.Count > 0)
             {
-                date_from = DateTime.Parse(pay_period.Rows[0]["date_from"].ToString()).ToString("yyyy-MM-dd");
-                date_to = DateTime.Parse(pay_period.Rows[0]["date_to"].ToString()).ToString("yyyy-MM-dd");
+                date_from = gm.toDateString(pay_period.Rows[0]["date_from"].ToString(), "yyyy-MM-dd");
+                date_to = gm.toDateString(pay_period.Rows[0]["date_to"].ToString(),"yyyy-MM-dd");
             }
             DateTime StartDate = DateTime.Parse(date_from);
             DateTime EndDate = DateTime.Parse(date_to);
