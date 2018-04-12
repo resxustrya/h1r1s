@@ -47,7 +47,7 @@ namespace Human_Resource_Information_System
             }
             catch (Exception er)
             {
-                MessageBox.Show("Connection Exception : " + er.Message);
+                MessageBox.Show("Please check your internet connection. " + er.Message);
             }
         }
 

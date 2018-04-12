@@ -194,8 +194,8 @@ namespace Human_Resource_Information_System
             
             if (sched.Rows.Count > 0) {
 
-                String time_from = sched.Rows[0]["shift_sched_from"].ToString();
-                String time_to = sched.Rows[0]["shift_sched_to"].ToString();
+                String time_from = gm.toDateString(sched.Rows[0]["shift_sched_from"].ToString(), "yyyy-MM-dd");
+                String time_to = gm.toDateString(sched.Rows[0]["shift_sched_to"].ToString(), "yyyy-MM-dd");
                 
 
                 int count = 0;
@@ -369,8 +369,8 @@ namespace Human_Resource_Information_System
                     pay_period = get_date(pay_code);
                     if (pay_period.Rows.Count > 0)
                     {
-                        date_from = pay_period.Rows[0]["date_from"].ToString();
-                        date_to = pay_period.Rows[0]["date_to"].ToString();
+                        date_from = gm.toDateString(pay_period.Rows[0]["date_from"].ToString(), "yyyy-MM-dd");
+                        date_to = gm.toDateString(pay_period.Rows[0]["date_to"].ToString(), "yyyy-MM-dd");
                     }
                 }
             }));
