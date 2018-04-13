@@ -15,7 +15,9 @@ namespace Human_Resource_Information_System
         public static String lcl_db = thisDatabase.lcl_db;
         public static String svr_pass = thisDatabase.svr_pass;
         String schema = thisDatabase.schema_static;//*/
-       // public static String server = "localhost";
+
+        //public static String server = "localhost";
+
         NpgsqlConnection conn = new NpgsqlConnection("Server=" + server + ";Port=5432;User Id=postgres;Password=" + svr_pass + ";Database=" + lcl_db + ";");
 
         GlobalMethod gm = new GlobalMethod();
