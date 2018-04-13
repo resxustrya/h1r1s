@@ -168,7 +168,7 @@ namespace Human_Resource_Information_System
                 time_from = sched.Rows[0]["shift_sched_from"].ToString();
                 time_to = sched.Rows[0]["shift_sched_to"].ToString();
 
-               
+                
                 DateTime datetime_out = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + timeout);
                 DateTime datetime_to = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + time_to);
                 int res = DateTime.Compare(datetime_to, datetime_out);
@@ -464,7 +464,8 @@ namespace Human_Resource_Information_System
 
                             if (pm_out != "")
                             {
-                                ot_total = compute_overtime(empid, pm_out, day.ToShortDateString());
+
+                                ot_total = compute_overtime(empid, pm_out, day.ToString("yyyy-MM-dd"));
                             }
 
                             t.AddCell(new PdfPCell(new Phrase(ot_total)) { HorizontalAlignment = Element.ALIGN_CENTER });
@@ -499,7 +500,7 @@ namespace Human_Resource_Information_System
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Program Error. \n Please contact the software provider.");
+                MessageBox.Show("Program Error. \n Please contact the software provider. \n " + ex.Message + "at Line : " +ex.StackTrace );
             }
             //bgworker.RunWorkerAsync();
             pic_loading.Invoke(new Action(() => {

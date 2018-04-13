@@ -110,7 +110,8 @@ namespace Human_Resource_Information_System
                             if (bio_empid.Rows.Count > 0)
                             {
 
-                                work_date = split[1].ToString();
+                                work_date = DateTime.Parse(split[1]).ToString("yyyy-MM-dd");
+                                
                                 time_log = split[2];
                                 in_out = split[3];
                                 staticval = split[4];
@@ -153,7 +154,8 @@ namespace Human_Resource_Information_System
                         }
                         catch (Exception er)
                         {
-                            
+
+                           // MessageBox.Show(er.StackTrace + " : " + work_date);
                         }
                     }
                 }
