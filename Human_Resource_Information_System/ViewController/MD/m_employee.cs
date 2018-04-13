@@ -105,7 +105,7 @@ namespace Human_Resource_Information_System
 
         private void btn_save_Click(object sender, EventArgs e)
         {
-            
+
             Boolean success = false, ok = false;
             String notificationText = "";
             z_Notification notify = new z_Notification();
@@ -114,7 +114,7 @@ namespace Human_Resource_Information_System
             String col = "", val = "", add_col = "", add_val = "";
             String notifyadd = null;
             String table = "hr_employee";
-            String code = "", lastname = "", firstname = "", mi = "", section = "", position = "", picture = "", department = "", date_hired = "1900-01-01", contractual_date = "1900-01-01", prohibition_date = "1900-01-01", date_regular = "1900-01-01", date_resigned = "1900-01-01", date_terminated = "1900-01-01", empstatus = "", contract_days = "0", prc = "", ctc = "", rate_type = "", pay_rate = "", biometric = "", sss = "", pagibig = "", philhealth = "", payroll_account = "", tin = "", tax_bracket = "", shift_sched_from = "", dayoff1 = "", dayoff2 = "", sex = "", birth = "", civil_status = "", religion = "", height = "0.00", weight = "0.00", father = "", father_address = "", father_contact = "", father_job = "", mother = "", mother_address = "", mother_contact = "", mother_job = "", emp_contact = "", home_tel = "", email = "", home_address = "", emergency_name = "", emergency_contact = "", em_home_address = "", relationship = "", shift_sched_sat_from = "", shift_sched_to = "", shift_sched_sat_to = "", fixed_rate = "",primary="",secondary="",tertiary="",graduate="",post_graduate="" ;
+            String code = "", lastname = "", firstname = "", mi = "", section = "", position = "", picture = "", department = "", date_hired = "1900-01-01", contractual_date = "1900-01-01", prohibition_date = "1900-01-01", date_regular = "1900-01-01", date_resigned = "1900-01-01", date_terminated = "1900-01-01", empstatus = "", contract_days = "0", prc = "", ctc = "", rate_type = "", pay_rate = "", biometric = "", sss = "", pagibig = "", philhealth = "", payroll_account = "", tin = "", tax_bracket = "", shift_sched_from = "", dayoff1 = "", dayoff2 = "", sex = "", birth = "", civil_status = "", religion = "", height = "0.00", weight = "0.00", father = "", father_address = "", father_contact = "", father_job = "", mother = "", mother_address = "", mother_contact = "", mother_job = "", emp_contact = "", home_tel = "", email = "", home_address = "", emergency_name = "", emergency_contact = "", em_home_address = "", relationship = "", shift_sched_sat_from = "", shift_sched_to = "", shift_sched_sat_to = "", fixed_rate = "", primary = "", secondary = "", tertiary = "", graduate = "", post_graduate = "";
 
             if (String.IsNullOrEmpty(txt_lastname.Text))
             {
@@ -149,7 +149,7 @@ namespace Human_Resource_Information_System
                     return;
                 }
             }
-           
+
 
             if (cbo_position.SelectedIndex == -1)
             {
@@ -157,38 +157,38 @@ namespace Human_Resource_Information_System
                 cbo_position.DroppedDown = true;
                 return;
             }
-           
-            if(cbo_status.SelectedIndex == -1)
+
+            if (cbo_status.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select employee status.");
                 cbo_status.DroppedDown = true;
                 return;
             }
-            if(dtp_hired.Value.ToShortDateString() == null)
+            if (dtp_hired.Value.ToShortDateString() == null)
             {
                 MessageBox.Show("Please enter the required fields.");
                 return;
             }
-            if(cbo_rate_type.SelectedIndex == -1)
+            if (cbo_rate_type.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select a rate type.");
                 cbo_rate_type.DroppedDown = true;
                 return;
             }
-            if(cbo_tax_bracket.SelectedIndex == -1)
+            if (cbo_tax_bracket.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select a tax bracket.");
                 cbo_tax_bracket.DroppedDown = true;
                 return;
             }
-            if(cbo_gender.SelectedIndex == -1)
+            if (cbo_gender.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select a gender.");
                 cbo_gender.DroppedDown = true;
                 return;
             }
-            
-            
+
+
             lastname = txt_lastname.Text;
             firstname = txt_firstname.Text;
             mi = txt_mi.Text;
@@ -196,7 +196,7 @@ namespace Human_Resource_Information_System
             {
                 department = cbo_department.SelectedValue.ToString();
             }
-           
+
             if (cbo_section.SelectedIndex != -1)
             {
                 section = cbo_section.SelectedValue.ToString();
@@ -210,9 +210,9 @@ namespace Human_Resource_Information_System
 
             if (cbo_status.SelectedIndex != -1)
             {
-                empstatus = cbo_status.SelectedValue.ToString() ;
+                empstatus = cbo_status.SelectedValue.ToString();
             }
-           
+
             if (txt_contract_days.Text != "")
             {
                 contract_days = txt_contract_days.Text;
@@ -225,11 +225,12 @@ namespace Human_Resource_Information_System
                 rate_type = cbo_rate_type.SelectedValue.ToString();
             }
 
-            try {
+            try
+            {
                 pay_rate = Convert.ToDouble(txt_pay_rate.Text).ToString();
             }
-            catch (Exception ex) { MessageBox.Show("Pay rate must be numeric.");  return; }
-            
+            catch (Exception ex) { MessageBox.Show("Pay rate must be numeric."); return; }
+
             biometric = txt_biometric.Text;
             sss = txt_sss_num.Text;
             pagibig = txt_pagibig.Text;
@@ -240,7 +241,7 @@ namespace Human_Resource_Information_System
             {
                 tax_bracket = cbo_tax_bracket.SelectedValue.ToString();
             }
-           
+
             shift_sched_from = date_shift_sched_from.Value.ToString("HH:mm");
             shift_sched_to = date_shift_sched_to.Value.ToString("HH:mm");
             shift_sched_sat_from = date_sift_sched_sat_from.Value.ToString("HH:mm");
@@ -249,31 +250,31 @@ namespace Human_Resource_Information_System
             {
                 sex = cbo_gender.SelectedItem.ToString();
             }
-           
+
             birth = date_birth.Value.ToShortDateString();
             if (cbo_civil_stat.SelectedIndex != -1)
             {
                 civil_status = cbo_civil_stat.SelectedValue.ToString();
             }
-           
+
             religion = txt_religion.Text;
 
             try
             {
                 height = Convert.ToDouble(txt_height.Text).ToString();
             }
-            catch (Exception ex) { MessageBox.Show("Height must be numeric"); return;}
+            catch (Exception ex) { MessageBox.Show("Height must be numeric"); return; }
 
 
             try { weight = Convert.ToDouble(txt_weight.Text).ToString(); }
             catch (Exception ex) { MessageBox.Show("Weight must be numeric"); return; }
-            
+
 
             if (chk_fixed_rate.Checked == true)
             {
                 fixed_rate = "1";
             }
-            
+
             father = txt_father.Text;
             father_address = txt_father_address.Text;
             father_contact = txt_father_contact.Text;
@@ -314,29 +315,29 @@ namespace Human_Resource_Information_System
                 MessageBox.Show("Second dayoff is required");
                 return;
             }
-            
+
 
             if (chk_resigned.Checked == true)
             {
                 date_resigned = dtp_resigned.Value.ToString("yyyy-MM-dd");
             }
-            if(chk_terminated.Checked == true)
+            if (chk_terminated.Checked == true)
             {
                 date_terminated = dtp_terminated.Value.ToString("yyyy-MM-dd");
             }
-            if(chk_contractual.Checked == true)
+            if (chk_contractual.Checked == true)
             {
                 contractual_date = dtp_contractual.Value.ToString("yyyy-MM-dd");
             }
-            if(chk_probition.Checked == true)
+            if (chk_probition.Checked == true)
             {
                 prohibition_date = dtp_probitioned.Value.ToString("yyyy-MM-dd");
             }
-            if(chk_regular.Checked == true)
+            if (chk_regular.Checked == true)
             {
                 date_regular = dtp_regularized.Value.ToString("yyyy-MM-dd");
             }
-            
+
             if (isnew)
             {
                 code = code = db.get_pk("empid"); //changes from 'hr_empid'
@@ -379,7 +380,7 @@ namespace Human_Resource_Information_System
                 frm_clear();
             }
         }
-     
+
         private void disp_list()
         {
             try { dgv_list.Rows.Clear(); }
@@ -422,8 +423,8 @@ namespace Human_Resource_Information_System
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-           
-            if(chk_resigned.Checked == false)
+
+            if (chk_resigned.Checked == false)
             {
                 dtp_resigned.Enabled = false;
             }
@@ -435,7 +436,7 @@ namespace Human_Resource_Information_System
 
         private void chk_terminated_CheckedChanged(object sender, EventArgs e)
         {
-            if(chk_terminated.Checked == false)
+            if (chk_terminated.Checked == false)
             {
                 dtp_terminated.Enabled = false;
             }
@@ -447,7 +448,7 @@ namespace Human_Resource_Information_System
 
         private void chk_contractual_CheckedChanged(object sender, EventArgs e)
         {
-            if(chk_contractual.Checked == false)
+            if (chk_contractual.Checked == false)
             {
                 dtp_contractual.Enabled = false;
             }
@@ -459,7 +460,7 @@ namespace Human_Resource_Information_System
 
         private void chk_probition_CheckedChanged(object sender, EventArgs e)
         {
-            if(chk_probition.Checked == false)
+            if (chk_probition.Checked == false)
             {
                 dtp_probitioned.Enabled = false;
             }
@@ -471,7 +472,7 @@ namespace Human_Resource_Information_System
 
         private void chk_regular_CheckedChanged(object sender, EventArgs e)
         {
-            if(chk_regular.Checked == false)
+            if (chk_regular.Checked == false)
             {
                 dtp_regularized.Enabled = false;
             }
@@ -493,10 +494,10 @@ namespace Human_Resource_Information_System
         private void btn_upditem_Click(object sender, EventArgs e)
         {
             isnew = false;
-           
-            
+
+
             int r = -1;
-            String code = "", name = "" ;
+            String code = "", name = "";
             try
             {
                 if (dgv_list.Rows.Count > 1)
@@ -506,7 +507,7 @@ namespace Human_Resource_Information_System
                     try
                     {
                         code = dgv_list["ID", r].Value.ToString();
-  
+
                         display_employee(code);
                     }
                     catch { }
@@ -518,7 +519,7 @@ namespace Human_Resource_Information_System
                     MessageBox.Show("Employee list is empty.");
                 }
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -526,7 +527,7 @@ namespace Human_Resource_Information_System
         private void display_employee(String code)
         {
             DataTable dt = db.QueryBySQLCode("SELECT distinct emp.*,civil.*,day.*,dept.*,section.*,emp_status.*,pos.*,wtax.*,rate_type.* FROM rssys.hr_employee emp LEFT JOIN rssys.hr_civil_status civil ON civil.code = emp.civil_status LEFT JOIN rssys.hr_days day ON day.day = emp.dayoff1 LEFT JOIN rssys.hr_department dept ON dept.deptid = emp.department LEFT JOIN rssys.hr_depsection section ON section.secid = emp.section LEFT JOIN rssys.hr_emp_status emp_status ON emp_status.statcode = emp.empstatus LEFT JOIN rssys.hr_position pos ON pos.postid = emp.positions LEFT JOIN rssys.hr_rate_type rate_type ON rate_type.ratecode = emp.rate_type LEFT JOIN rssys.hr_wtax wtax ON wtax.code = emp.tax_bracket WHERE emp.empid ='" + code + "' LIMIT 1");
-            if(dt.Rows.Count > 0)
+            if (dt.Rows.Count > 0)
             {
                 txt_code.Text = dt.Rows[0]["empid"].ToString();
                 txt_firstname.Text = dt.Rows[0]["firstname"].ToString();
@@ -536,7 +537,7 @@ namespace Human_Resource_Information_System
                 gc.load_section(cbo_section, cbo_department.SelectedValue.ToString());
                 cbo_section.SelectedValue = dt.Rows[0]["section"].ToString();
                 cbo_position.SelectedValue = dt.Rows[0]["positions"].ToString();
-                dtp_hired.Value =  gm.toDateValue(dt.Rows[0]["date_hired"].ToString());
+                dtp_hired.Value = gm.toDateValue(dt.Rows[0]["date_hired"].ToString());
 
                 if (!String.IsNullOrEmpty(dt.Rows[0]["date_resigned"].ToString()))
                 {
@@ -570,7 +571,7 @@ namespace Human_Resource_Information_System
                 txt_ctc_num.Text = dt.Rows[0]["ctc"].ToString();
                 cbo_rate_type.SelectedValue = dt.Rows[0]["rate_type"].ToString();
                 try { txt_pay_rate.Text = Convert.ToDouble(dt.Rows[0]["pay_rate"]).ToString("N", new CultureInfo("en-US")); }
-                catch { txt_pay_rate.Text = "0.00";  }
+                catch { txt_pay_rate.Text = "0.00"; }
                 txt_biometric.Text = dt.Rows[0]["biometric"].ToString();
                 txt_sss_num.Text = dt.Rows[0]["sss"].ToString();
                 txt_pagibig.Text = dt.Rows[0]["pagibig"].ToString();
@@ -598,7 +599,7 @@ namespace Human_Resource_Information_System
 
                 date_shift_sched_to.Value = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + dt.Rows[0]["shift_sched_to"].ToString());
 
-              
+
 
                 date_sift_sched_sat_from.Value = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + dt.Rows[0]["shift_sched_sat_from"].ToString());
                 date_sift_sched_sat_to.Value = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + dt.Rows[0]["shift_sched_sat_to"].ToString());
@@ -685,7 +686,7 @@ namespace Human_Resource_Information_System
 
 
             cbo_dayoff1.SelectedIndex = -1;
-            cbo_dayoff2.SelectedIndex  = -1;
+            cbo_dayoff2.SelectedIndex = -1;
             cbo_gender.SelectedIndex = -1;
             date_birth.ResetText();
             cbo_civil_stat.SelectedIndex = -1;
@@ -721,5 +722,5 @@ namespace Human_Resource_Information_System
             MessageBox.Show("Unable to use this proccess.");
         }
     }
-   
+
 }

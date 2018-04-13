@@ -75,7 +75,7 @@ namespace Human_Resource_Information_System
             
             if (String.IsNullOrEmpty(textBox1.Text))
             {
-                MessageBox.Show("Please select a text or excel file to import.");
+                MessageBox.Show("Please select a file to be uploaded.");
             }
             else
             {
@@ -87,13 +87,15 @@ namespace Human_Resource_Information_System
                 StreamReader sr = new StreamReader(textBox1.Text);
                 DataTable bio_empid = null;
                 String bio_id = "";
+                string temp = "";
+                int row_line = 0;
                 while(line !=null)
                 {
                     line= sr.ReadLine();
                     if(line!=null)
                     {
-                        try
-                        {
+                       try
+                       {
                             String yow = line;
                             string result = rgx.Replace(yow, replacement);
 
@@ -101,7 +103,7 @@ namespace Human_Resource_Information_System
 
                             bio_id = split[0]; //get employee id WHERE biometric='split[0]'
 
-                            bio_empid = db.QueryBySQLCode("SELECT empid FROM rssys.hr_employee WHERE biometric = '" + bio_id + "'");
+                            bio_empid = db.QueryBySQLCode("SELECT empid FROM rssys.hr_employee WHERE biometric = '" + bio_id + "' LIMIT 1");
                             if (bio_empid.Rows.Count > 0)
                             {
                                 empid = bio_empid.Rows[0]["empid"].ToString();
@@ -110,9 +112,9 @@ namespace Human_Resource_Information_System
                             if (bio_empid.Rows.Count > 0)
                             {
 
-                                work_date = DateTime.Parse(split[1]).ToString("yyyy-MM-dd");
+                                work_date = split[1];
                                 
-                                time_log = split[2];
+                                time_log = temp = split[2];
                                 in_out = split[3];
                                 staticval = split[4];
 
@@ -151,13 +153,14 @@ namespace Human_Resource_Information_System
                                     pbar.Value = rCnt++;
                                 }
                             }
+                            
                         }
                         catch (Exception er)
                         {
-
-                           // MessageBox.Show(er.StackTrace + " : " + work_date);
+                            //MessageBox.Show(er.StackTrace + " : " + bio_id + " Temp :" + temp + "empid : " +empid  + "Row : " + row_line);
                         }
                     }
+                    row_line++;
                 }
 
                 sr.Close();
