@@ -44,15 +44,14 @@ namespace Human_Resource_Information_System
         private void btn_browse_Click_1(object sender, EventArgs e)
         {
             
-                OpenFileDialog fDialog = new OpenFileDialog();
-                fDialog.Title = "Select file to be upload";
-                fDialog.Filter = "(*.txt)|*.txt";
-                if (fDialog.ShowDialog() == DialogResult.OK)
-                {
-                    textBox1.Text = fDialog.FileName.ToString();
+            OpenFileDialog fDialog = new OpenFileDialog();
+            fDialog.Title = "Select file to be upload";
+            fDialog.Filter = "(*.txt)|*.txt";
+            if (fDialog.ShowDialog() == DialogResult.OK)
+            {
+                textBox1.Text = fDialog.FileName.ToString();
                    
-                }
-
+            }
 
         }
 
@@ -157,7 +156,7 @@ namespace Human_Resource_Information_System
                         }
                         catch (Exception er)
                         {
-                            //MessageBox.Show(er.StackTrace + " : " + bio_id + " Temp :" + temp + "empid : " +empid  + "Row : " + row_line);
+                            MessageBox.Show(er.StackTrace + " : " + bio_id + " Temp :" + temp + "empid : " +empid  + "Row : " + row_line);
                         }
                     }
                     row_line++;
