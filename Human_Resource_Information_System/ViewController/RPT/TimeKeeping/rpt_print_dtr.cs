@@ -317,7 +317,6 @@ namespace Human_Resource_Information_System
                     query += " WHERE empid='" + empid + "'";
                 }
             }));
-            
 
             query += " ORDER BY empid ASC";
             
