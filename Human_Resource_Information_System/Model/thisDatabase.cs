@@ -15,13 +15,13 @@ namespace Human_Resource_Information_System
         public static String driveloc = "\\\\RIGHTAPPS\\RightApps\\";
         public static String comp_folder = "Eastland";
         public static String lcl_db = "pms_eastland";
-        public static String svr_pass = "Rightech777";
+        //public static String svr_pass = "Rightech777";
         
         
         //public static String driveloc = "\\\\lourence-PC\\RightApps\\"; //"R:\\"
         //public static String comp_folder = "RA_System";//"Headway"; "";
         //public static String lcl_db = "pms_eastlaDay off 2nd";//"inv_headway"; "";
-        //public static String svr_pass = "hahahehe";//"Rightech777";     "hahahehe";
+        public static String svr_pass = "hahahehe";//"Rightech777";     "hahahehe";
         public static String schema_static = "rssys";//"rssys"; "ideasoft";
 
         //public static String servers = System.IO.File.ReadAllText(driveloc + comp_folder + "\\HRPublish\\localDatabase.txt");
@@ -129,7 +129,8 @@ namespace Human_Resource_Information_System
                 this.OpenConn();
 
                 string SQL = "INSERT INTO " + this.schema + "." + table + "(" + column + ") VALUES (" + value + ")";
-               // MessageBox.Show(SQL);
+               
+                //MessageBox.Show(SQL);
                 NpgsqlCommand command = new NpgsqlCommand(SQL, conn);
 
                 Int32 rowsaffected = command.ExecuteNonQuery();

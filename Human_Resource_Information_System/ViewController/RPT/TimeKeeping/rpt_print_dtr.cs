@@ -495,7 +495,6 @@ namespace Human_Resource_Information_System
                 {
                     MessageBox.Show("Failed on saving.");
                 }
-                
             }
             catch(Exception ex)
             {
