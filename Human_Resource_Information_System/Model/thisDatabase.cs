@@ -27,8 +27,8 @@ namespace Human_Resource_Information_System
         public static String servers = System.IO.File.ReadAllText(driveloc + comp_folder + "\\HRPublish\\localDatabase.txt");
         //public static String servers = "localhost";
         public String schema = schema_static;
-         GlobalMethod gm;
-         NpgsqlConnection conn;
+        GlobalMethod gm;
+        NpgsqlConnection conn;
 
         public thisDatabase ()
         {

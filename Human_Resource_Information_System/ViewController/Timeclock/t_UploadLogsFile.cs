@@ -124,21 +124,19 @@ namespace Human_Resource_Information_System
                                 }
                                 source = "M";
 
-                                logs_id = db.get_pk("logs_id");
-                                col = "logs_id,work_date,time_log,empid,status,source";
-                                val = "'" + logs_id +"','" + work_date.ToString("yyyy-MM-dd") + "','" + time_log + "','" + empid + "','" + status + "','" + source + "'";
-
-                                db.InsertOnTable(table, col, val);
-                                db.set_pkm99("logs_id", db.get_nextincrementlimitchar(logs_id, 8));
-                                data = null;
-
-                                /*
-                                data = db.QueryBySQLCode("SELECT * FROM rssys.hr_tito2 WHERE empid = '" + empid + "' AND work_date='" + work_date + "' AND time_log='" + time_log + "' AND status = '" + status +"'");
+                                
+                                data = db.QueryBySQLCode("SELECT * FROM rssys.hr_tito2 WHERE empid = '" + empid + "' AND work_date='" + work_date.ToString("yyyy-MM-dd") + "' AND time_log='" + time_log + "' AND status = '" + status +"'");
                                 if (data != null && data.Rows.Count <= 0)
                                 {
-                                    
+                                    logs_id = db.get_pk("logs_id");
+                                    col = "logs_id,work_date,time_log,empid,status,source";
+                                    val = "'" + logs_id + "','" + work_date.ToString("yyyy-MM-dd") + "','" + time_log + "','" + empid + "','" + status + "','" + source + "'";
+
+                                    db.InsertOnTable(table, col, val);
+                                    db.set_pkm99("logs_id", db.get_nextincrementlimitchar(logs_id, 8));
+                                    data = null;
                                 }
-                                */
+                                
                                 if (rCnt != 100 || rCnt < 100)
                                 {
                                     pbar.Value = rCnt++;
