@@ -844,8 +844,6 @@ namespace Human_Resource_Information_System
                     try
                     {
                         code = dgv_list["pay_code", r].Value.ToString();
-                        display_emp_payroll(code, empid, ppid);
-                        goto_win2();
                     }
                     catch (Exception ex)
                     {

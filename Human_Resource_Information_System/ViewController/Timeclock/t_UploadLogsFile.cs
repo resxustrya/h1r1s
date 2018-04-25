@@ -67,8 +67,8 @@ namespace Human_Resource_Information_System
             DataTable data;
             String line = "";
             String table = "hr_tito2";
-            String empid = "", work_date = "", time_log = "", status = "", source = "",dt = "",c_tlog="",in_out="",staticval="";
-
+            String empid = "", logs_id="",time_log = "", status = "", source = "",dt = "",c_tlog="",in_out="",staticval="";
+            DateTime work_date;
             //DateTime excel_time;
 
             
@@ -90,6 +90,7 @@ namespace Human_Resource_Information_System
                 int row_line = 0;
                 while(line !=null)
                 {
+                    data = null;
                     line= sr.ReadLine();
                     if(line!=null)
                     {
@@ -97,29 +98,22 @@ namespace Human_Resource_Information_System
                        {
                             String yow = line;
                             string result = rgx.Replace(yow, replacement);
-
                             string[] split = result.Split(' ');
 
                             bio_id = split[0]; //get employee id WHERE biometric='split[0]'
 
                             bio_empid = db.QueryBySQLCode("SELECT empid FROM rssys.hr_employee WHERE biometric = '" + bio_id + "' LIMIT 1");
-                            if (bio_empid.Rows.Count > 0)
+                            if (bio_empid != null && bio_empid.Rows.Count > 0)
                             {
                                 empid = bio_empid.Rows[0]["empid"].ToString();
-                            }
-                            else { continue; }
-                            if (bio_empid.Rows.Count > 0)
-                            {
+                                work_date = Convert.ToDateTime(split[1]);
 
-                                work_date = split[1];
-                                
                                 time_log = temp = split[2];
                                 in_out = split[3];
                                 staticval = split[4];
 
+                               // MessageBox.Show("Empid : " + empid + " Workdate : " + work_date + " Line : " + row_line + "Time Log : " + time_log);
                                 pbar.Show();
-
-
                                 if (in_out == staticval)
                                 {
                                     status = "O";
@@ -130,38 +124,36 @@ namespace Human_Resource_Information_System
                                 }
                                 source = "M";
 
-                                col = "work_date,time_log,empid,status,source";
-                                val = "'" + work_date + "','" + time_log + "','" + empid + "','" + status + "','" + source + "'";
+                                logs_id = db.get_pk("logs_id");
+                                col = "logs_id,work_date,time_log,empid,status,source";
+                                val = "'" + logs_id +"','" + work_date.ToString("yyyy-MM-dd") + "','" + time_log + "','" + empid + "','" + status + "','" + source + "'";
 
+                                db.InsertOnTable(table, col, val);
+                                db.set_pkm99("logs_id", db.get_nextincrementlimitchar(logs_id, 8));
+                                data = null;
 
-                                data = db.QueryBySQLCode("SELECT * FROM rssys.hr_tito2 WHERE empid = '" + empid + "' AND work_date='" + work_date + "' AND time_log='" + time_log + "'");
-                                if (data.Rows.Count < 1)
+                                /*
+                                data = db.QueryBySQLCode("SELECT * FROM rssys.hr_tito2 WHERE empid = '" + empid + "' AND work_date='" + work_date + "' AND time_log='" + time_log + "' AND status = '" + status +"'");
+                                if (data != null && data.Rows.Count <= 0)
                                 {
-                                    data = null;
-                                    data = db.QueryBySQLCode("SELECT * FROM rssys.hr_tito2 WHERE empid = '" + empid + "' AND work_date='" + work_date + "' AND status='" + status + "'");
-
-                                    if (data.Rows.Count <= 0)
-                                    {
-                                        db.InsertOnTable(table, col, val);
-                                        data = null;
-                                    }
+                                    
                                 }
-
+                                */
                                 if (rCnt != 100 || rCnt < 100)
                                 {
                                     pbar.Value = rCnt++;
                                 }
                             }
+                            else { continue; }
                             
                         }
                         catch (Exception er)
                         {
-                            MessageBox.Show(er.StackTrace + " : " + bio_id + " Temp :" + temp + "empid : " +empid  + "Row : " + row_line);
+                            MessageBox.Show(er.StackTrace + "\n : Bio ID :" + bio_id + " Temp :" + temp + "Empid : " +empid  + "Row : " + row_line);
                         }
                     }
                     row_line++;
                 }
-
                 sr.Close();
                 DialogResult results = MessageBox.Show("File Uploaded", "Confirmation", MessageBoxButtons.OK);
                 if (results == DialogResult.OK)
