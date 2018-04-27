@@ -150,9 +150,9 @@ namespace Human_Resource_Information_System
 
         private void display_emp_payroll(String pay_code, String empid,String ppid)
         {
-          
+
             DataTable payroll = null;
-               
+            int days_worked = 0;
             try
             {
                 payroll = db.QueryBySQLCode("SELECT ep.*,emp.fixed_rate,emp.empid,emp.dayoff1,emp.dayoff2,emp.shift_sched_from,emp.shift_sched_to,emp.pay_rate,rt.*,CONCAT(emp.firstname, ' ',emp.lastname) as name, CONCAT(to_char(p.date_from, 'mm/dd/yyyy'),' To ',to_char(p.date_to, 'mm/dd/yyyy')) as period FROM rssys.hr_emp_payroll ep LEFT JOIN rssys.hr_employee emp ON emp.empid = ep.empid LEFT JOIN rssys.hr_payrollpariod p ON p.pay_code = ep.ppid LEFT JOIN rssys.hr_rate_type rt ON rt.ratecode = emp.rate_type WHERE emp.empid = '" + empid + "' and ep.emp_pay_code = '" + pay_code + "' ORDER BY p.date_from,p.date_to ASC  ");
@@ -238,6 +238,7 @@ namespace Human_Resource_Information_System
                     {
                         if (payroll.Rows[0]["fixed_rate"].ToString() == "1")
                         {
+                            
                             txt_regpay.Text = pay_rate.ToString("0.00");
                             absent_amt = (Convert.ToDouble(txt_absent.Text) * daily_rate);
                             txt_absent_amount.Text = absent_amt.ToString("N", new CultureInfo("en-US"));
@@ -245,14 +246,31 @@ namespace Human_Resource_Information_System
                             late_amt = Convert.ToDouble(txt_late_ut_amt.Text);
                             basic_pay = (pay_rate - (late_amt + absent_amt));
                             txt_reg_ot_b.Text = reg_ot_b_total.ToString("0.00");
-                            txt_basic_pay.Text = basic_pay.ToString("0.00");
+                            if(basic_pay > 0)
+                            {
+                                txt_basic_pay.Text = basic_pay.ToString("0.00");
+                            }
+                            else
+                            {
+                                txt_basic_pay.Text = "0.00";
+                            }
+                            
+                            
 
                         }
                         else
                         {
                             try
                             {
-                                txt_regpay.Text = (Convert.ToDouble(txt_dayswoked.Text) * daily_rate).ToString("0.00");
+                                days_worked = Convert.ToInt32(txt_dayswoked.Text);
+                                if(days_worked > 0)
+                                {
+                                    txt_regpay.Text = (Convert.ToDouble(txt_dayswoked.Text) * daily_rate).ToString("0.00");
+                                }else
+                                {
+                                    txt_regpay.Text = "0.00";
+                                }
+                                
                             }
                             catch (Exception ex)
                             {
