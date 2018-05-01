@@ -620,19 +620,25 @@ namespace Human_Resource_Information_System
             lbl_total_gross.Text = gm.toAccountingFormat(gross); 
             
         }
+
         void total_deduction() {
-            Double deductions = gm.toNormalDoubleFormat(txt_sss_a.Text) + gm.toNormalDoubleFormat(txt_philhealth_a.Text) + gm.toNormalDoubleFormat(txt_pagibig_a.Text) + gm.toNormalDoubleFormat(txt_wtax.Text) + gm.toNormalDoubleFormat(txt_other_deductions.Text) + gm.toNormalDoubleFormat(txt_advance_loans.Text) + gm.toNormalDoubleFormat(txt_others.Text)  ;
-            lbl_total_tax.Text = deductions.ToString("0.00");
            
+            Double deductions = gm.toNormalDoubleFormat(txt_sss_a.Text) + gm.toNormalDoubleFormat(txt_philhealth_a.Text) + gm.toNormalDoubleFormat(txt_pagibig_a.Text) + gm.toNormalDoubleFormat(txt_wtax.Text) + gm.toNormalDoubleFormat(txt_other_deductions.Text) + gm.toNormalDoubleFormat(txt_advance_loans.Text) + gm.toNormalDoubleFormat(txt_others.Text);
+            lbl_total_tax.Text = deductions.ToString("0.00");
+            
         }
+
         private void btn_compute_gross_Click(object sender, EventArgs e)
         {
             calculate_gross();
         }
+        
         void calculate_net()
         {
             total_deduction();
+            
             Double net = 0.00;
+            
             if (lbl_total_gross.Text != "0.00" || lbl_total_gross.Text != "" || lbl_total_gross.Text != "0")
             {
                 lbl_total_net.Text = gm.toAccountingFormat(gm.toNormalDoubleFormat(lbl_total_gross.Text) - gm.toNormalDoubleFormat(lbl_total_tax.Text));
@@ -641,7 +647,7 @@ namespace Human_Resource_Information_System
             {
                 MessageBox.Show("Make sure that Gross Amount is not Zero.");
             }
-        
+            
         }
         private void btn_compute_net_pay_Click(object sender, EventArgs e)
         {
@@ -831,22 +837,35 @@ namespace Human_Resource_Information_System
 
         private void txt_sss_a_TextChanged(object sender, EventArgs e)
         {
-            calculate_net();
+            if(lbl_total_gross.Text != "0.00")
+            {
+                calculate_net();
+            }
+            
         }
 
         private void txt_philhealth_a_TextChanged(object sender, EventArgs e)
         {
-            calculate_net();
+            if (lbl_total_gross.Text != "0.00")
+            {
+                calculate_net();
+            }
         }
 
         private void txt_pagibig_a_TextChanged(object sender, EventArgs e)
         {
-            calculate_net();
+            if (lbl_total_gross.Text != "0.00")
+            {
+                calculate_net();
+            }
         }
 
         private void txt_wtax_TextChanged(object sender, EventArgs e)
         {
-            calculate_net();
+            if (lbl_total_gross.Text != "0.00")
+            {
+                calculate_net();
+            }
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)
