@@ -21,6 +21,8 @@ namespace Human_Resource_Information_System
         private Double daily_rate = 0.00, pay_rate = 0.00, hour_rate = 0.00, minute_rate = 0.00, gross_pay = 0.00, basic_pay = 0.00, monthly_rate = 0.00, late_amt = 0.00, absent_amt = 0.00, lat_ut = 0.00, reg_ot_a = 0.00, reg_ot_b_total = 0.00;
 
         int count_dayoff = 0, dayoff = 0, days = 0;
+
+        String rate_type = "";
         public p_ViewGeneratedPayroll()
         {
             InitializeComponent();
@@ -73,7 +75,6 @@ namespace Human_Resource_Information_System
 
         private void btn_upd_Click(object sender, EventArgs e)
         {
-
             int r = -1;
             String code = "", name = "",empid = "",ppid="";
             try
@@ -95,8 +96,6 @@ namespace Human_Resource_Information_System
                     {
                         MessageBox.Show("Select employee payroll.");
                     }
-
-                    
                 }
                 else
                 {
@@ -152,6 +151,7 @@ namespace Human_Resource_Information_System
         {
 
             DataTable payroll = null;
+           
             int days_worked = 0;
             try
             {
@@ -161,8 +161,8 @@ namespace Human_Resource_Information_System
 
                     try
                     {
-
-                    
+                        rate_type = payroll.Rows[0]["ratecode"].ToString();
+                        lbl_ratetype.Text = rate_type;
                         disp_legal_hol_pay(empid, ppid);
                         txt_empname.Text = payroll.Rows[0]["name"].ToString();
                         txt_pay_period.Text = (payroll.Rows[0]["period"]??"0").ToString();
@@ -173,7 +173,9 @@ namespace Human_Resource_Information_System
                         txt_rate_type.Text = (payroll.Rows[0]["description"]??"0.00").ToString();
                         txt_dayswoked.Text = Convert.ToDouble((payroll.Rows[0]["days_worked"]??"0.00").ToString()).ToString("0.00");
                         txt_absent.Text = Convert.ToDouble((payroll.Rows[0]["abcences"]??"0").ToString()).ToString("0.00");
-                        
+
+                        txt_sss_a.Text = (payroll.Rows[0]["sss_cont_a"] ?? "0.00").ToString(); txt_sss_a.Text = (payroll.Rows[0]["sss_cont_a"]??"0.00").ToString();
+
                         if (payroll.Rows[0]["late"].ToString() == "" && payroll.Rows[0]["undertime"].ToString() == "")
                         {
                             txt_late_ut.Text = "0.00";
@@ -233,7 +235,7 @@ namespace Human_Resource_Information_System
                     txt_late_ut_amt.Text = lat_ut.ToString("0.00");
                     txt_reg_ot_a.Text = (payroll.Rows[0]["regular_ot_a"] ?? "0.00").ToString();
                     // reg_ot_a = Convert.ToDouble(txt_reg_ot_a.Text);
-
+                   
                     if (payroll.Rows[0]["ratecode"].ToString() == "M")
                     {
                         if (payroll.Rows[0]["fixed_rate"].ToString() == "1")
@@ -254,9 +256,6 @@ namespace Human_Resource_Information_System
                             {
                                 txt_basic_pay.Text = "0.00";
                             }
-                            
-                            
-
                         }
                         else
                         {
@@ -341,12 +340,12 @@ namespace Human_Resource_Information_System
                     txt_night_diff_a.Text = (payroll.Rows[0]["night_diff_a"]??"0.00").ToString();
                     txt_night_diff_b.Text = (payroll.Rows[0]["night_diff_b"] ?? "0.00").ToString();
                     txt_other_earning.Text = (payroll.Rows[0]["other_earnings"]??"0.00").ToString();
-                    txt_sss_a.Text = (payroll.Rows[0]["sss_cont_a"]??"0.00").ToString();
+                   
                     //txt_sss_b.Text = (payroll.Rows[0]["sss_cont_b"]??"0.00").ToString();
                     //txt_sss_con_c.Text = (payroll.Rows[0]["sss_cont_c"]??"0.00").ToString();
-                    //txt_philhealth_a.Text = (payroll.Rows[0]["philhealth_cont_a"]??"0.00").ToString();
+                    txt_philhealth_a.Text = (payroll.Rows[0]["philhealth_cont_a"]??"0.00").ToString();
                     //txt_philhealth_b.Text = (payroll.Rows[0]["philhealth_cont_b"]??"0.00").ToString();
-                    //txt_pagibig_a.Text = (payroll.Rows[0]["pag_ibig_a"]??"0.00").ToString();
+                    txt_pagibig_a.Text = (payroll.Rows[0]["pag_ibig_a"]??"0.00").ToString();
                     //txt_pagibig_b.Text = payroll.Rows[0]["pag_ibig_b"].ToString();
                     txt_wtax.Text = (payroll.Rows[0]["w_tax"]??"0.00").ToString();
                     txt_other_deductions.Text = (payroll.Rows[0]["other_deduction"]??"0.00").ToString();
@@ -501,14 +500,42 @@ namespace Human_Resource_Information_System
             night_diff_a = txt_night_diff_a.Text != "" ? txt_night_diff_a.Text : "0.00";
             night_diff_b = txt_night_diff_b.Text != "" ? txt_night_diff_b.Text : "0.00";
             other_earnings = txt_other_earning.Text != "" ? txt_other_earning.Text : "0.00";
-            sss_cont_a = txt_sss_a.Text != "" ? txt_sss_a.Text : "0.00";
+            if(lbl_total_gross.Text != "0.00")
+            {
+                sss_cont_a = txt_sss_a.Text != "" ? txt_sss_a.Text : "0.00";
+            }else
+            {
+                sss_cont_a = "0.00";
+            }
+            
             sss_cont_b = "0.00";
             sss_cont_c = "0.00";
-            philhealth_cont_a = txt_philhealth_a.Text != "" ? txt_philhealth_a.Text : "0.00";
+            if(lbl_total_gross.Text != "0.00")
+            {
+                philhealth_cont_a = txt_philhealth_a.Text != "" ? txt_philhealth_a.Text : "0.00";
+            }else
+            {
+                philhealth_cont_a = "0.00";
+            }
+            
             philhealth_cont_b = "0.00";
-            pag_ibig_a = txt_pagibig_a.Text != "" ? txt_pagibig_a.Text : "0.00";
+            if(lbl_total_gross.Text != "0.00")
+            {
+                pag_ibig_a = txt_pagibig_a.Text != "" ? txt_pagibig_a.Text : "0.00";
+            }else
+            {
+                pag_ibig_a = "0.00";
+            }
+            
             pag_ibig_b = "0.00";
-            w_tax = txt_wtax.Text != "" ? txt_wtax.Text : "0.00";
+            if(lbl_total_gross.Text != "0.00")
+            {
+                w_tax = txt_wtax.Text != "" ? txt_wtax.Text : "0.00";
+            }else
+            {
+                w_tax = "0.00";
+            }
+            
             other_deduction = txt_other_deductions.Text != "" ? txt_other_deductions.Text : "0.00";
             others = txt_others.Text != "" ? txt_others.Text : "0.00";
             advances_loans = txt_advance_loans.Text != "" ? txt_advance_loans.Text : "0.00";
@@ -592,21 +619,46 @@ namespace Human_Resource_Information_System
 
         private void txt_dayswoked_TextChanged(object sender, EventArgs e)
         {
-            Double total = 0.00;
-            try
+
+            //days_worked_changed();
+        }
+
+        public void days_worked_changed()
+        {
+            if (lbl_ratetype.Text == "M")
             {
-                total = (daily_rate * Convert.ToDouble(txt_dayswoked.Text)) - Convert.ToDouble(txt_absent_amount.Text);
-                // txt_basic_pay.Text = total.ToString("0.00");
-                if(total <= 0)
+                txt_regpay.Text = pay_rate.ToString("0.00");
+
+                absent_amt = (Convert.ToDouble(txt_absent.Text) * daily_rate);
+                
+                txt_absent_amount.Text = absent_amt.ToString("N", new CultureInfo("en-US"));
+                //pay_rate = pay_rate / 2; //pay_rate = half of the month rate
+                late_amt = Convert.ToDouble(txt_late_ut_amt.Text);
+                basic_pay = (pay_rate - (late_amt + absent_amt));
+                txt_reg_ot_b.Text = reg_ot_b_total.ToString("0.00");
+                if (basic_pay > 0)
                 {
-                    total = 0.00;
+                    txt_basic_pay.Text = basic_pay.ToString("0.00");
                 }
+                else
+                {
+                    txt_basic_pay.Text = "0.00";
+                }
+
             }
-            catch(Exception ex)
+            else if (lbl_ratetype.Text == "D")
             {
-                total = 0.00;
+
+                txt_regpay.Text = pay_rate.ToString("0.00");
+                absent_amt = (Convert.ToDouble(txt_absent.Text) * daily_rate);
+                txt_absent_amount.Text = absent_amt.ToString("N", new CultureInfo("en-US"));
+                //pay_rate = pay_rate / 2; //pay_rate = half of the month rate
+                late_amt = Convert.ToDouble(txt_late_ut_amt.Text);
+                basic_pay = (Convert.ToDouble(txt_dayswoked.Text) * daily_rate) - late_amt;
+                txt_reg_ot_b.Text = reg_ot_b_total.ToString("0.00");
+                txt_basic_pay.Text = basic_pay.ToString("0.00");
+
             }
-            txt_basic_pay.Text = total.ToString("0.00");
         }
 
         private void txt_basic_pay_TextChanged(object sender, EventArgs e)
@@ -620,19 +672,25 @@ namespace Human_Resource_Information_System
             lbl_total_gross.Text = gm.toAccountingFormat(gross); 
             
         }
+
         void total_deduction() {
-            Double deductions = gm.toNormalDoubleFormat(txt_sss_a.Text) + gm.toNormalDoubleFormat(txt_philhealth_a.Text) + gm.toNormalDoubleFormat(txt_pagibig_a.Text) + gm.toNormalDoubleFormat(txt_wtax.Text) + gm.toNormalDoubleFormat(txt_other_deductions.Text) + gm.toNormalDoubleFormat(txt_advance_loans.Text) + gm.toNormalDoubleFormat(txt_others.Text)  ;
-            lbl_total_tax.Text = deductions.ToString("0.00");
            
+            Double deductions = gm.toNormalDoubleFormat(txt_sss_a.Text) + gm.toNormalDoubleFormat(txt_philhealth_a.Text) + gm.toNormalDoubleFormat(txt_pagibig_a.Text) + gm.toNormalDoubleFormat(txt_wtax.Text) + gm.toNormalDoubleFormat(txt_other_deductions.Text) + gm.toNormalDoubleFormat(txt_advance_loans.Text) + gm.toNormalDoubleFormat(txt_others.Text);
+            lbl_total_tax.Text = deductions.ToString("0.00");
+            
         }
+
         private void btn_compute_gross_Click(object sender, EventArgs e)
         {
             calculate_gross();
         }
+        
         void calculate_net()
         {
             total_deduction();
+            
             Double net = 0.00;
+            
             if (lbl_total_gross.Text != "0.00" || lbl_total_gross.Text != "" || lbl_total_gross.Text != "0")
             {
                 lbl_total_net.Text = gm.toAccountingFormat(gm.toNormalDoubleFormat(lbl_total_gross.Text) - gm.toNormalDoubleFormat(lbl_total_tax.Text));
@@ -641,7 +699,7 @@ namespace Human_Resource_Information_System
             {
                 MessageBox.Show("Make sure that Gross Amount is not Zero.");
             }
-        
+            
         }
         private void btn_compute_net_pay_Click(object sender, EventArgs e)
         {
@@ -831,22 +889,35 @@ namespace Human_Resource_Information_System
 
         private void txt_sss_a_TextChanged(object sender, EventArgs e)
         {
-            calculate_net();
+            if(lbl_total_gross.Text != "0.00")
+            {
+                calculate_net();
+            }
+            
         }
 
         private void txt_philhealth_a_TextChanged(object sender, EventArgs e)
         {
-            calculate_net();
+            if (lbl_total_gross.Text != "0.00")
+            {
+                calculate_net();
+            }
         }
 
         private void txt_pagibig_a_TextChanged(object sender, EventArgs e)
         {
-            calculate_net();
+            if (lbl_total_gross.Text != "0.00")
+            {
+                calculate_net();
+            }
         }
 
         private void txt_wtax_TextChanged(object sender, EventArgs e)
         {
-            calculate_net();
+            if (lbl_total_gross.Text != "0.00")
+            {
+                calculate_net();
+            }
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)
@@ -888,22 +959,7 @@ namespace Human_Resource_Information_System
 
         private void txt_absent_TextChanged(object sender, EventArgs e)
         {
-
-            try
-            {
-                absent_amt = Convert.ToDouble(txt_absent.Text) * this.daily_rate;
-
-                basic_pay = (pay_rate - (late_amt + absent_amt));
-                txt_basic_pay.Text = basic_pay.ToString("0.00");
-                txt_absent_amount.Text = absent_amt.ToString("0.00");
-            }
-            catch 
-            {
-                
-            }
-            
-            calculate_gross();
-            calculate_net();
+           
             
         }
 

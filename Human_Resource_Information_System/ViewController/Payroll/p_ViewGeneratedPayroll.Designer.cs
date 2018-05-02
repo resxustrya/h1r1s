@@ -142,6 +142,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_ratetype = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_min_rate = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -1425,6 +1426,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.lbl_ratetype);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.txt_min_rate);
             this.panel2.Controls.Add(this.label5);
@@ -1446,6 +1448,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(982, 53);
             this.panel2.TabIndex = 104;
+            // 
+            // lbl_ratetype
+            // 
+            this.lbl_ratetype.AutoSize = true;
+            this.lbl_ratetype.Location = new System.Drawing.Point(269, 34);
+            this.lbl_ratetype.Name = "lbl_ratetype";
+            this.lbl_ratetype.Size = new System.Drawing.Size(46, 18);
+            this.lbl_ratetype.TabIndex = 104;
+            this.lbl_ratetype.Text = "label3";
+            this.lbl_ratetype.Visible = false;
             // 
             // label1
             // 
@@ -1794,5 +1806,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbo_payollperiod;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lbl_ratetype;
     }
 }
