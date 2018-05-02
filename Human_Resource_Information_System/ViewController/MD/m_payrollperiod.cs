@@ -286,7 +286,7 @@ namespace Human_Resource_Information_System
             catch (Exception) { }
             int i = 0;
             String type = "";
-            DataTable dt = db.QueryBySQLCode("SELECT * FROM rssys.hr_payrollpariod WHERE COALESCE(cancel,cancel,'')<>'Y'");
+            DataTable dt = db.QueryBySQLCode("SELECT * FROM rssys.hr_payrollpariod WHERE COALESCE(cancel,cancel,'')<>'Y' ORDER BY pay_code ASC");
 
             for (int r = 0; r < dt.Rows.Count; r++)
             {
