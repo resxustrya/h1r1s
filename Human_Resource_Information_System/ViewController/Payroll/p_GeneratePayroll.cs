@@ -89,7 +89,7 @@ namespace Human_Resource_Information_System
                         {
                             total_overtime = 0.00;
                         }
-
+                        
                         emp_pay_code = db.get_pk("emp_pay_code");
                         col = "emp_pay_code,empid,days_worked,abcences,late,undertime,overtime,regular_ot_a,ppid,legal_hol_ot_a,special_hol_ot_a,dayoff_ot_a";
                         val = "'" + emp_pay_code + "','" + empid + "','" + days_worked + "','" + absences + "','" + total_late.ToString("0.00") + "','" + total_under_time.ToString("0.00") + "','" + total_overtime.ToString("0.00") + "','" + total_overtime.ToString("0.00") + "','" + ppid + "','" +legal_hol_ot.ToString("0.00") + "','" + special_hol_ot.ToString("0.00") +"','" + dayoff_ot_total.ToString("0.00") + "'";

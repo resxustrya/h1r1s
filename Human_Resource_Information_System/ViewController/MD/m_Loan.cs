@@ -52,6 +52,12 @@ namespace Human_Resource_Information_System
 
         private void goto_win2()
         {
+            if(isnew == true)
+            {
+                txt_code.Text = "";
+                txt_description.Text = "";
+            }
+            
             seltbp = true;
             tbcntrl_option.SelectedTab = tpg_opt_2;
             tpg_opt_2.Show();

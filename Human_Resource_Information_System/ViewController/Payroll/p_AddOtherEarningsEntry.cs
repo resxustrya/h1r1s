@@ -53,7 +53,7 @@ namespace Human_Resource_Information_System
         }
         private void p_AddOtherEarningsEntry_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -98,7 +98,6 @@ namespace Human_Resource_Information_System
                 earning_code = _frm_earn.cbo_earnings_code.SelectedValue.ToString();
                 amount = txt_amount.Text;
                
-
 
                 if (isnew)
                 {
@@ -157,6 +156,26 @@ namespace Human_Resource_Information_System
             cbo_employee.SelectedIndex = -1;
             txt_amount.Text = "";
             
+        }
+
+        private void txt_amount_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbo_employee_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -157,7 +157,6 @@
     </Compile>
     <Compile Include="Reports\ds_payroll.cs">
       <DependentUpon>ds_payroll.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\Payroll\cumulative_payroll.cs">
       <DependentUpon>cumulative_payroll.rpt</DependentUpon>
@@ -404,6 +403,12 @@
     </Compile>
     <Compile Include="RPT_RES_entry.Designer.cs">
       <DependentUpon>RPT_RES_entry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewController\MD\m_overtimestart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewController\MD\m_overtimestart.Designer.cs">
+      <DependentUpon>m_overtimestart.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewController\Payroll\p_AddOtherDeductionsEntry.cs">
       <SubType>Form</SubType>
@@ -823,6 +828,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RPT_RES_entry2.resx">
       <DependentUpon>RPT_RES_entry2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewController\MD\m_overtimestart.resx">
+      <DependentUpon>m_overtimestart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewController\Payroll\p_AddOtherDeductionsEntry.resx">
       <DependentUpon>p_AddOtherDeductionsEntry.cs</DependentUpon>
