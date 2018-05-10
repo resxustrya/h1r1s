@@ -14,7 +14,9 @@ namespace Human_Resource_Information_System
         
         public static String driveloc = "\\\\RIGHTAPPS\\RightApps\\";
         public static String comp_folder = "Eastland";
+
         public static String lcl_db = "pms_eastland_payroll";
+
         public static String svr_pass = "Rightech777";
         
         
