@@ -80,9 +80,9 @@
             this.fmi_r000 = new System.Windows.Forms.ToolStripMenuItem();
             this.timekeepingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dTRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.employeeSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dailyTimelogRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.absencesLateAndTardinessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.employeeSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.payrollToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.witholdingTaxSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sSSContributionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -129,6 +129,7 @@
             this.lbl_trnxdate = new System.Windows.Forms.Label();
             this.bgWorker = new System.ComponentModel.BackgroundWorker();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.overtimeStartTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.pnl_header.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -213,7 +214,8 @@
             this.leaveTypesToolStripMenuItem,
             this.toolStripMenuItem7,
             this.businessUnitsToolStripMenuItem,
-            this.contributionToolStripMenuItem});
+            this.contributionToolStripMenuItem,
+            this.overtimeStartTimeToolStripMenuItem});
             this.fmi_m000.Name = "fmi_m000";
             this.fmi_m000.Size = new System.Drawing.Size(93, 24);
             this.fmi_m000.Text = "Master File";
@@ -555,6 +557,13 @@
             this.dTRToolStripMenuItem.Text = "Print Employee DTR";
             this.dTRToolStripMenuItem.Click += new System.EventHandler(this.dTRToolStripMenuItem_Click);
             // 
+            // employeeSummaryToolStripMenuItem
+            // 
+            this.employeeSummaryToolStripMenuItem.Name = "employeeSummaryToolStripMenuItem";
+            this.employeeSummaryToolStripMenuItem.Size = new System.Drawing.Size(287, 26);
+            this.employeeSummaryToolStripMenuItem.Text = "Print Employee Dtr Summary";
+            this.employeeSummaryToolStripMenuItem.Click += new System.EventHandler(this.employeeSummaryToolStripMenuItem_Click);
+            // 
             // dailyTimelogRecordToolStripMenuItem
             // 
             this.dailyTimelogRecordToolStripMenuItem.Name = "dailyTimelogRecordToolStripMenuItem";
@@ -568,13 +577,6 @@
             this.absencesLateAndTardinessToolStripMenuItem.Size = new System.Drawing.Size(287, 26);
             this.absencesLateAndTardinessToolStripMenuItem.Text = "Absences, Late, and Undertime";
             this.absencesLateAndTardinessToolStripMenuItem.Click += new System.EventHandler(this.absencesLateAndTardinessToolStripMenuItem_Click);
-            // 
-            // employeeSummaryToolStripMenuItem
-            // 
-            this.employeeSummaryToolStripMenuItem.Name = "employeeSummaryToolStripMenuItem";
-            this.employeeSummaryToolStripMenuItem.Size = new System.Drawing.Size(287, 26);
-            this.employeeSummaryToolStripMenuItem.Text = "Print Employee Dtr Summary";
-            this.employeeSummaryToolStripMenuItem.Click += new System.EventHandler(this.employeeSummaryToolStripMenuItem_Click);
             // 
             // payrollToolStripMenuItem
             // 
@@ -742,7 +744,7 @@
             this.pnl_header.Controls.Add(this.btn_1);
             this.pnl_header.Controls.Add(this.btn_7);
             this.pnl_header.Location = new System.Drawing.Point(0, 31);
-            this.pnl_header.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnl_header.Margin = new System.Windows.Forms.Padding(4);
             this.pnl_header.Name = "pnl_header";
             this.pnl_header.Size = new System.Drawing.Size(2000, 63);
             this.pnl_header.TabIndex = 25;
@@ -753,7 +755,7 @@
             this.btn_10.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_10.Image = global::Human_Resource_Information_System.Properties.Resources.payroll_icon_1_29;
             this.btn_10.Location = new System.Drawing.Point(1175, 0);
-            this.btn_10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_10.Margin = new System.Windows.Forms.Padding(4);
             this.btn_10.Name = "btn_10";
             this.btn_10.Size = new System.Drawing.Size(133, 63);
             this.btn_10.TabIndex = 28;
@@ -768,7 +770,7 @@
             this.btn_9.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_9.Image = global::Human_Resource_Information_System.Properties.Resources.payroll_32;
             this.btn_9.Location = new System.Drawing.Point(1042, 0);
-            this.btn_9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_9.Margin = new System.Windows.Forms.Padding(4);
             this.btn_9.Name = "btn_9";
             this.btn_9.Size = new System.Drawing.Size(133, 63);
             this.btn_9.TabIndex = 27;
@@ -783,7 +785,7 @@
             this.btn_8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_8.Image = global::Human_Resource_Information_System.Properties.Resources.other_deductions;
             this.btn_8.Location = new System.Drawing.Point(909, 0);
-            this.btn_8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_8.Margin = new System.Windows.Forms.Padding(4);
             this.btn_8.Name = "btn_8";
             this.btn_8.Size = new System.Drawing.Size(133, 63);
             this.btn_8.TabIndex = 26;
@@ -798,7 +800,7 @@
             this.btn_6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_6.Image = global::Human_Resource_Information_System.Properties.Resources.other__earnings_32;
             this.btn_6.Location = new System.Drawing.Point(768, 0);
-            this.btn_6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_6.Margin = new System.Windows.Forms.Padding(4);
             this.btn_6.Name = "btn_6";
             this.btn_6.Size = new System.Drawing.Size(141, 63);
             this.btn_6.TabIndex = 23;
@@ -813,7 +815,7 @@
             this.btn_5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_5.Image = global::Human_Resource_Information_System.Properties.Resources.loan_32;
             this.btn_5.Location = new System.Drawing.Point(635, 0);
-            this.btn_5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_5.Margin = new System.Windows.Forms.Padding(4);
             this.btn_5.Name = "btn_5";
             this.btn_5.Size = new System.Drawing.Size(133, 63);
             this.btn_5.TabIndex = 25;
@@ -828,7 +830,7 @@
             this.btn_4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_4.Image = global::Human_Resource_Information_System.Properties.Resources.unnamed___32;
             this.btn_4.Location = new System.Drawing.Point(502, 0);
-            this.btn_4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_4.Margin = new System.Windows.Forms.Padding(4);
             this.btn_4.Name = "btn_4";
             this.btn_4.Size = new System.Drawing.Size(133, 63);
             this.btn_4.TabIndex = 24;
@@ -843,7 +845,7 @@
             this.btn_3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_3.Image = global::Human_Resource_Information_System.Properties.Resources._27_office_employee_man_time_management_arrival_late_early_30;
             this.btn_3.Location = new System.Drawing.Point(369, 0);
-            this.btn_3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_3.Margin = new System.Windows.Forms.Padding(4);
             this.btn_3.Name = "btn_3";
             this.btn_3.Size = new System.Drawing.Size(133, 63);
             this.btn_3.TabIndex = 21;
@@ -858,7 +860,7 @@
             this.btn_2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_2.Image = global::Human_Resource_Information_System.Properties.Resources.paycheck_payroll_services_icon_32_copy;
             this.btn_2.Location = new System.Drawing.Point(236, 0);
-            this.btn_2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_2.Margin = new System.Windows.Forms.Padding(4);
             this.btn_2.Name = "btn_2";
             this.btn_2.Size = new System.Drawing.Size(133, 63);
             this.btn_2.TabIndex = 20;
@@ -874,7 +876,7 @@
             this.btn_1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_1.Image = global::Human_Resource_Information_System.Properties.Resources.upload_logs_30;
             this.btn_1.Location = new System.Drawing.Point(103, 0);
-            this.btn_1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_1.Margin = new System.Windows.Forms.Padding(4);
             this.btn_1.Name = "btn_1";
             this.btn_1.Size = new System.Drawing.Size(133, 63);
             this.btn_1.TabIndex = 19;
@@ -889,7 +891,7 @@
             this.btn_7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_7.Image = global::Human_Resource_Information_System.Properties.Resources.Apps_preferences_desktop_notification_icon___Copy;
             this.btn_7.Location = new System.Drawing.Point(0, 0);
-            this.btn_7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_7.Margin = new System.Windows.Forms.Padding(4);
             this.btn_7.Name = "btn_7";
             this.btn_7.Size = new System.Drawing.Size(103, 63);
             this.btn_7.TabIndex = 22;
@@ -938,7 +940,7 @@
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.ForeColor = System.Drawing.SystemColors.Info;
             this.panel2.Location = new System.Drawing.Point(0, 92);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(4001, 34);
             this.panel2.TabIndex = 24;
@@ -947,7 +949,7 @@
             // 
             this.lbl_modname.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_modname.Location = new System.Drawing.Point(41, 5);
-            this.lbl_modname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbl_modname.Margin = new System.Windows.Forms.Padding(4);
             this.lbl_modname.Name = "lbl_modname";
             this.lbl_modname.ReadOnly = true;
             this.lbl_modname.Size = new System.Drawing.Size(315, 24);
@@ -1048,11 +1050,18 @@
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Top;
             this.splitter1.Location = new System.Drawing.Point(0, 28);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(4);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(1747, 97);
             this.splitter1.TabIndex = 27;
             this.splitter1.TabStop = false;
+            // 
+            // overtimeStartTimeToolStripMenuItem
+            // 
+            this.overtimeStartTimeToolStripMenuItem.Name = "overtimeStartTimeToolStripMenuItem";
+            this.overtimeStartTimeToolStripMenuItem.Size = new System.Drawing.Size(246, 26);
+            this.overtimeStartTimeToolStripMenuItem.Text = "Overtime start time";
+            this.overtimeStartTimeToolStripMenuItem.Click += new System.EventHandler(this.overtimeStartTimeToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -1066,7 +1075,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Right Apps -  Timekeeping and Payroll System";
@@ -1186,5 +1195,6 @@
         private System.Windows.Forms.ToolStripMenuItem otherDeductionPerEmployeeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem payrollSummaryReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem employeeSummaryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem overtimeStartTimeToolStripMenuItem;
     }
 }

@@ -161,8 +161,8 @@ namespace Human_Resource_Information_System
             DataTable dt = null;
             dgv_list.Rows.Clear();
 
-            dt = db.QueryBySQLCode("SELECT loan_code, loan_desc, loan_location, loan_type, user_id, whs_location_code, loan_cost_center_code,loan_cost_center_name,loan_sub_cost_center,employee_no,employee_name,loan_amount,loan_deduction,TO_CHAR(loan_transdate,'YYYY-MM-DD') AS loan_transdate,TO_CHAR(deduction_date,'YYYY-MM-DD') AS deduction_date FROM rssys.hr_loanhdr WHERE loan_transdate BETWEEN '" + dtp_frm.Value.ToString("yyyy-MM-dd") + "' AND '" + dtp_to.Value.ToString("yyyy-MM-dd") + "'  ORDER BY loan_code");
-
+            dt = db.QueryBySQLCode("SELECT loan_code, loan_desc, loan_location, loan_type, user_id, whs_location_code, loan_cost_center_code,loan_cost_center_name,loan_sub_cost_center,employee_no,employee_name,loan_amount,loan_deduction,TO_CHAR(loan_transdate,'YYYY-MM-DD') AS loan_transdate,TO_CHAR(deduction_date,'YYYY-MM-DD') AS deduction_date FROM rssys.hr_loanhdr WHERE 1 =1 OR  loan_transdate BETWEEN '" + dtp_frm.Value.ToString("yyyy-MM-dd") + "' AND '" + dtp_to.Value.ToString("yyyy-MM-dd") + "'  ORDER BY loan_code");
+            //dt = db.QueryBySQLCode("SELECT loan_code, loan_desc, loan_location, loan_type, user_id, whs_location_code, loan_cost_center_code,loan_cost_center_name,loan_sub_cost_center,employee_no,employee_name,loan_amount,loan_deduction,TO_CHAR(loan_transdate,'YYYY-MM-DD') AS loan_transdate,TO_CHAR(deduction_date,'YYYY-MM-DD') AS deduction_date FROM rssys.hr_loanhdr ORDER BY loan_code");
             for (int r = 0; r < dt.Rows.Count; r++)
             {
                 int i = dgv_list.Rows.Add();
@@ -334,6 +334,9 @@ namespace Human_Resource_Information_System
 
         }
 
-       
+        private void dtp_trnxdt_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

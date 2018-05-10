@@ -222,7 +222,7 @@ namespace Human_Resource_Information_System
                         days = 365;
                     }
 
-                    daily_rate = (pay_rate * 12) / days; //pay_rate = monthly rate
+                    daily_rate = (pay_rate * 12) / 314; //pay_rate = monthly rate
                     hour_rate = (daily_rate / 8);
                     minute_rate = (hour_rate / 60);
 
@@ -240,7 +240,6 @@ namespace Human_Resource_Information_System
                     {
                         if (payroll.Rows[0]["fixed_rate"].ToString() == "1")
                         {
-                            
                             txt_regpay.Text = pay_rate.ToString("0.00");
                             absent_amt = (Convert.ToDouble(txt_absent.Text) * daily_rate);
                             txt_absent_amount.Text = absent_amt.ToString("N", new CultureInfo("en-US"));
@@ -740,7 +739,7 @@ namespace Human_Resource_Information_System
             
             try
             {
-                Double total_legal_ot = hour_rate * 2.00 * Convert.ToDouble(txt_legalhol_ot_a.Text);
+                Double total_legal_ot = hour_rate * 2.6 * Convert.ToDouble(txt_legalhol_ot_a.Text);
                 txt_legalhol_ot_b.Text = total_legal_ot.ToString("0.00");
             }
             catch
@@ -755,7 +754,7 @@ namespace Human_Resource_Information_System
         {
             try 
             {
-                Double total_specialhol_ot = (hour_rate * 1.3) * Convert.ToDouble(txt_specialhol_ot_a.Text);
+                Double total_specialhol_ot = (hour_rate * 1.69) * Convert.ToDouble(txt_specialhol_ot_a.Text);
                 txt_specialhol_ot_b.Text = total_specialhol_ot.ToString("0.00");
             }
             catch 
@@ -769,7 +768,7 @@ namespace Human_Resource_Information_System
         private void txt_legalhol_pay_a_TextChanged(object sender, EventArgs e)
         {
             Double var = 0.00;
-            var =  (hour_rate * 2.60) * gm.toNormalDoubleFormat(txt_legalhol_pay_a.Text);
+            var =  (hour_rate * 2.00) * gm.toNormalDoubleFormat(txt_legalhol_pay_a.Text);
             if (var <= 0 || var <= 0.00)
             {
 
@@ -780,11 +779,12 @@ namespace Human_Resource_Information_System
             calculate_net();
         }
 
+
         private void txt_specialhol_pay_a_TextChanged(object sender, EventArgs e)
         {
             Double var = 0.00;
            
-            var = (hour_rate * 1.69) * gm.toNormalDoubleFormat(txt_specialhol_pay_a.Text);
+            var = (hour_rate * 1.3) * gm.toNormalDoubleFormat(txt_specialhol_pay_a.Text);
 
             if (var <= 0 || var <= 0.00)
             {

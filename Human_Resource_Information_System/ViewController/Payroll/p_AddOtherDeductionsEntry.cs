@@ -45,7 +45,7 @@ namespace Human_Resource_Information_System
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     txt_code.Text = dt.Rows[i]["dedcode"].ToString();
-                    cbo_employee.SelectedValue = dt.Rows[i]["emp_no"].ToString();
+                    cbo_employee.Text = dt.Rows[i]["emp_name"].ToString();
                     txt_amount.Text = dt.Rows[i]["amount"].ToString();
 
                 }

@@ -150,7 +150,7 @@
             this.tpg_opt_1.Controls.Add(this.panel5);
             this.tpg_opt_1.Location = new System.Drawing.Point(4, 4);
             this.tpg_opt_1.Name = "tpg_opt_1";
-            this.tpg_opt_1.Size = new System.Drawing.Size(189, 491);
+            this.tpg_opt_1.Size = new System.Drawing.Size(189, 488);
             this.tpg_opt_1.TabIndex = 2;
             this.tpg_opt_1.UseVisualStyleBackColor = true;
             // 
@@ -162,7 +162,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(189, 491);
+            this.panel5.Size = new System.Drawing.Size(189, 488);
             this.panel5.TabIndex = 0;
             // 
             // groupBox4
@@ -244,7 +244,7 @@
             this.groupBox5.Controls.Add(this.textBox15);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox5.ForeColor = System.Drawing.SystemColors.Info;
-            this.groupBox5.Location = new System.Drawing.Point(0, 337);
+            this.groupBox5.Location = new System.Drawing.Point(0, 334);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(189, 154);
             this.groupBox5.TabIndex = 63;
@@ -259,7 +259,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(18, 21);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(158, 23);
+            this.comboBox1.Size = new System.Drawing.Size(158, 26);
             this.comboBox1.TabIndex = 61;
             // 
             // btn_search
@@ -279,7 +279,7 @@
             this.textBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox15.Location = new System.Drawing.Point(18, 51);
             this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(158, 26);
+            this.textBox15.Size = new System.Drawing.Size(158, 30);
             this.textBox15.TabIndex = 59;
             // 
             // tpg_opt_2
@@ -287,7 +287,7 @@
             this.tpg_opt_2.Controls.Add(this.panel9);
             this.tpg_opt_2.Location = new System.Drawing.Point(4, 4);
             this.tpg_opt_2.Name = "tpg_opt_2";
-            this.tpg_opt_2.Size = new System.Drawing.Size(189, 491);
+            this.tpg_opt_2.Size = new System.Drawing.Size(189, 488);
             this.tpg_opt_2.TabIndex = 3;
             this.tpg_opt_2.UseVisualStyleBackColor = true;
             // 
@@ -298,7 +298,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(189, 491);
+            this.panel9.Size = new System.Drawing.Size(189, 488);
             this.panel9.TabIndex = 1;
             // 
             // groupBox8
@@ -368,10 +368,10 @@
             // tpg_list
             // 
             this.tpg_list.Controls.Add(this.panel7);
-            this.tpg_list.Location = new System.Drawing.Point(4, 24);
+            this.tpg_list.Location = new System.Drawing.Point(4, 27);
             this.tpg_list.Name = "tpg_list";
             this.tpg_list.Padding = new System.Windows.Forms.Padding(3);
-            this.tpg_list.Size = new System.Drawing.Size(827, 491);
+            this.tpg_list.Size = new System.Drawing.Size(827, 488);
             this.tpg_list.TabIndex = 0;
             this.tpg_list.Text = "Employee Loan List";
             this.tpg_list.UseVisualStyleBackColor = true;
@@ -384,7 +384,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(821, 485);
+            this.panel7.Size = new System.Drawing.Size(821, 482);
             this.panel7.TabIndex = 0;
             // 
             // groupBox6
@@ -395,7 +395,7 @@
             this.groupBox6.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox6.Location = new System.Drawing.Point(0, 45);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(821, 440);
+            this.groupBox6.Size = new System.Drawing.Size(821, 437);
             this.groupBox6.TabIndex = 58;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Payroll Period List";
@@ -425,12 +425,12 @@
             this.dgvl_deduction_date,
             this.dgvl_trn_type});
             this.dgv_list.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_list.Location = new System.Drawing.Point(3, 18);
+            this.dgv_list.Location = new System.Drawing.Point(3, 22);
             this.dgv_list.Name = "dgv_list";
             this.dgv_list.ReadOnly = true;
             this.dgv_list.RowHeadersVisible = false;
             this.dgv_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_list.Size = new System.Drawing.Size(815, 419);
+            this.dgv_list.Size = new System.Drawing.Size(815, 412);
             this.dgv_list.TabIndex = 1;
             this.dgv_list.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_list_CellContentClick);
             // 
@@ -582,7 +582,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(233, 17);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(21, 15);
+            this.label3.Size = new System.Drawing.Size(26, 18);
             this.label3.TabIndex = 70;
             this.label3.Text = "To";
             // 
@@ -591,7 +591,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 17);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 15);
+            this.label2.Size = new System.Drawing.Size(129, 18);
             this.label2.TabIndex = 69;
             this.label2.Text = "Transaction Dates";
             // 
@@ -600,7 +600,7 @@
             this.dtp_to.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_to.Location = new System.Drawing.Point(264, 12);
             this.dtp_to.Name = "dtp_to";
-            this.dtp_to.Size = new System.Drawing.Size(103, 21);
+            this.dtp_to.Size = new System.Drawing.Size(103, 24);
             this.dtp_to.TabIndex = 68;
             this.dtp_to.ValueChanged += new System.EventHandler(this.dtp_to_ValueChanged);
             // 
@@ -609,17 +609,17 @@
             this.dtp_frm.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_frm.Location = new System.Drawing.Point(124, 12);
             this.dtp_frm.Name = "dtp_frm";
-            this.dtp_frm.Size = new System.Drawing.Size(103, 21);
+            this.dtp_frm.Size = new System.Drawing.Size(103, 24);
             this.dtp_frm.TabIndex = 67;
             this.dtp_frm.ValueChanged += new System.EventHandler(this.dtp_frm_ValueChanged);
             // 
             // tpg_info
             // 
             this.tpg_info.Controls.Add(this.panel8);
-            this.tpg_info.Location = new System.Drawing.Point(4, 24);
+            this.tpg_info.Location = new System.Drawing.Point(4, 27);
             this.tpg_info.Name = "tpg_info";
             this.tpg_info.Padding = new System.Windows.Forms.Padding(3);
-            this.tpg_info.Size = new System.Drawing.Size(827, 491);
+            this.tpg_info.Size = new System.Drawing.Size(827, 488);
             this.tpg_info.TabIndex = 1;
             this.tpg_info.Text = "Employee Loan Info";
             this.tpg_info.UseVisualStyleBackColor = true;
@@ -631,7 +631,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(3, 3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(821, 485);
+            this.panel8.Size = new System.Drawing.Size(821, 482);
             this.panel8.TabIndex = 1;
             // 
             // panel2
@@ -670,7 +670,7 @@
             this.dtp_deduction.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_deduction.Location = new System.Drawing.Point(138, 335);
             this.dtp_deduction.Name = "dtp_deduction";
-            this.dtp_deduction.Size = new System.Drawing.Size(82, 21);
+            this.dtp_deduction.Size = new System.Drawing.Size(82, 24);
             this.dtp_deduction.TabIndex = 77;
             // 
             // label7
@@ -679,7 +679,7 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(26, 338);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(113, 15);
+            this.label7.Size = new System.Drawing.Size(136, 18);
             this.label7.TabIndex = 76;
             this.label7.Text = "Start deduction on?";
             // 
@@ -688,7 +688,7 @@
             this.txt_deduction.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_deduction.Location = new System.Drawing.Point(138, 308);
             this.txt_deduction.Name = "txt_deduction";
-            this.txt_deduction.Size = new System.Drawing.Size(77, 21);
+            this.txt_deduction.Size = new System.Drawing.Size(77, 24);
             this.txt_deduction.TabIndex = 75;
             this.txt_deduction.Text = "0.00";
             this.txt_deduction.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -699,7 +699,7 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(26, 311);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(106, 15);
+            this.label6.Size = new System.Drawing.Size(127, 18);
             this.label6.TabIndex = 74;
             this.label6.Text = "Deduction per day";
             // 
@@ -708,7 +708,7 @@
             this.txt_amnt_loan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_amnt_loan.Location = new System.Drawing.Point(138, 281);
             this.txt_amnt_loan.Name = "txt_amnt_loan";
-            this.txt_amnt_loan.Size = new System.Drawing.Size(77, 21);
+            this.txt_amnt_loan.Size = new System.Drawing.Size(77, 24);
             this.txt_amnt_loan.TabIndex = 73;
             this.txt_amnt_loan.Text = "0.00";
             this.txt_amnt_loan.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -719,7 +719,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(26, 284);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 15);
+            this.label5.Size = new System.Drawing.Size(108, 18);
             this.label5.TabIndex = 72;
             this.label5.Text = "Amount of loan";
             // 
@@ -737,7 +737,7 @@
             "Contra Account 5"});
             this.cbo_employee.Location = new System.Drawing.Point(138, 61);
             this.cbo_employee.Name = "cbo_employee";
-            this.cbo_employee.Size = new System.Drawing.Size(279, 23);
+            this.cbo_employee.Size = new System.Drawing.Size(279, 26);
             this.cbo_employee.TabIndex = 71;
             // 
             // label4
@@ -746,7 +746,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(26, 67);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 15);
+            this.label4.Size = new System.Drawing.Size(74, 18);
             this.label4.TabIndex = 70;
             this.label4.Text = "Employee";
             // 
@@ -765,7 +765,7 @@
             "Sub Cost Center 5"});
             this.cbo_scc.Location = new System.Drawing.Point(137, 252);
             this.cbo_scc.Name = "cbo_scc";
-            this.cbo_scc.Size = new System.Drawing.Size(263, 23);
+            this.cbo_scc.Size = new System.Drawing.Size(263, 26);
             this.cbo_scc.TabIndex = 69;
             // 
             // label1
@@ -774,7 +774,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(26, 255);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 15);
+            this.label1.Size = new System.Drawing.Size(118, 18);
             this.label1.TabIndex = 68;
             this.label1.Text = "Sub Cost Center";
             // 
@@ -794,7 +794,7 @@
             "Stock Location 6 "});
             this.cbo_stocklocation.Location = new System.Drawing.Point(138, 156);
             this.cbo_stocklocation.Name = "cbo_stocklocation";
-            this.cbo_stocklocation.Size = new System.Drawing.Size(279, 23);
+            this.cbo_stocklocation.Size = new System.Drawing.Size(279, 26);
             this.cbo_stocklocation.TabIndex = 67;
             // 
             // cbo_costcenter
@@ -813,7 +813,7 @@
             "Cost Center 6"});
             this.cbo_costcenter.Location = new System.Drawing.Point(137, 223);
             this.cbo_costcenter.Name = "cbo_costcenter";
-            this.cbo_costcenter.Size = new System.Drawing.Size(263, 23);
+            this.cbo_costcenter.Size = new System.Drawing.Size(263, 26);
             this.cbo_costcenter.TabIndex = 66;
             // 
             // cbo_contraacct
@@ -825,7 +825,7 @@
             this.cbo_contraacct.FormattingEnabled = true;
             this.cbo_contraacct.Location = new System.Drawing.Point(138, 126);
             this.cbo_contraacct.Name = "cbo_contraacct";
-            this.cbo_contraacct.Size = new System.Drawing.Size(279, 23);
+            this.cbo_contraacct.Size = new System.Drawing.Size(279, 26);
             this.cbo_contraacct.TabIndex = 65;
             // 
             // label32
@@ -834,7 +834,7 @@
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.Location = new System.Drawing.Point(26, 132);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(64, 15);
+            this.label32.Size = new System.Drawing.Size(77, 18);
             this.label32.TabIndex = 64;
             this.label32.Text = "Loan Type";
             // 
@@ -843,7 +843,7 @@
             this.txt_desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_desc.Location = new System.Drawing.Point(138, 96);
             this.txt_desc.Name = "txt_desc";
-            this.txt_desc.Size = new System.Drawing.Size(279, 21);
+            this.txt_desc.Size = new System.Drawing.Size(279, 24);
             this.txt_desc.TabIndex = 63;
             // 
             // label29
@@ -852,7 +852,7 @@
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.Location = new System.Drawing.Point(26, 162);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(87, 15);
+            this.label29.Size = new System.Drawing.Size(108, 18);
             this.label29.TabIndex = 62;
             this.label29.Text = "Stock Location";
             // 
@@ -862,8 +862,9 @@
             this.dtp_trnxdt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_trnxdt.Location = new System.Drawing.Point(137, 196);
             this.dtp_trnxdt.Name = "dtp_trnxdt";
-            this.dtp_trnxdt.Size = new System.Drawing.Size(82, 21);
+            this.dtp_trnxdt.Size = new System.Drawing.Size(82, 24);
             this.dtp_trnxdt.TabIndex = 61;
+            this.dtp_trnxdt.ValueChanged += new System.EventHandler(this.dtp_trnxdt_ValueChanged);
             // 
             // label28
             // 
@@ -871,7 +872,7 @@
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.Location = new System.Drawing.Point(26, 227);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(70, 15);
+            this.label28.Size = new System.Drawing.Size(88, 18);
             this.label28.TabIndex = 60;
             this.label28.Text = "Cost Center";
             // 
@@ -881,7 +882,7 @@
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.Location = new System.Drawing.Point(26, 197);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(70, 15);
+            this.label26.Size = new System.Drawing.Size(85, 18);
             this.label26.TabIndex = 59;
             this.label26.Text = "Trans. Date";
             // 
@@ -891,7 +892,7 @@
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.Location = new System.Drawing.Point(26, 102);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(69, 15);
+            this.label25.Size = new System.Drawing.Size(83, 18);
             this.label25.TabIndex = 58;
             this.label25.Text = "Description";
             // 
@@ -901,7 +902,7 @@
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.Location = new System.Drawing.Point(26, 37);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(75, 15);
+            this.label23.Size = new System.Drawing.Size(91, 18);
             this.label23.TabIndex = 57;
             this.label23.Text = "Issuance No";
             // 
@@ -913,12 +914,12 @@
             this.txt_code.Location = new System.Drawing.Point(138, 33);
             this.txt_code.Name = "txt_code";
             this.txt_code.ReadOnly = true;
-            this.txt_code.Size = new System.Drawing.Size(279, 21);
+            this.txt_code.Size = new System.Drawing.Size(279, 24);
             this.txt_code.TabIndex = 56;
             // 
             // l_LoanEntry
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(1032, 519);

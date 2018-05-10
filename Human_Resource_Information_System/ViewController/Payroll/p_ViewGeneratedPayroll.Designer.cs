@@ -253,6 +253,7 @@
             this.btn_print.Text = "Print";
             this.btn_print.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_print.UseVisualStyleBackColor = false;
+            this.btn_print.Visible = false;
             // 
             // btn_cancel
             // 

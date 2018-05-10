@@ -126,7 +126,27 @@ namespace Human_Resource_Information_System
 
             return dgv_copy;
         }
+        //LOAD PAYROLL TYPE
 
+        public void load_payroll_classic(ComboBox cbo)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                thisDatabase db = new thisDatabase();
+
+                dt = db.QueryOnTableWithParams("hr_payroll_classic", "type_code, description", "", " ORDER BY type_code ASC");
+                //dt = db.QueryBySQLCode("SELECT description,type_code FROM rssys.hr_payroll_classic");
+                cbo.DataSource = dt;
+                cbo.DisplayMember = "description";
+                cbo.ValueMember = "type_code";
+                cbo.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         public void set_cbo_selectedvalue(ComboBox cbo, String selectedvalue)
         {
             //try

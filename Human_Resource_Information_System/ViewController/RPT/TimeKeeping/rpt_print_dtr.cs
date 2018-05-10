@@ -160,7 +160,7 @@ namespace Human_Resource_Information_System
             String query = "";
             String time_from = "", time_to = "";
             TimeSpan total_late = new TimeSpan(0, 0, 0, 0, 0);
-
+            DataTable ot_time = db.QueryBySQLCode("SELECT time_start FROM rssys.hr_ot_start");
             DataTable sched = db.QueryBySQLCode("SELECT shift_sched_from,shift_sched_to FROM rssys.hr_employee WHERE empid = '" + empid + "'");
             if (sched.Rows.Count > 0)
             {
@@ -171,16 +171,23 @@ namespace Human_Resource_Information_System
                 
                 DateTime datetime_out = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + timeout);
                 DateTime datetime_to = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + time_to);
-                int res = DateTime.Compare(datetime_to, datetime_out);
+                DateTime ot_start = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + ot_time.Rows[0]["time_start"].ToString());
 
-                if (res < 0)
+                int ot_ok = DateTime.Compare(ot_start, datetime_out);
+                if(ot_ok < 0)
                 {
-                    TimeSpan diff = datetime_out.Subtract(datetime_to);
-                    //   MessageBox.Show("Out Time : " + datetime_to + " Time Out : " + datetime_out + " Overtime : " + diff);
+                    int res = DateTime.Compare(datetime_to, datetime_out);
 
-                    total_late = total_late + diff;
-                    result = total_late.ToString();
+                    if (res < 0)
+                    {
+                        TimeSpan diff = datetime_out.Subtract(datetime_to);
+                        //   MessageBox.Show("Out Time : " + datetime_to + " Time Out : " + datetime_out + " Overtime : " + diff);
+
+                        total_late = total_late + diff;
+                        result = total_late.ToString();
+                    }
                 }
+                
             }
 
             return result;

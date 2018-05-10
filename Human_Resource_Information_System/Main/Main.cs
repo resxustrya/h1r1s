@@ -722,6 +722,10 @@ namespace Human_Resource_Information_System
             dtr.Show();
         }
 
-
+        private void overtimeStartTimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            m_overtimestart ot_start = new m_overtimestart();
+            ot_start.Show();
+        }
     }
 }

@@ -149,9 +149,9 @@ namespace Human_Resource_Information_System
             String timein = "", timeout = "";
             String time_from = "", time_to = "";
             TimeSpan total_late = new TimeSpan(0, 0, 0, 0, 0);
-
+            DataTable ot_time = db.QueryBySQLCode("SELECT time_start FROM rssys.hr_ot_start");
             DataTable sched = db.QueryBySQLCode("SELECT shift_sched_from,shift_sched_to FROM rssys.hr_employee WHERE empid = '" + empid + "'");
-            if(sched.Rows.Count > 0)
+            if (sched.Rows.Count > 0)
             {
 
                 time_from = sched.Rows[0]["shift_sched_from"].ToString();
@@ -159,24 +159,35 @@ namespace Human_Resource_Information_System
 
 
                 query = "SELECT DISTINCT e.empid,work_date,(SELECT MAX(time_log) FROM rssys.hr_tito2 st WHERE work_date=t.work_date AND status='O' AND empid=t.empid) AS timeout FROM rssys.hr_tito2 t LEFT JOIN rssys.hr_employee e ON t.empid=e.empid WHERE t.empid = '" + empid + "' AND t.work_date BETWEEN '" + gm.toDateString(date_from, "") + "' AND '" + gm.toDateString(date_to, "") + "' ORDER BY work_date";
+
+                DateTime ot_start = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + ot_time.Rows[0]["time_start"].ToString());
+
                 
+
                 DataTable logs = db.QueryBySQLCode(query);
                 if (logs != null && logs.Rows.Count > 0)
                 {
                     for (int r = 0; r < logs.Rows.Count; r++)
                     {
+                        
                         timeout = logs.Rows[r]["timeout"].ToString();
+                        
 
                         DateTime datetime_out = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + timeout);
                         DateTime datetime_to = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + time_to);
-                        int res = DateTime.Compare(datetime_to, datetime_out);
 
-                        if (res < 0)
+                        int ot_ok = DateTime.Compare(ot_start, datetime_out);
+                        if(ot_ok < 0)
                         {
-                            TimeSpan diff = datetime_out.Subtract(datetime_to);
-                            //   MessageBox.Show("Out Time : " + datetime_to + " Time Out : " + datetime_out + " Overtime : " + diff);
-                            total_late = total_late + diff;
-                            result = total_late.ToString();
+                            int res = DateTime.Compare(datetime_to, datetime_out);
+
+                            if (res < 0)
+                            {
+                                TimeSpan diff = datetime_out.Subtract(datetime_to);
+                                //   MessageBox.Show("Out Time : " + datetime_to + " Time Out : " + datetime_out + " Overtime : " + diff);
+                                total_late = total_late + diff;
+                                result = total_late.ToString();
+                            }
                         }
                     }
                 }

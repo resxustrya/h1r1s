@@ -21,6 +21,7 @@ namespace Human_Resource_Information_System
 
         public m_payrollperiod()
         {
+            gc = new GlobalClass();
             InitializeComponent();
         }
 
@@ -42,7 +43,7 @@ namespace Human_Resource_Information_System
         private void m_payrollperiod_Load(object sender, EventArgs e)
         {
             load_pay_classic();
-
+            gc.load_payroll_classic(cbo_payroll_classic);
             disp_list();
         }
 
@@ -180,7 +181,12 @@ namespace Human_Resource_Information_System
                 return;
             }
 
-         
+            if(cbo_payroll_classic.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select payroll classification.");
+                return;
+            }
+            
             if (cbo_dw_tax.SelectedIndex == 0)
             {
                 d_w_tax = "Y";
@@ -236,7 +242,7 @@ namespace Human_Resource_Information_System
             {
                 payroll_classic = cbo_payroll_classic.SelectedValue.ToString();
             }
-           
+            
 
             if (isnew)
             {
@@ -286,7 +292,7 @@ namespace Human_Resource_Information_System
             catch (Exception) { }
             int i = 0;
             String type = "";
-            DataTable dt = db.QueryBySQLCode("SELECT * FROM rssys.hr_payrollpariod WHERE COALESCE(cancel,cancel,'')<>'Y'");
+            DataTable dt = db.QueryBySQLCode("SELECT * FROM rssys.hr_payrollpariod WHERE COALESCE(cancel,cancel,'')<>'Y' ORDER BY pay_code ASC");
 
             for (int r = 0; r < dt.Rows.Count; r++)
             {
