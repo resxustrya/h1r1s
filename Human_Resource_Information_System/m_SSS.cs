@@ -42,7 +42,6 @@ namespace Human_Resource_Information_System
 
         private void m_SSS_Load(object sender, EventArgs e)
         {
-            
             disp_list();
         }
 
@@ -203,9 +202,9 @@ namespace Human_Resource_Information_System
                         txt_bracket1.Text = dgv_list["dgvl_bracket1", r].Value.ToString();
                         txt_bracket2.Text = dgv_list["dgvl_bracket2", r].Value.ToString();
                         txt_s_credit.Text = dgv_list["dgvl_s_credit", r].Value.ToString();
-                        txt_empshare_ec.Text = dgv_list["dgvl_empshare_sc", r].Value.ToString();
                         txt_s_ec.Text = dgv_list["dgvl_s_ec", r].Value.ToString();
                         txt_empshare_sc.Text = dgv_list["dgvl_empshare_ec", r].Value.ToString();
+                        txt_empshare_ec.Text = dgv_list["dgvl_empshare_sc", r].Value.ToString();
 
                     }
                     catch (Exception er) { }
@@ -282,6 +281,17 @@ namespace Human_Resource_Information_System
             }
         }
 
-
+        private void txt_empshare_ec_TextChanged(object sender, EventArgs e)
+        {
+            compute_total();
+        }
+        public void compute_total()
+        {
+            Double er = Convert.ToDouble(txt_empshare_sc.Text);
+            Double ee = Convert.ToDouble(txt_empshare_ec.Text);
+            Double ec = Convert.ToDouble(txt_s_ec.Text);
+            Double total = er + ee + ec;
+            txt_total.Text = total.ToString("0.00");
+        }
     }
 }

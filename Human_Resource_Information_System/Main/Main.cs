@@ -643,8 +643,20 @@ namespace Human_Resource_Information_System
 
         private void otherIncomeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RPT_RES_entry2 form = new RPT_RES_entry2("M102");
-            form.Show();
+            rpt_other_earnings rpt_oe = new rpt_other_earnings();
+
+            closechild();
+            btn_color_reset();
+
+            rpt_oe.MdiParent = this;
+
+            lbl_modname.Text = btn_10.Text;
+            btn_10.BackColor = panel2.BackColor;
+            colormain = panel2.BackColor;
+            color2 = Color.Peru;
+            rpt_oe.Show();
+            //RPT_RES_entry2 form = new RPT_RES_entry2("M102");
+            //form.Show();
         }
 
         private void otherDeductionToolStripMenuItem_Click(object sender, EventArgs e)

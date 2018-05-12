@@ -31,5 +31,10 @@ namespace Human_Resource_Information_System.ViewController.MD
         {
 
         }
+
+        private void m_SSS_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

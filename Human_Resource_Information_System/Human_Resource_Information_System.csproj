@@ -130,6 +130,8 @@
     <Reference Include="itextsharp">
       <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Mono.Security">
       <HintPath>..\Mono.Security.dll</HintPath>
     </Reference>
@@ -155,196 +157,196 @@
     <Compile Include="activation_form.Designer.cs">
       <DependentUpon>activation_form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\ds_payroll.cs">
+    <Compile Include="Resources\Reports\ds_payroll.cs">
       <DependentUpon>ds_payroll.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reports\Payroll\cumulative_payroll.cs">
+    <Compile Include="Resources\Reports\Payroll\cumulative_payroll.cs">
       <DependentUpon>cumulative_payroll.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\md_leaves.cs">
+    <Compile Include="Resources\Reports\Payroll\md_leaves.cs">
       <DependentUpon>md_leaves.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\md_loan.cs">
+    <Compile Include="Resources\Reports\Payroll\md_loan.cs">
       <DependentUpon>md_loan.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\md_otherearning.cs">
+    <Compile Include="Resources\Reports\Payroll\md_otherearning.cs">
       <DependentUpon>md_otherearning.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\md_otherdeduction.cs">
+    <Compile Include="Resources\Reports\Payroll\md_otherdeduction.cs">
       <DependentUpon>md_otherdeduction.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\md_pagibig_bracket.cs">
+    <Compile Include="Resources\Reports\Payroll\md_pagibig_bracket.cs">
       <DependentUpon>md_pagibig_bracket.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\md_philhealth_bracket.cs">
+    <Compile Include="Resources\Reports\Payroll\md_philhealth_bracket.cs">
       <DependentUpon>md_philhealth_bracket.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\md_sss_bracket.cs">
+    <Compile Include="Resources\Reports\Payroll\md_sss_bracket.cs">
       <DependentUpon>md_sss_bracket.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\md_withholding_tax.cs">
+    <Compile Include="Resources\Reports\Payroll\md_withholding_tax.cs">
       <DependentUpon>md_withholding_tax.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\md_payroll_period.cs">
+    <Compile Include="Resources\Reports\Payroll\md_payroll_period.cs">
       <DependentUpon>md_payroll_period.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\md_holiday.cs">
+    <Compile Include="Resources\Reports\Payroll\md_holiday.cs">
       <DependentUpon>md_holiday.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\md_jobtitle.cs">
+    <Compile Include="Resources\Reports\Payroll\md_jobtitle.cs">
       <DependentUpon>md_jobtitle.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\md_shift_schedule.cs">
+    <Compile Include="Resources\Reports\Payroll\md_shift_schedule.cs">
       <DependentUpon>md_shift_schedule.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\md_section.cs">
+    <Compile Include="Resources\Reports\Payroll\md_section.cs">
       <DependentUpon>md_section.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\md_department.cs">
+    <Compile Include="Resources\Reports\Payroll\md_department.cs">
       <DependentUpon>md_department.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\employee_leave_balance.cs">
+    <Compile Include="Resources\Reports\Payroll\employee_leave_balance.cs">
       <DependentUpon>employee_leave_balance.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\philhealth_contr_summary.cs">
+    <Compile Include="Resources\Reports\Payroll\philhealth_contr_summary.cs">
       <DependentUpon>philhealth_contr_summary.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\sss_contr_summary.cs">
+    <Compile Include="Resources\Reports\Payroll\sss_contr_summary.cs">
       <DependentUpon>sss_contr_summary.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\whtax_summary.cs">
+    <Compile Include="Resources\Reports\Payroll\whtax_summary.cs">
       <DependentUpon>whtax_summary.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\payroll_summary_report_d.cs">
+    <Compile Include="Resources\Reports\Payroll\payroll_summary_report_d.cs">
       <DependentUpon>payroll_summary_report_d.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\payroll_summary_report.cs">
+    <Compile Include="Resources\Reports\Payroll\payroll_summary_report.cs">
       <DependentUpon>payroll_summary_report.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\employee_list.cs">
+    <Compile Include="Resources\Reports\Payroll\employee_list.cs">
       <DependentUpon>employee_list.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\employee_listing.cs">
+    <Compile Include="Resources\Reports\Payroll\employee_listing.cs">
       <DependentUpon>employee_listing.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\other_deduction_per_employee.cs">
+    <Compile Include="Resources\Reports\Payroll\other_deduction_per_employee.cs">
       <DependentUpon>other_deduction_per_employee.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\other_earning_summary.cs">
+    <Compile Include="Resources\Reports\Payroll\other_earning_summary.cs">
       <DependentUpon>other_earning_summary.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\other_deduction_summary.cs">
+    <Compile Include="Resources\Reports\Payroll\other_deduction_summary.cs">
       <DependentUpon>other_deduction_summary.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\Payroll\employee_info.cs">
+    <Compile Include="Resources\Reports\Payroll\employee_info.cs">
       <DependentUpon>employee_info.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\payslip2.cs">
+    <Compile Include="Resources\Reports\Payroll\payslip2.cs">
       <DependentUpon>payslip2.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Payroll\payslip.cs">
+    <Compile Include="Resources\Reports\Payroll\payslip.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>payslip.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\Timeclock\absencelateundertime_report.cs">
+    <Compile Include="Resources\Reports\Timeclock\absencelateundertime_report.cs">
       <DependentUpon>absencelateundertime_report.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Timeclock\employee_dtr_report.cs">
+    <Compile Include="Resources\Reports\Timeclock\employee_dtr_report.cs">
       <DependentUpon>employee_dtr_report.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Reports\Timeclock\daily_timelog_report.cs">
+    <Compile Include="Resources\Reports\Timeclock\daily_timelog_report.cs">
       <DependentUpon>daily_timelog_report.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
@@ -393,7 +395,7 @@
     <Compile Include="m_SSS.designer.cs">
       <DependentUpon>m_SSS.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reports\ds_payroll.Designer.cs">
+    <Compile Include="Resources\Reports\ds_payroll.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ds_payroll.xsd</DependentUpon>
@@ -514,6 +516,12 @@
     <Compile Include="Libraries\NumberToEnglish_orig.cs" />
     <Compile Include="Libraries\Print_Check.cs" />
     <Compile Include="Main\Program.cs" />
+    <Compile Include="ViewController\RPT\Payroll\rpt_other_earnings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewController\RPT\Payroll\rpt_other_earnings.Designer.cs">
+      <DependentUpon>rpt_other_earnings.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewController\RPT\Payroll\PaySlips.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -695,131 +703,131 @@
     <EmbeddedResource Include="m_SSS.resx">
       <DependentUpon>m_SSS.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\cumulative_payroll.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\cumulative_payroll.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>cumulative_payroll.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\md_leaves.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\md_leaves.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>md_leaves.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\md_loan.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\md_loan.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>md_loan.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\md_otherearning.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\md_otherearning.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>md_otherearning.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\md_otherdeduction.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\md_otherdeduction.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>md_otherdeduction.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\md_pagibig_bracket.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\md_pagibig_bracket.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>md_pagibig_bracket.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\md_philhealth_bracket.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\md_philhealth_bracket.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>md_philhealth_bracket.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\md_sss_bracket.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\md_sss_bracket.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>md_sss_bracket.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\md_withholding_tax.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\md_withholding_tax.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>md_withholding_tax.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\md_payroll_period.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\md_payroll_period.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>md_payroll_period.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\md_holiday.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\md_holiday.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>md_holiday.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\md_jobtitle.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\md_jobtitle.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>md_jobtitle.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\md_shift_schedule.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\md_shift_schedule.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>md_shift_schedule.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\md_section.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\md_section.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>md_section.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\md_department.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\md_department.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>md_department.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\employee_leave_balance.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\employee_leave_balance.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>employee_leave_balance.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\philhealth_contr_summary.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\philhealth_contr_summary.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>philhealth_contr_summary.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\sss_contr_summary.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\sss_contr_summary.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>sss_contr_summary.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\whtax_summary.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\whtax_summary.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>whtax_summary.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\payroll_summary_report_d.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\payroll_summary_report_d.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>payroll_summary_report_d.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\payroll_summary_report.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\payroll_summary_report.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>payroll_summary_report.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\employee_list.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\employee_list.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>employee_list.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\employee_listing.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\employee_listing.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>employee_listing.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\other_deduction_per_employee.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\other_deduction_per_employee.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>other_deduction_per_employee.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\other_earning_summary.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\other_earning_summary.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>other_earning_summary.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\other_deduction_summary.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\other_deduction_summary.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>other_deduction_summary.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\employee_info.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\employee_info.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>employee_info.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\payslip2.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\payslip2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>payslip2.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Payroll\payslip.rpt">
+    <EmbeddedResource Include="Resources\Reports\Payroll\payslip.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>payslip.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Timeclock\absencelateundertime_report.rpt">
+    <EmbeddedResource Include="Resources\Reports\Timeclock\absencelateundertime_report.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>absencelateundertime_report.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Timeclock\employee_dtr_report.rpt">
+    <EmbeddedResource Include="Resources\Reports\Timeclock\employee_dtr_report.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>employee_dtr_report.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Timeclock\daily_timelog_report.rpt">
+    <EmbeddedResource Include="Resources\Reports\Timeclock\daily_timelog_report.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>daily_timelog_report.cs</LastGenOutput>
     </EmbeddedResource>
@@ -879,6 +887,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewController\RPT\Payroll\rpt_other_earnings.resx">
+      <DependentUpon>rpt_other_earnings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewController\RPT\Payroll\PaySlips.resx">
       <DependentUpon>PaySlips.cs</DependentUpon>
@@ -987,18 +998,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="ViewController\RPT\Payroll\payslips\2YSN0DWWKB.pdf" />
-    <None Include="ViewController\RPT\TimeKeeping\dtr_summary_pdf\7CFSC154Z7.pdf" />
-    <None Include="ViewController\RPT\TimeKeeping\dtr_summary_pdf\BH3AWCQNNX.pdf" />
-    <None Include="ViewController\RPT\TimeKeeping\dtr_summary_pdf\FCCSTQPX0Q.pdf" />
-    <None Include="ViewController\RPT\TimeKeeping\dtr_summary_pdf\MK9HBVV7DF.pdf" />
-    <None Include="ViewController\RPT\TimeKeeping\dtr_summary_pdf\NIJQFHIYK5.pdf" />
-    <None Include="ViewController\RPT\TimeKeeping\dtr_summary_pdf\PFO22KLVIO.pdf" />
-    <None Include="ViewController\RPT\TimeKeeping\dtr_summary_pdf\QM58W1CAXC.pdf" />
-    <None Include="ViewController\RPT\TimeKeeping\dtr_summary_pdf\SHPEDKLEL5.pdf" />
-    <None Include="ViewController\RPT\TimeKeeping\dtr_summary_pdf\SR7XAWQYNC.pdf" />
-    <None Include="ViewController\RPT\TimeKeeping\dtr_summary_pdf\T8USJW6OB2.pdf" />
-    <None Include="ViewController\RPT\TimeKeeping\dtr_summary_pdf\XMIRZLK6AA.pdf" />
-    <None Include="ViewController\RPT\TimeKeeping\dtr_summary_pdf\YD49KHJLOK.pdf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -1007,7 +1006,9 @@
     <Folder Include="Model\Payroll\" />
     <Folder Include="Model\Timeclock\" />
     <Folder Include="ViewController\Reports\" />
+    <Folder Include="ViewController\RPT\Payroll\other_earnings\" />
     <Folder Include="ViewController\RPT\TimeKeeping\dtr_pdf\" />
+    <Folder Include="ViewController\RPT\TimeKeeping\dtr_summary_pdf\" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">
@@ -1061,15 +1062,15 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Reports\ds_payroll.xsc">
+    <None Include="Resources\Reports\ds_payroll.xsc">
       <DependentUpon>ds_payroll.xsd</DependentUpon>
     </None>
-    <None Include="Reports\ds_payroll.xsd">
+    <None Include="Resources\Reports\ds_payroll.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>ds_payroll.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Reports\ds_payroll.xss">
+    <None Include="Resources\Reports\ds_payroll.xss">
       <DependentUpon>ds_payroll.xsd</DependentUpon>
     </None>
     <None Include="Resources\icon-timekeeping and payroll.jpg" />

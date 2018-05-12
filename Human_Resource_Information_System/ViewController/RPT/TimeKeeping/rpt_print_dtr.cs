@@ -36,6 +36,7 @@ namespace Human_Resource_Information_System
         {
             pic_loading.Visible = false;
             fileloc_dtr = System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName;
+            //MessageBox.Show(fileloc_dtr);
             
             gc.load_employee(cbo_employee);
             gc.load_payroll_period(cbo_payollperiod);
@@ -167,20 +168,21 @@ namespace Human_Resource_Information_System
 
                 time_from = sched.Rows[0]["shift_sched_from"].ToString();
                 time_to = sched.Rows[0]["shift_sched_to"].ToString();
+                String ot_time_start = ot_time.Rows[0]["time_start"].ToString();
 
-                
+
                 DateTime datetime_out = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + timeout);
                 DateTime datetime_to = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + time_to);
-                DateTime ot_start = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + ot_time.Rows[0]["time_start"].ToString());
+                DateTime ot_start = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + ot_time_start);
 
                 int ot_ok = DateTime.Compare(ot_start, datetime_out);
                 if(ot_ok < 0)
                 {
-                    int res = DateTime.Compare(datetime_to, datetime_out);
+                    int res = DateTime.Compare(ot_start, datetime_out);
 
                     if (res < 0)
                     {
-                        TimeSpan diff = datetime_out.Subtract(datetime_to);
+                        TimeSpan diff = datetime_out.Subtract(ot_start);
                         //   MessageBox.Show("Out Time : " + datetime_to + " Time Out : " + datetime_out + " Overtime : " + diff);
 
                         total_late = total_late + diff;
@@ -189,7 +191,10 @@ namespace Human_Resource_Information_System
                 }
                 
             }
-
+            if(result == "00:00:00")
+            {
+                return "";
+            }
             return result;
         }
 
@@ -227,8 +232,10 @@ namespace Human_Resource_Information_System
         {
             int r = -1;
             String dtr_filename = "";
-            String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr\\";
-            
+            // String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr\\";
+            String sys_dir = fileloc_dtr + "\\ViewController\\RPT\\TimeKeeping\\dtr_pdf\\";
+
+
             try
             {
                 if (dgvl_dtrfiles.Rows.Count > 1)
@@ -347,7 +354,9 @@ namespace Human_Resource_Information_System
                 filename = RandomString(5) + "_" + DateTime.Now.ToString("yyyy-MM-dd");
                 filename += ".pdf";
 
-                System.IO.FileStream fs = new FileStream("\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr\\" + filename, FileMode.Create);
+                // System.IO.FileStream fs = new FileStream("\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr\\" + filename, FileMode.Create);
+
+                System.IO.FileStream fs = new FileStream(fileloc_dtr + "\\ViewController\\RPT\\TimeKeeping\\dtr_pdf\\" + filename, FileMode.Create);
                 Document document = new Document(PageSize.LEGAL, 25, 25, 30, 30);
 
                 PdfWriter.GetInstance(document, fs);

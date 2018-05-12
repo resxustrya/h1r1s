@@ -46,7 +46,7 @@ namespace Human_Resource_Information_System
             dt = db.QueryBySQLCode("SELECT de.*,od.description AS deduction FROM rssys.hr_deduction_entry  de LEFT JOIN rssys.hr_other_deductions od ON de.deduction_code=od.code ORDER BY de.dedcode ASC");
             for (int r = 0; r < dt.Rows.Count; r++)
             {
-                int i = dgv_list.Rows.Add();
+                int i = dgv_list.Rows.Add();    
                 DataGridViewRow row = dgv_list.Rows[i];
 
                 row.Cells["dgvl_code"].Value = dt.Rows[r]["dedcode"].ToString();
@@ -116,6 +116,11 @@ namespace Human_Resource_Information_System
         private void button1_Click(object sender, EventArgs e)
         {
             disp_list();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -163,6 +163,7 @@ namespace Human_Resource_Information_System
             String time_from = "", time_to = "";
             TimeSpan total_late = new TimeSpan(0, 0, 0, 0, 0);
 
+            DataTable ot_time = db.QueryBySQLCode("SELECT time_start FROM rssys.hr_ot_start");
             DataTable sched = db.QueryBySQLCode("SELECT shift_sched_from,shift_sched_to FROM rssys.hr_employee WHERE empid = '" + empid + "'");
             if (sched.Rows.Count > 0)
             {
@@ -173,6 +174,10 @@ namespace Human_Resource_Information_System
 
                 query = "SELECT DISTINCT e.empid,work_date,(SELECT MAX(time_log) FROM rssys.hr_tito2 st WHERE work_date=t.work_date AND status='O' AND empid=t.empid) AS timeout FROM rssys.hr_tito2 t LEFT JOIN rssys.hr_employee e ON t.empid=e.empid WHERE t.empid = '" + empid + "' AND t.work_date BETWEEN '" + gm.toDateString(datein, "") + "' AND '" + gm.toDateString(datein, "") + "' ORDER BY work_date";
 
+                String ot_time_start = ot_time.Rows[0]["time_start"].ToString();
+                DateTime ot_start = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + ot_time_start);
+
+
                 DataTable logs = db.QueryBySQLCode(query);
                 if (logs != null && logs.Rows.Count > 0)
                 {
@@ -182,14 +187,20 @@ namespace Human_Resource_Information_System
 
                         DateTime datetime_out = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + timeout);
                         DateTime datetime_to = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + time_to);
-                        int res = DateTime.Compare(datetime_to, datetime_out);
 
-                        if (res < 0)
+
+                        int ot_ok = DateTime.Compare(ot_start, datetime_out);
+                        if (ot_ok < 0)
                         {
-                            TimeSpan diff = datetime_out.Subtract(datetime_to);
-                            //   MessageBox.Show("Out Time : " + datetime_to + " Time Out : " + datetime_out + " Overtime : " + diff);
-                            total_late = total_late + diff;
-                            result = total_late.ToString();
+                            int res = DateTime.Compare(ot_start, datetime_out);
+
+                            if (res < 0)
+                            {
+                                TimeSpan diff = datetime_out.Subtract(ot_start);
+                                //   MessageBox.Show("Out Time : " + datetime_to + " Time Out : " + datetime_out + " Overtime : " + diff);
+                                total_late = total_late + diff;
+                                result = total_late.ToString();
+                            }
                         }
                     }
                 }
@@ -436,7 +447,11 @@ namespace Human_Resource_Information_System
                 time_to = sched.Rows[0]["shift_sched_to"].ToString();
 
 
+                DataTable ot_time = db.QueryBySQLCode("SELECT time_start FROM rssys.hr_ot_start");
                 query = "SELECT DISTINCT e.empid,work_date,(SELECT MAX(time_log) FROM rssys.hr_tito2 st WHERE work_date=t.work_date AND status='O' AND empid=t.empid) AS timeout FROM rssys.hr_tito2 t LEFT JOIN rssys.hr_employee e ON t.empid=e.empid WHERE t.empid = '" + empid + "' AND t.work_date BETWEEN '" + gm.toDateString(date_from, "") + "' AND '" + gm.toDateString(date_to, "") + "' ORDER BY work_date";
+
+                String ot_time_start = ot_time.Rows[0]["time_start"].ToString();
+                DateTime ot_start = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + ot_time_start);
 
                 DataTable logs = db.QueryBySQLCode(query);
                 if (logs != null && logs.Rows.Count > 0)
@@ -447,14 +462,19 @@ namespace Human_Resource_Information_System
 
                         DateTime datetime_out = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + timeout);
                         DateTime datetime_to = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + time_to);
-                        int res = DateTime.Compare(datetime_to, datetime_out);
 
-                        if (res < 0)
+                        int ot_ok = DateTime.Compare(ot_start, datetime_out);
+                        if (ot_ok < 0)
                         {
-                            TimeSpan diff = datetime_out.Subtract(datetime_to);
-                            //   MessageBox.Show("Out Time : " + datetime_to + " Time Out : " + datetime_out + " Overtime : " + diff);
-                            total_late = total_late + diff;
-                            result = total_late.ToString();
+                            int res = DateTime.Compare(ot_start, datetime_out);
+
+                            if (res < 0)
+                            {
+                                TimeSpan diff = datetime_out.Subtract(ot_start);
+                                //   MessageBox.Show("Out Time : " + datetime_to + " Time Out : " + datetime_out + " Overtime : " + diff);
+                                total_late = total_late + diff;
+                                result = total_late.ToString();
+                            }
                         }
                     }
                 }
@@ -502,7 +522,8 @@ namespace Human_Resource_Information_System
         {
             int r = -1;
             String dtr_filename = "";
-            String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr_summary\\";
+            //String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr_summary\\";
+            String sys_dir = fileloc_dtr + "\\ViewController\\RPT\\TimeKeeping\\dtr_summary_pdf\\";
             try
             {
                 if (dgvl_dtr_sum_files.Rows.Count > 1)
@@ -634,7 +655,8 @@ namespace Human_Resource_Information_System
             filename += ".pdf";
 
 
-            System.IO.FileStream fs = new FileStream("\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr_summary\\" + filename, FileMode.Create);
+            //System.IO.FileStream fs = new FileStream("\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr_summary\\" + filename, FileMode.Create);
+            System.IO.FileStream fs = new FileStream(fileloc_dtr + "\\ViewController\\RPT\\TimeKeeping\\dtr_summary_pdf\\" + filename, FileMode.Create);
 
 
 

@@ -65,12 +65,9 @@ namespace Human_Resource_Information_System
                 }
                 else
                 {
-                    MessageBox.Show("Activation Failed, Key is Invalid.", "Activation Error",
-       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Activation Failed, Key is Invalid.", "Activation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
-
-
             }
 
             this.Close();

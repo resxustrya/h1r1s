@@ -160,7 +160,8 @@ namespace Human_Resource_Information_System
 
                 query = "SELECT DISTINCT e.empid,work_date,(SELECT MAX(time_log) FROM rssys.hr_tito2 st WHERE work_date=t.work_date AND status='O' AND empid=t.empid) AS timeout FROM rssys.hr_tito2 t LEFT JOIN rssys.hr_employee e ON t.empid=e.empid WHERE t.empid = '" + empid + "' AND t.work_date BETWEEN '" + gm.toDateString(date_from, "") + "' AND '" + gm.toDateString(date_to, "") + "' ORDER BY work_date";
 
-                DateTime ot_start = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + ot_time.Rows[0]["time_start"].ToString());
+                String ot_time_start = ot_time.Rows[0]["time_start"].ToString();
+                DateTime ot_start = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + ot_time_start );
 
                 
 
@@ -179,11 +180,11 @@ namespace Human_Resource_Information_System
                         int ot_ok = DateTime.Compare(ot_start, datetime_out);
                         if(ot_ok < 0)
                         {
-                            int res = DateTime.Compare(datetime_to, datetime_out);
+                            int res = DateTime.Compare(ot_start, datetime_out);
 
                             if (res < 0)
                             {
-                                TimeSpan diff = datetime_out.Subtract(datetime_to);
+                                TimeSpan diff = datetime_out.Subtract(ot_start);
                                 //   MessageBox.Show("Out Time : " + datetime_to + " Time Out : " + datetime_out + " Overtime : " + diff);
                                 total_late = total_late + diff;
                                 result = total_late.ToString();
