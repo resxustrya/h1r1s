@@ -58,6 +58,7 @@ namespace Human_Resource_Information_System
             gc.load_dept(cbo_department);
             gc.load_position(cbo_position);
             gc.load_civil_status(cbo_civil_stat);
+            gc.load_cbo_sss(cbo_sss);
 
             disp_list();
         }
@@ -114,7 +115,7 @@ namespace Human_Resource_Information_System
             String col = "", val = "", add_col = "", add_val = "";
             String notifyadd = null;
             String table = "hr_employee";
-            String code = "", lastname = "", firstname = "", mi = "", section = "", position = "", picture = "", department = "", date_hired = "1900-01-01", contractual_date = "1900-01-01", prohibition_date = "1900-01-01", date_regular = "1900-01-01", date_resigned = "1900-01-01", date_terminated = "1900-01-01", empstatus = "", contract_days = "0", prc = "", ctc = "", rate_type = "", pay_rate = "", biometric = "", sss = "", pagibig = "", philhealth = "", payroll_account = "", tin = "", tax_bracket = "", shift_sched_from = "", dayoff1 = "", dayoff2 = "", sex = "", birth = "", civil_status = "", religion = "", height = "0.00", weight = "0.00", father = "", father_address = "", father_contact = "", father_job = "", mother = "", mother_address = "", mother_contact = "", mother_job = "", emp_contact = "", home_tel = "", email = "", home_address = "", emergency_name = "", emergency_contact = "", em_home_address = "", relationship = "", shift_sched_sat_from = "", shift_sched_to = "", shift_sched_sat_to = "", fixed_rate = "", primary = "", secondary = "", tertiary = "", graduate = "", post_graduate = "";
+            String code = "", lastname = "", firstname = "", mi = "", section = "", position = "", picture = "", department = "", date_hired = "1900-01-01", contractual_date = "1900-01-01", prohibition_date = "1900-01-01", date_regular = "1900-01-01", date_resigned = "1900-01-01", date_terminated = "1900-01-01", empstatus = "", contract_days = "0", prc = "", ctc = "", rate_type = "", pay_rate = "", biometric = "", sss = "", pagibig = "", philhealth = "", payroll_account = "", tin = "", tax_bracket = "", shift_sched_from = "", dayoff1 = "", dayoff2 = "", sex = "", birth = "", civil_status = "", religion = "", height = "0.00", weight = "0.00", father = "", father_address = "", father_contact = "", father_job = "", mother = "", mother_address = "", mother_contact = "", mother_job = "", emp_contact = "", home_tel = "", email = "", home_address = "", emergency_name = "", emergency_contact = "", em_home_address = "", relationship = "", shift_sched_sat_from = "", shift_sched_to = "", shift_sched_sat_to = "", fixed_rate = "", primary = "", secondary = "", tertiary = "", graduate = "", post_graduate = "",sss_table = "";
 
             if (String.IsNullOrEmpty(txt_lastname.Text))
             {
@@ -232,7 +233,8 @@ namespace Human_Resource_Information_System
             catch (Exception ex) { MessageBox.Show("Pay rate must be numeric."); return; }
 
             biometric = txt_biometric.Text;
-            sss = txt_sss_num.Text;
+            sss = txt_sss_number.Text;
+            sss_table = cbo_sss.SelectedValue.ToString();
             pagibig = txt_pagibig.Text;
             philhealth = txt_philhealth.Text;
             payroll_account = txt_payroll_act.Text;
@@ -341,9 +343,9 @@ namespace Human_Resource_Information_System
             if (isnew)
             {
                 code = code = db.get_pk("empid"); //changes from 'hr_empid'
-                col = "empid,lastname,firstname,mi,positions,department,section,date_hired,contractual_date,date_resigned,date_terminated,prohibition_date,date_regular,empstatus,contract_days,prc,ctc,rate_type,pay_rate,biometric,sss,pagibig,philhealth,payroll_account,tin,tax_bracket,shift_sched_from,dayoff1,dayoff2,sex,birth,civil_status,religion,height,weight,father,father_address,father_contact,father_job,mother,mother_address,mother_contact,mother_job,emp_contact,home_tel,email,home_address,emergency_name,emergency_contact,em_home_address,relationship,shift_sched_sat_from,shift_sched_to,shift_sched_sat_to,fixed_rate,primary_ed,secondary_ed,tertiary_ed,graduate,post_graduate";
+                col = "empid,lastname,firstname,mi,positions,department,section,date_hired,contractual_date,date_resigned,date_terminated,prohibition_date,date_regular,empstatus,contract_days,prc,ctc,rate_type,pay_rate,biometric,sss,pagibig,philhealth,payroll_account,tin,tax_bracket,shift_sched_from,dayoff1,dayoff2,sex,birth,civil_status,religion,height,weight,father,father_address,father_contact,father_job,mother,mother_address,mother_contact,mother_job,emp_contact,home_tel,email,home_address,emergency_name,emergency_contact,em_home_address,relationship,shift_sched_sat_from,shift_sched_to,shift_sched_sat_to,fixed_rate,primary_ed,secondary_ed,tertiary_ed,graduate,post_graduate,sss_table";
 
-                val = "" + db.str_E(code) + "," + db.str_E(lastname) + "," + db.str_E(firstname) + "," + db.str_E(mi) + "," + db.str_E(position) + "," + db.str_E(department) + "," + db.str_E(section) + ",'" + date_hired + "','" + contractual_date + "','" + date_resigned + "','" + date_terminated + "','" + prohibition_date + "','" + date_regular + "'," + db.str_E(empstatus) + "," + db.str_E(contract_days) + "," + db.str_E(prc) + "," + db.str_E(ctc) + "," + db.str_E(rate_type) + "," + db.str_E(pay_rate) + "," + db.str_E(biometric) + "," + db.str_E(sss) + "," + db.str_E(pagibig) + ", " + db.str_E(philhealth) + "," + db.str_E(payroll_account) + "," + db.str_E(tin) + "," + db.str_E(tax_bracket) + "," + db.str_E(shift_sched_from) + "," + db.str_E(dayoff1) + "," + db.str_E(dayoff2) + "," + db.str_E(sex) + "," + db.str_E(birth) + "," + db.str_E(civil_status) + "," + db.str_E(religion) + "," + db.str_E(height) + "," + db.str_E(weight) + "," + db.str_E(father) + "," + db.str_E(father_address) + "," + db.str_E(father_contact) + "," + db.str_E(father_job) + "," + db.str_E(mother) + "," + db.str_E(mother_address) + "," + db.str_E(mother_contact) + "," + db.str_E(mother_job) + "," + db.str_E(emp_contact) + "," + db.str_E(home_tel) + "," + db.str_E(email) + "," + db.str_E(home_address) + "," + db.str_E(emergency_name) + "," + db.str_E(emergency_contact) + "," + db.str_E(em_home_address) + "," + db.str_E(relationship) + "," + db.str_E(shift_sched_sat_from) + "," + db.str_E(shift_sched_to) + "," + db.str_E(shift_sched_sat_to) + "," + db.str_E(fixed_rate) + "," + db.str_E(primary) + "," + db.str_E(secondary) + "," + db.str_E(tertiary) + "," + db.str_E(graduate) + "," + db.str_E(post_graduate) + "";
+                val = "" + db.str_E(code) + "," + db.str_E(lastname) + "," + db.str_E(firstname) + "," + db.str_E(mi) + "," + db.str_E(position) + "," + db.str_E(department) + "," + db.str_E(section) + ",'" + date_hired + "','" + contractual_date + "','" + date_resigned + "','" + date_terminated + "','" + prohibition_date + "','" + date_regular + "'," + db.str_E(empstatus) + "," + db.str_E(contract_days) + "," + db.str_E(prc) + "," + db.str_E(ctc) + "," + db.str_E(rate_type) + "," + db.str_E(pay_rate) + "," + db.str_E(biometric) + "," + db.str_E(sss) + "," + db.str_E(pagibig) + ", " + db.str_E(philhealth) + "," + db.str_E(payroll_account) + "," + db.str_E(tin) + "," + db.str_E(tax_bracket) + "," + db.str_E(shift_sched_from) + "," + db.str_E(dayoff1) + "," + db.str_E(dayoff2) + "," + db.str_E(sex) + "," + db.str_E(birth) + "," + db.str_E(civil_status) + "," + db.str_E(religion) + "," + db.str_E(height) + "," + db.str_E(weight) + "," + db.str_E(father) + "," + db.str_E(father_address) + "," + db.str_E(father_contact) + "," + db.str_E(father_job) + "," + db.str_E(mother) + "," + db.str_E(mother_address) + "," + db.str_E(mother_contact) + "," + db.str_E(mother_job) + "," + db.str_E(emp_contact) + "," + db.str_E(home_tel) + "," + db.str_E(email) + "," + db.str_E(home_address) + "," + db.str_E(emergency_name) + "," + db.str_E(emergency_contact) + "," + db.str_E(em_home_address) + "," + db.str_E(relationship) + "," + db.str_E(shift_sched_sat_from) + "," + db.str_E(shift_sched_to) + "," + db.str_E(shift_sched_sat_to) + "," + db.str_E(fixed_rate) + "," + db.str_E(primary) + "," + db.str_E(secondary) + "," + db.str_E(tertiary) + "," + db.str_E(graduate) + "," + db.str_E(post_graduate) + ",'" + sss_table + "'";
 
                 //db.DeleteOnTable(table, "empid='" + code + "' AND cancel='Y'");
                 if (db.InsertOnTable(table, col, val))
@@ -360,7 +362,7 @@ namespace Human_Resource_Information_System
             }
             else
             {
-                col = "lastname=" + db.str_E(lastname) + ",firstname=" + db.str_E(firstname) + ",mi=" + db.str_E(mi) + ",positions=" + db.str_E(position) + ",department=" + db.str_E(department) + ",section =" + db.str_E(section) + ",date_hired='" + date_hired + "',contractual_date='" + contractual_date + "',date_resigned = '" + date_resigned + "',date_terminated='" + date_terminated + "',prohibition_date = '" + prohibition_date + "',date_regular ='" + date_regular + "',empstatus=" + db.str_E(empstatus) + ",contract_days=" + db.str_E(contract_days) + ",prc=" + db.str_E(prc) + ",ctc=" + db.str_E(ctc) + ",rate_type=" + db.str_E(rate_type) + ",pay_rate=" + db.str_E(pay_rate) + ",biometric=" + db.str_E(biometric) + ",sss=" + db.str_E(sss) + ",pagibig=" + db.str_E(pagibig) + ",philhealth=" + db.str_E(philhealth) + ",payroll_account=" + db.str_E(payroll_account) + ",tin=" + db.str_E(tin) + ",tax_bracket=" + db.str_E(tax_bracket) + ", shift_sched_from=" + db.str_E(shift_sched_from) + ",dayoff1=" + db.str_E(dayoff1) + ",dayoff2=" + db.str_E(dayoff2) + ",sex=" + db.str_E(sex) + ",birth=" + db.str_E(birth) + ",civil_status=" + db.str_E(civil_status) + ",religion=" + db.str_E(religion) + ",height=" + db.str_E(height) + ",weight=" + db.str_E(weight) + ",father=" + db.str_E(father) + ",father_address=" + db.str_E(father_address) + ", father_contact=" + db.str_E(father_contact) + ",father_job=" + db.str_E(father_job) + ",mother=" + db.str_E(mother) + ", mother_address=" + db.str_E(mother_address) + ",mother_contact=" + db.str_E(mother_contact) + ", mother_job=" + db.str_E(mother_job) + ", emp_contact=" + db.str_E(emp_contact) + ", home_tel=" + db.str_E(home_tel) + ",email=" + db.str_E(email) + ", home_address=" + db.str_E(home_address) + ",emergency_name=" + db.str_E(emergency_name) + ", emergency_contact=" + db.str_E(emergency_contact) + ",em_home_address=" + db.str_E(em_home_address) + ",relationship=" + db.str_E(relationship) + ",shift_sched_sat_from=" + db.str_E(shift_sched_sat_from) + ",shift_sched_to=" + db.str_E(shift_sched_to) + ",shift_sched_sat_to=" + db.str_E(shift_sched_sat_to) + ",fixed_rate=" + db.str_E(fixed_rate) + ",primary_ed=" + db.str_E(primary) + ",secondary_ed=" + db.str_E(secondary) + ",tertiary_ed=" + db.str_E(tertiary) + ",graduate=" + db.str_E(graduate) + ",post_graduate=" + db.str_E(post_graduate) + " ";
+                col = "lastname=" + db.str_E(lastname) + ",firstname=" + db.str_E(firstname) + ",mi=" + db.str_E(mi) + ",positions=" + db.str_E(position) + ",department=" + db.str_E(department) + ",section =" + db.str_E(section) + ",date_hired='" + date_hired + "',contractual_date='" + contractual_date + "',date_resigned = '" + date_resigned + "',date_terminated='" + date_terminated + "',prohibition_date = '" + prohibition_date + "',date_regular ='" + date_regular + "',empstatus=" + db.str_E(empstatus) + ",contract_days=" + db.str_E(contract_days) + ",prc=" + db.str_E(prc) + ",ctc=" + db.str_E(ctc) + ",rate_type=" + db.str_E(rate_type) + ",pay_rate=" + db.str_E(pay_rate) + ",biometric=" + db.str_E(biometric) + ",sss=" + db.str_E(sss) + ",pagibig=" + db.str_E(pagibig) + ",philhealth=" + db.str_E(philhealth) + ",payroll_account=" + db.str_E(payroll_account) + ",tin=" + db.str_E(tin) + ",tax_bracket=" + db.str_E(tax_bracket) + ", shift_sched_from=" + db.str_E(shift_sched_from) + ",dayoff1=" + db.str_E(dayoff1) + ",dayoff2=" + db.str_E(dayoff2) + ",sex=" + db.str_E(sex) + ",birth=" + db.str_E(birth) + ",civil_status=" + db.str_E(civil_status) + ",religion=" + db.str_E(religion) + ",height=" + db.str_E(height) + ",weight=" + db.str_E(weight) + ",father=" + db.str_E(father) + ",father_address=" + db.str_E(father_address) + ", father_contact=" + db.str_E(father_contact) + ",father_job=" + db.str_E(father_job) + ",mother=" + db.str_E(mother) + ", mother_address=" + db.str_E(mother_address) + ",mother_contact=" + db.str_E(mother_contact) + ", mother_job=" + db.str_E(mother_job) + ", emp_contact=" + db.str_E(emp_contact) + ", home_tel=" + db.str_E(home_tel) + ",email=" + db.str_E(email) + ", home_address=" + db.str_E(home_address) + ",emergency_name=" + db.str_E(emergency_name) + ", emergency_contact=" + db.str_E(emergency_contact) + ",em_home_address=" + db.str_E(em_home_address) + ",relationship=" + db.str_E(relationship) + ",shift_sched_sat_from=" + db.str_E(shift_sched_sat_from) + ",shift_sched_to=" + db.str_E(shift_sched_to) + ",shift_sched_sat_to=" + db.str_E(shift_sched_sat_to) + ",fixed_rate=" + db.str_E(fixed_rate) + ",primary_ed=" + db.str_E(primary) + ",secondary_ed=" + db.str_E(secondary) + ",tertiary_ed=" + db.str_E(tertiary) + ",graduate=" + db.str_E(graduate) + ",post_graduate=" + db.str_E(post_graduate) + ",sss_table=" + db.str_E(sss_table) + " ";
                 code = txt_code.Text;
                 if (db.UpdateOnTable(table, col, "empid=" + db.str_E(code) + ""))
                 {
@@ -573,7 +575,8 @@ namespace Human_Resource_Information_System
                 try { txt_pay_rate.Text = Convert.ToDouble(dt.Rows[0]["pay_rate"]).ToString("N", new CultureInfo("en-US")); }
                 catch { txt_pay_rate.Text = "0.00"; }
                 txt_biometric.Text = dt.Rows[0]["biometric"].ToString();
-                txt_sss_num.Text = dt.Rows[0]["sss"].ToString();
+                cbo_sss.SelectedValue = dt.Rows[0]["sss_table"].ToString();
+                txt_sss_number.Text =  dt.Rows[0]["sss"].ToString();
                 txt_pagibig.Text = dt.Rows[0]["pagibig"].ToString();
                 txt_philhealth.Text = dt.Rows[0]["philhealth"].ToString();
                 txt_payroll_act.Text = dt.Rows[0]["payroll_account"].ToString();
@@ -670,7 +673,8 @@ namespace Human_Resource_Information_System
             cbo_rate_type.SelectedIndex = -1;
             txt_pay_rate.Text = "";
             txt_biometric.Text = "";
-            txt_sss_num.Text = "";
+            //cbo_sss.SelectedIndex = -1;
+            txt_sss_number.Text = "";
             txt_pagibig.Text = "";
             txt_philhealth.Text = "";
             txt_payroll_act.Text = "";
@@ -720,6 +724,21 @@ namespace Human_Resource_Information_System
         private void btn_delitem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Unable to use this proccess.");
+        }
+
+        private void tpg_contribution_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label73_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

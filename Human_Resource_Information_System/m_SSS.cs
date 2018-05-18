@@ -177,8 +177,15 @@ namespace Human_Resource_Information_System
                 row.Cells["dgvl_s_credit"].Value = gm.toAccountingFormat(dt.Rows[r]["s_credit"].ToString()); 
                 row.Cells["dgvl_empshare_sc"].Value = gm.toAccountingFormat(dt.Rows[r]["empshare_sc"].ToString()); 
                 row.Cells["dgvl_s_ec"].Value = gm.toAccountingFormat(dt.Rows[r]["s_ec"].ToString()); 
-                row.Cells["dgvl_empshare_ec"].Value = gm.toAccountingFormat(dt.Rows[r]["empshare_ec"].ToString()); 
-               
+                row.Cells["dgvl_empshare_ec"].Value = gm.toAccountingFormat(dt.Rows[r]["empshare_ec"].ToString());
+
+                Double er = Convert.ToDouble(dt.Rows[r]["empshare_sc"].ToString());
+                Double ee = Convert.ToDouble(dt.Rows[r]["empshare_ec"].ToString());
+                Double ec = Convert.ToDouble(dt.Rows[r]["s_ec"].ToString());
+                Double total = er + ee + ec;
+
+                row.Cells["dgvl_total_cont"].Value = gm.toAccountingFormat(total.ToString());
+
             }
         }
 
@@ -287,11 +294,16 @@ namespace Human_Resource_Information_System
         }
         public void compute_total()
         {
-            Double er = Convert.ToDouble(txt_empshare_sc.Text);
-            Double ee = Convert.ToDouble(txt_empshare_ec.Text);
-            Double ec = Convert.ToDouble(txt_s_ec.Text);
-            Double total = er + ee + ec;
-            txt_total.Text = total.ToString("0.00");
+            try
+            {
+                Double er = Convert.ToDouble(txt_empshare_sc.Text);
+                Double ee = Convert.ToDouble(txt_empshare_ec.Text);
+                Double ec = Convert.ToDouble(txt_s_ec.Text);
+                Double total = er + ee + ec;
+                txt_total.Text = total.ToString("0.00");
+            }
+            catch { }
+            
         }
     }
 }

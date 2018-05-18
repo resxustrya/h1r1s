@@ -50,13 +50,6 @@
             this.tbcntrl_main = new System.Windows.Forms.TabControl();
             this.tpg_list = new System.Windows.Forms.TabPage();
             this.dgv_list = new System.Windows.Forms.DataGridView();
-            this.dgvl_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvl_bracket1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvl_bracket2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvl_s_credit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvl_empshare_sc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvl_s_ec = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvl_empshare_ec = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpg_info = new System.Windows.Forms.TabPage();
             this.txt_total = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -81,6 +74,14 @@
             this.txt_code = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.dgvl_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvl_bracket1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvl_bracket2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvl_s_credit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvl_empshare_sc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvl_s_ec = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvl_empshare_ec = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvl_total_cont = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tbcntrl_option.SuspendLayout();
             this.tpg_opt_1.SuspendLayout();
@@ -316,7 +317,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(221, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(598, 506);
+            this.panel2.Size = new System.Drawing.Size(661, 506);
             this.panel2.TabIndex = 7;
             // 
             // tbcntrl_main
@@ -327,7 +328,7 @@
             this.tbcntrl_main.Location = new System.Drawing.Point(0, 0);
             this.tbcntrl_main.Name = "tbcntrl_main";
             this.tbcntrl_main.SelectedIndex = 0;
-            this.tbcntrl_main.Size = new System.Drawing.Size(598, 506);
+            this.tbcntrl_main.Size = new System.Drawing.Size(661, 506);
             this.tbcntrl_main.TabIndex = 7;
             this.tbcntrl_main.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbcntrl_main_Selecting);
             // 
@@ -337,7 +338,7 @@
             this.tpg_list.Location = new System.Drawing.Point(4, 27);
             this.tpg_list.Name = "tpg_list";
             this.tpg_list.Padding = new System.Windows.Forms.Padding(3);
-            this.tpg_list.Size = new System.Drawing.Size(590, 475);
+            this.tpg_list.Size = new System.Drawing.Size(653, 475);
             this.tpg_list.TabIndex = 1;
             this.tpg_list.Text = "SSS List";
             this.tpg_list.UseVisualStyleBackColor = true;
@@ -352,66 +353,15 @@
             this.dgvl_s_credit,
             this.dgvl_empshare_sc,
             this.dgvl_s_ec,
-            this.dgvl_empshare_ec});
+            this.dgvl_empshare_ec,
+            this.dgvl_total_cont});
             this.dgv_list.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_list.Location = new System.Drawing.Point(3, 3);
             this.dgv_list.Name = "dgv_list";
             this.dgv_list.RowHeadersWidth = 25;
             this.dgv_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_list.Size = new System.Drawing.Size(584, 469);
+            this.dgv_list.Size = new System.Drawing.Size(647, 469);
             this.dgv_list.TabIndex = 1;
-            // 
-            // dgvl_code
-            // 
-            this.dgvl_code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgvl_code.FillWeight = 51.61517F;
-            this.dgvl_code.HeaderText = "CODE";
-            this.dgvl_code.Name = "dgvl_code";
-            this.dgvl_code.ReadOnly = true;
-            // 
-            // dgvl_bracket1
-            // 
-            this.dgvl_bracket1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgvl_bracket1.FillWeight = 45.27816F;
-            this.dgvl_bracket1.HeaderText = "BRACKET 1";
-            this.dgvl_bracket1.Name = "dgvl_bracket1";
-            this.dgvl_bracket1.ReadOnly = true;
-            // 
-            // dgvl_bracket2
-            // 
-            this.dgvl_bracket2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgvl_bracket2.FillWeight = 45.27816F;
-            this.dgvl_bracket2.HeaderText = "BRACKET 2";
-            this.dgvl_bracket2.Name = "dgvl_bracket2";
-            this.dgvl_bracket2.ReadOnly = true;
-            // 
-            // dgvl_s_credit
-            // 
-            this.dgvl_s_credit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgvl_s_credit.FillWeight = 45.27816F;
-            this.dgvl_s_credit.HeaderText = "SALARY CREDIT";
-            this.dgvl_s_credit.Name = "dgvl_s_credit";
-            // 
-            // dgvl_empshare_sc
-            // 
-            this.dgvl_empshare_sc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgvl_empshare_sc.FillWeight = 51.61517F;
-            this.dgvl_empshare_sc.HeaderText = "EmployEE\'s share";
-            this.dgvl_empshare_sc.Name = "dgvl_empshare_sc";
-            // 
-            // dgvl_s_ec
-            // 
-            this.dgvl_s_ec.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgvl_s_ec.FillWeight = 58F;
-            this.dgvl_s_ec.HeaderText = "E.C.";
-            this.dgvl_s_ec.Name = "dgvl_s_ec";
-            // 
-            // dgvl_empshare_ec
-            // 
-            this.dgvl_empshare_ec.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgvl_empshare_ec.FillWeight = 45.27816F;
-            this.dgvl_empshare_ec.HeaderText = "EmployER\'s share";
-            this.dgvl_empshare_ec.Name = "dgvl_empshare_ec";
             // 
             // tpg_info
             // 
@@ -442,7 +392,7 @@
             this.tpg_info.Location = new System.Drawing.Point(4, 27);
             this.tpg_info.Name = "tpg_info";
             this.tpg_info.Padding = new System.Windows.Forms.Padding(3);
-            this.tpg_info.Size = new System.Drawing.Size(590, 475);
+            this.tpg_info.Size = new System.Drawing.Size(653, 475);
             this.tpg_info.TabIndex = 2;
             this.tpg_info.Text = "SSS Info";
             // 
@@ -681,12 +631,69 @@
             this.label10.TabIndex = 33;
             this.label10.Text = "Bracket 1";
             // 
+            // dgvl_code
+            // 
+            this.dgvl_code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvl_code.FillWeight = 51.61517F;
+            this.dgvl_code.HeaderText = "CODE";
+            this.dgvl_code.Name = "dgvl_code";
+            this.dgvl_code.ReadOnly = true;
+            // 
+            // dgvl_bracket1
+            // 
+            this.dgvl_bracket1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvl_bracket1.FillWeight = 45.27816F;
+            this.dgvl_bracket1.HeaderText = "BRACKET 1";
+            this.dgvl_bracket1.Name = "dgvl_bracket1";
+            this.dgvl_bracket1.ReadOnly = true;
+            // 
+            // dgvl_bracket2
+            // 
+            this.dgvl_bracket2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvl_bracket2.FillWeight = 45.27816F;
+            this.dgvl_bracket2.HeaderText = "BRACKET 2";
+            this.dgvl_bracket2.Name = "dgvl_bracket2";
+            this.dgvl_bracket2.ReadOnly = true;
+            // 
+            // dgvl_s_credit
+            // 
+            this.dgvl_s_credit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvl_s_credit.FillWeight = 45.27816F;
+            this.dgvl_s_credit.HeaderText = "SALARY CREDIT";
+            this.dgvl_s_credit.Name = "dgvl_s_credit";
+            // 
+            // dgvl_empshare_sc
+            // 
+            this.dgvl_empshare_sc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvl_empshare_sc.FillWeight = 51.61517F;
+            this.dgvl_empshare_sc.HeaderText = "EmployEE\'s share";
+            this.dgvl_empshare_sc.Name = "dgvl_empshare_sc";
+            // 
+            // dgvl_s_ec
+            // 
+            this.dgvl_s_ec.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvl_s_ec.FillWeight = 58F;
+            this.dgvl_s_ec.HeaderText = "E.C.";
+            this.dgvl_s_ec.Name = "dgvl_s_ec";
+            // 
+            // dgvl_empshare_ec
+            // 
+            this.dgvl_empshare_ec.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgvl_empshare_ec.FillWeight = 45.27816F;
+            this.dgvl_empshare_ec.HeaderText = "EmployER\'s share";
+            this.dgvl_empshare_ec.Name = "dgvl_empshare_ec";
+            // 
+            // dgvl_total_cont
+            // 
+            this.dgvl_total_cont.HeaderText = "TOTAL CONT.";
+            this.dgvl_total_cont.Name = "dgvl_total_cont";
+            // 
             // m_SSS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(819, 506);
+            this.ClientSize = new System.Drawing.Size(882, 506);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -761,6 +768,8 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txt_s_ec;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txt_total;
+        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvl_code;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvl_bracket1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvl_bracket2;
@@ -768,7 +777,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvl_empshare_sc;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvl_s_ec;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvl_empshare_ec;
-        private System.Windows.Forms.TextBox txt_total;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvl_total_cont;
     }
 }

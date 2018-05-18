@@ -48,6 +48,7 @@ namespace Human_Resource_Information_System
                 cbo_payollperiod.DroppedDown = true;
                 return;
             }
+           
             btn_submit.Enabled = false;
             pic_loading.Visible = true;
             bgworker.RunWorkerAsync();
@@ -63,6 +64,7 @@ namespace Human_Resource_Information_System
 
         private void bgworker_DoWork(object sender, DoWorkEventArgs e)
         {
+            
             String query = "", empid = "", date_from = "", date_to = "", pay_code = "", table = "hr_other_earnings_files", filename = "", code = "", col = "", val = "", date_in = "";
             DataTable pay_period = null;
 
@@ -133,21 +135,40 @@ namespace Human_Resource_Information_System
             document.Add(line_break_2);
 
 
-            PdfPTable t = new PdfPTable(9);
+
+            PdfPTable t = new PdfPTable(1);
             float[] widths = new float[] { 100};
             t.WidthPercentage = 100;
             t.SetWidths(widths);
 
-            
+            PdfPTable dis_earnings = new PdfPTable(2);
+            float[] _w2 = new float[] { 50, 50 };
+            dis_earnings.SetWidths(_w2);
 
-            for (int r = 0; r < employees.Rows.Count; r++)
+            foreach(DataRow _employees in employees.Rows)
             {
-                
-            }
-            
+                String fname = _employees["firstname"].ToString();
+                String lname = _employees["lastname"].ToString();
+                String empno = _employees["empid"].ToString();
+                dis_earnings.AddCell(new PdfPCell(new Phrase(fname + " " + lname)) { Colspan = 2});
 
+                DataTable hoe = db.QueryBySQLCode("SELECT * FROM rssys.hr_other_earnings");
+                foreach(DataRow _hoe in hoe.Rows)
+                {
+                    dis_earnings.AddCell(new PdfPCell(new Phrase(_hoe["description"].ToString())) { Colspan = 2 });
+                    DataTable hee = db.QueryBySQLCode("SELECT * FROM rssys.hr_earning_entry WHERE earning_code = '" + _hoe["code"].ToString() + "' AND payroll_period = '" + pay_code + "' AND emp_no = '" + empno + "'");
+                    foreach(DataRow _hee in hee.Rows)
+                    {
+                        dis_earnings.AddCell(new PdfPCell(new Phrase(_hee["amount"].ToString())) { Colspan = 2 });
+                    }
+                    
+                }
+            }
+
+            document.Add(dis_earnings);
             document.Add(t);
             document.Close();
+            
             code = db.get_pk("earning_id");
             col = "earning_id,filename,date_added";
             val = "'" + code + "','" + filename + "','" + DateTime.Now.ToShortDateString() + "'";
@@ -255,6 +276,48 @@ namespace Human_Resource_Information_System
             {
 
             }
+        }
+
+        private void btn_deletefile_Click(object sender, EventArgs e)
+        {
+            int r = -1;
+            String dtr_filename = "", earning_id = "";
+            //String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr\\";
+            String sys_dir = fileloc_dtr + "\\ViewController\\RPT\\Payroll\\other_earnings\\";
+            try
+            {
+                if (dgvl_other_earnings.Rows.Count > 1)
+                {
+                    r = dgvl_other_earnings.CurrentRow.Index;
+
+                    try
+                    {
+                        dtr_filename = dgvl_other_earnings["filename", r].Value.ToString();
+                        earning_id = dgvl_other_earnings["earning_id", r].Value.ToString();
+                        DialogResult result = MessageBox.Show("Are you sure you want to delete this file?", "Confirmation", MessageBoxButtons.YesNo);
+                        if (result == DialogResult.Yes)
+                        {
+                            File.Delete(sys_dir + dtr_filename);
+                            String query = "DELETE FROM rssys.hr_other_earnings_files WHERE earning_id = '" + earning_id + "'";
+                            db.QueryBySQLCode(query);
+                            MessageBox.Show("File successfully deleted");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Failed to remove file. It may not exist");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Empty files.");
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            display_list();
         }
     }
 }

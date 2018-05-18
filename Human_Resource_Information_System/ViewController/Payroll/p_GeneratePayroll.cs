@@ -59,7 +59,7 @@ namespace Human_Resource_Information_System
                         late = dtr.Rows[r]["late"].ToString();
                         undertime = dtr.Rows[r]["undertime"].ToString();
                         overtime = dtr.Rows[r]["total_overtime"].ToString();
-
+                        
                         legal_hol_ot = get_legal_hol_ot(empid,ppid);
                         special_hol_ot = get_special_hol_ot(empid, ppid);
                         dayoff_ot_total = get_dayoff_ot_total(empid, ppid);

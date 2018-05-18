@@ -147,6 +147,25 @@ namespace Human_Resource_Information_System
                 MessageBox.Show(ex.Message);
             }
         }
+
+        public void load_cbo_sss(ComboBox cbo)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                thisDatabase db = new thisDatabase();
+
+                dt = db.QueryBySQLCode("SELECT code,s_credit FROM rssys.hr_sss ORDER BY s_credit");
+                cbo.DataSource = dt;
+                cbo.DisplayMember = "s_credit";
+                cbo.ValueMember = "code";
+                cbo.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         public void set_cbo_selectedvalue(ComboBox cbo, String selectedvalue)
         {
             //try

@@ -155,7 +155,7 @@ namespace Human_Resource_Information_System
             int days_worked = 0;
             try
             {
-                payroll = db.QueryBySQLCode("SELECT ep.*,emp.fixed_rate,emp.empid,emp.dayoff1,emp.dayoff2,emp.shift_sched_from,emp.shift_sched_to,emp.pay_rate,rt.*,CONCAT(emp.firstname, ' ',emp.lastname) as name, CONCAT(to_char(p.date_from, 'mm/dd/yyyy'),' To ',to_char(p.date_to, 'mm/dd/yyyy')) as period FROM rssys.hr_emp_payroll ep LEFT JOIN rssys.hr_employee emp ON emp.empid = ep.empid LEFT JOIN rssys.hr_payrollpariod p ON p.pay_code = ep.ppid LEFT JOIN rssys.hr_rate_type rt ON rt.ratecode = emp.rate_type WHERE emp.empid = '" + empid + "' and ep.emp_pay_code = '" + pay_code + "' ORDER BY p.date_from,p.date_to ASC  ");
+                payroll = db.QueryBySQLCode("SELECT ep.*,emp.fixed_rate,emp.empid,emp.dayoff1,emp.dayoff2,emp.shift_sched_from,emp.shift_sched_to,emp.pay_rate,rt.*,CONCAT(emp.firstname, ' ',emp.lastname) as name, CONCAT(to_char(p.date_from, 'mm/dd/yyyy'),' To ',to_char(p.date_to, 'mm/dd/yyyy')) as period,p.d_sss_c,p.d_philhealth,p.d_pagibig FROM rssys.hr_emp_payroll ep LEFT JOIN rssys.hr_employee emp ON emp.empid = ep.empid LEFT JOIN rssys.hr_payrollpariod p ON p.pay_code = ep.ppid LEFT JOIN rssys.hr_rate_type rt ON rt.ratecode = emp.rate_type WHERE emp.empid = '" + empid + "' and ep.emp_pay_code = '" + pay_code + "' ORDER BY p.date_from,p.date_to ASC  ");
                 if(payroll.Rows.Count > 0)
                 {
 
@@ -170,11 +170,24 @@ namespace Human_Resource_Information_System
                         //Convert.ToDouble(dt.Rows[0]["pay_rate"]).ToString("N", new CultureInfo("en-US")); }
 
                         txt_pay_rate.Text = (payroll.Rows[0]["pay_rate"]??"0.00").ToString();
+
                         txt_rate_type.Text = (payroll.Rows[0]["description"]??"0.00").ToString();
                         txt_dayswoked.Text = Convert.ToDouble((payroll.Rows[0]["days_worked"]??"0.00").ToString()).ToString("0.00");
                         txt_absent.Text = Convert.ToDouble((payroll.Rows[0]["abcences"]??"0").ToString()).ToString("0.00");
+                        if(payroll.Rows[0]["d_sss_c"].ToString() == "Y")
+                        {
+                            txt_sss_a.Text = get_sss_deduction(empid);
+                        }
+                        
+                        if(payroll.Rows[0]["d_philhealth"].ToString() == "Y")
+                        {
+                            txt_philhealth_a.Text = get_philhealth_deduction(txt_pay_rate.Text);
+                        }
 
-                        txt_sss_a.Text = (payroll.Rows[0]["sss_cont_a"] ?? "0.00").ToString(); txt_sss_a.Text = (payroll.Rows[0]["sss_cont_a"]??"0.00").ToString();
+                        if(payroll.Rows[0]["d_pagibig"].ToString() == "Y")
+                        {
+                            txt_pagibig_a.Text = get_pagibig_deduction(txt_pay_rate.Text);
+                        }
 
                         if (payroll.Rows[0]["late"].ToString() == "" && payroll.Rows[0]["undertime"].ToString() == "")
                         {
@@ -342,9 +355,9 @@ namespace Human_Resource_Information_System
                    
                     //txt_sss_b.Text = (payroll.Rows[0]["sss_cont_b"]??"0.00").ToString();
                     //txt_sss_con_c.Text = (payroll.Rows[0]["sss_cont_c"]??"0.00").ToString();
-                    txt_philhealth_a.Text = (payroll.Rows[0]["philhealth_cont_a"]??"0.00").ToString();
+                    //txt_philhealth_a.Text = (payroll.Rows[0]["philhealth_cont_a"]??"0.00").ToString();
                     //txt_philhealth_b.Text = (payroll.Rows[0]["philhealth_cont_b"]??"0.00").ToString();
-                    txt_pagibig_a.Text = (payroll.Rows[0]["pag_ibig_a"]??"0.00").ToString();
+                    //txt_pagibig_a.Text = (payroll.Rows[0]["pag_ibig_a"]??"0.00").ToString();
                     //txt_pagibig_b.Text = payroll.Rows[0]["pag_ibig_b"].ToString();
                     txt_wtax.Text = (payroll.Rows[0]["w_tax"]??"0.00").ToString();
                     txt_other_deductions.Text = (payroll.Rows[0]["other_deduction"]??"0.00").ToString();
@@ -1066,6 +1079,56 @@ namespace Human_Resource_Information_System
             }
             catch { }
             return dt;
+        }
+        public String get_sss_deduction(String empid)
+        {
+            Double total = 0;
+            DataTable sss = null;
+            String code = "";
+            Double ee = 0.00, ec = 0.00, er = 0.00;
+            try
+            {
+                DataTable dt = db.QueryBySQLCode("SELECT sss_table FROM rssys.hr_employee WHERE empid = '" + empid + "' LIMIT 1");
+                if (dt.Rows.Count > 0)
+                {
+                    code = dt.Rows[0]["sss_table"].ToString();
+                    sss = db.QueryBySQLCode("SELECT * FROM rssys.hr_sss WHERE code = '" + code + "'");
+                    er = Convert.ToDouble(sss.Rows[0]["empshare_sc"].ToString());
+                    ee = Convert.ToDouble(sss.Rows[0]["empshare_ec"].ToString());
+                    ec = Convert.ToDouble(sss.Rows[0]["s_ec"].ToString());
+                    //total = er + ee + ec;
+                }
+                
+            }catch(Exception ex)
+            {
+                //MessageBox.Show("get_sss" + ex.Message);
+            }
+            return gm.toAccountingFormat(ee);
+        }
+        public String get_philhealth_deduction(String pay_rate)
+        {
+            Double result = 0.00;
+            Double payrate = Convert.ToDouble(pay_rate);
+            
+            result = (2.75 / 100) * payrate;
+
+            return gm.toAccountingFormat(result / 2 );
+        }
+
+        public String get_pagibig_deduction(String pay_rate)
+        {
+            Double result = 0.00;
+            Double payrate = Convert.ToDouble(pay_rate);
+
+            if(payrate <= 1500.00)
+            {
+                result = (1 / 100) * payrate;
+            }else if(payrate > 1500.00)
+            {
+                result = (2 / 100) * payrate;
+            }
+
+            return gm.toAccountingFormat(result);
         }
     }
 }

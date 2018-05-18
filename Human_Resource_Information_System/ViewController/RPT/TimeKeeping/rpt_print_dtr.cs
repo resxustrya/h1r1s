@@ -232,8 +232,8 @@ namespace Human_Resource_Information_System
         {
             int r = -1;
             String dtr_filename = "";
-            // String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr\\";
-            String sys_dir = fileloc_dtr + "\\ViewController\\RPT\\TimeKeeping\\dtr_pdf\\";
+            String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr\\";
+            //String sys_dir = fileloc_dtr + "\\ViewController\\RPT\\TimeKeeping\\dtr_pdf\\";
 
 
             try
@@ -354,9 +354,9 @@ namespace Human_Resource_Information_System
                 filename = RandomString(5) + "_" + DateTime.Now.ToString("yyyy-MM-dd");
                 filename += ".pdf";
 
-                // System.IO.FileStream fs = new FileStream("\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr\\" + filename, FileMode.Create);
+                System.IO.FileStream fs = new FileStream("\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr\\" + filename, FileMode.Create);
 
-                System.IO.FileStream fs = new FileStream(fileloc_dtr + "\\ViewController\\RPT\\TimeKeeping\\dtr_pdf\\" + filename, FileMode.Create);
+                //System.IO.FileStream fs = new FileStream(fileloc_dtr + "\\ViewController\\RPT\\TimeKeeping\\dtr_pdf\\" + filename, FileMode.Create);
                 Document document = new Document(PageSize.LEGAL, 25, 25, 30, 30);
 
                 PdfWriter.GetInstance(document, fs);

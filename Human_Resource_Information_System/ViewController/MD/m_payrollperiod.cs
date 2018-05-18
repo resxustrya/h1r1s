@@ -133,7 +133,7 @@ namespace Human_Resource_Information_System
                 DataTable dt = new DataTable();
 
 
-                dt = db.QueryBySQLCode("SELECT * FROM rssys.hr_payroll_classic WHERE COALESCE(cancel,cancel,'')<>'Y'");
+                dt = db.QueryBySQLCode("SELECT * FROM rssys.hr_payroll_classic");
                 if (dt.Rows.Count > 0)
                 {
                     cbo_payroll_classic.DataSource = dt;
@@ -180,13 +180,13 @@ namespace Human_Resource_Information_System
                 MessageBox.Show("Please enter the required fields.");
                 return;
             }
-
+            /*
             if(cbo_payroll_classic.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select payroll classification.");
                 return;
             }
-            
+            */
             if (cbo_dw_tax.SelectedIndex == 0)
             {
                 d_w_tax = "Y";

@@ -522,8 +522,8 @@ namespace Human_Resource_Information_System
         {
             int r = -1;
             String dtr_filename = "";
-            //String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr_summary\\";
-            String sys_dir = fileloc_dtr + "\\ViewController\\RPT\\TimeKeeping\\dtr_summary_pdf\\";
+            String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr_summary\\";
+            //String sys_dir = fileloc_dtr + "\\ViewController\\RPT\\TimeKeeping\\dtr_summary_pdf\\";
             try
             {
                 if (dgvl_dtr_sum_files.Rows.Count > 1)
@@ -655,8 +655,8 @@ namespace Human_Resource_Information_System
             filename += ".pdf";
 
 
-            //System.IO.FileStream fs = new FileStream("\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr_summary\\" + filename, FileMode.Create);
-            System.IO.FileStream fs = new FileStream(fileloc_dtr + "\\ViewController\\RPT\\TimeKeeping\\dtr_summary_pdf\\" + filename, FileMode.Create);
+            System.IO.FileStream fs = new FileStream("\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr_summary\\" + filename, FileMode.Create);
+            //System.IO.FileStream fs = new FileStream(fileloc_dtr + "\\ViewController\\RPT\\TimeKeeping\\dtr_summary_pdf\\" + filename, FileMode.Create);
 
 
 
