@@ -112,7 +112,7 @@
             this.tpg_opt_1.Controls.Add(this.panel5);
             this.tpg_opt_1.Location = new System.Drawing.Point(4, 4);
             this.tpg_opt_1.Name = "tpg_opt_1";
-            this.tpg_opt_1.Size = new System.Drawing.Size(189, 491);
+            this.tpg_opt_1.Size = new System.Drawing.Size(189, 488);
             this.tpg_opt_1.TabIndex = 2;
             this.tpg_opt_1.UseVisualStyleBackColor = true;
             // 
@@ -124,7 +124,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(189, 491);
+            this.panel5.Size = new System.Drawing.Size(189, 488);
             this.panel5.TabIndex = 0;
             // 
             // groupBox4
@@ -168,6 +168,7 @@
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_cancel.UseVisualStyleBackColor = false;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_upd
             // 
@@ -204,7 +205,7 @@
             this.groupBox5.Controls.Add(this.textBox15);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox5.ForeColor = System.Drawing.SystemColors.Info;
-            this.groupBox5.Location = new System.Drawing.Point(0, 337);
+            this.groupBox5.Location = new System.Drawing.Point(0, 334);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(189, 154);
             this.groupBox5.TabIndex = 63;
@@ -219,7 +220,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(18, 21);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(158, 23);
+            this.comboBox1.Size = new System.Drawing.Size(158, 26);
             this.comboBox1.TabIndex = 61;
             // 
             // btn_search
@@ -239,7 +240,7 @@
             this.textBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox15.Location = new System.Drawing.Point(18, 51);
             this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(158, 26);
+            this.textBox15.Size = new System.Drawing.Size(158, 30);
             this.textBox15.TabIndex = 59;
             // 
             // tpg_opt_2
@@ -247,7 +248,7 @@
             this.tpg_opt_2.Controls.Add(this.panel9);
             this.tpg_opt_2.Location = new System.Drawing.Point(4, 4);
             this.tpg_opt_2.Name = "tpg_opt_2";
-            this.tpg_opt_2.Size = new System.Drawing.Size(189, 491);
+            this.tpg_opt_2.Size = new System.Drawing.Size(189, 488);
             this.tpg_opt_2.TabIndex = 3;
             this.tpg_opt_2.UseVisualStyleBackColor = true;
             // 
@@ -258,7 +259,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(189, 491);
+            this.panel9.Size = new System.Drawing.Size(189, 488);
             this.panel9.TabIndex = 1;
             // 
             // groupBox8
@@ -367,10 +368,10 @@
             // tpg_list
             // 
             this.tpg_list.Controls.Add(this.panel7);
-            this.tpg_list.Location = new System.Drawing.Point(4, 24);
+            this.tpg_list.Location = new System.Drawing.Point(4, 27);
             this.tpg_list.Name = "tpg_list";
             this.tpg_list.Padding = new System.Windows.Forms.Padding(3);
-            this.tpg_list.Size = new System.Drawing.Size(827, 491);
+            this.tpg_list.Size = new System.Drawing.Size(827, 488);
             this.tpg_list.TabIndex = 0;
             this.tpg_list.Text = "Other Earning Entry List";
             this.tpg_list.UseVisualStyleBackColor = true;
@@ -383,7 +384,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(821, 485);
+            this.panel7.Size = new System.Drawing.Size(821, 482);
             this.panel7.TabIndex = 0;
             // 
             // groupBox6
@@ -394,7 +395,7 @@
             this.groupBox6.ForeColor = System.Drawing.SystemColors.ControlText;
             this.groupBox6.Location = new System.Drawing.Point(0, 51);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(821, 434);
+            this.groupBox6.Size = new System.Drawing.Size(821, 431);
             this.groupBox6.TabIndex = 58;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Employee List";
@@ -411,12 +412,12 @@
             this.dgvl_amount,
             this.dgvl_earning});
             this.dgv_list.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_list.Location = new System.Drawing.Point(3, 18);
+            this.dgv_list.Location = new System.Drawing.Point(3, 22);
             this.dgv_list.Name = "dgv_list";
             this.dgv_list.ReadOnly = true;
             this.dgv_list.RowHeadersVisible = false;
             this.dgv_list.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_list.Size = new System.Drawing.Size(815, 413);
+            this.dgv_list.Size = new System.Drawing.Size(815, 406);
             this.dgv_list.TabIndex = 2;
             // 
             // dgvl_code
@@ -487,7 +488,7 @@
             this.cbo_earnings_code.FormattingEnabled = true;
             this.cbo_earnings_code.Location = new System.Drawing.Point(491, 17);
             this.cbo_earnings_code.Name = "cbo_earnings_code";
-            this.cbo_earnings_code.Size = new System.Drawing.Size(185, 23);
+            this.cbo_earnings_code.Size = new System.Drawing.Size(185, 26);
             this.cbo_earnings_code.TabIndex = 3;
             this.cbo_earnings_code.SelectedIndexChanged += new System.EventHandler(this.cbo_earnings_code_SelectedIndexChanged);
             // 
@@ -496,7 +497,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(402, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 15);
+            this.label2.Size = new System.Drawing.Size(106, 18);
             this.label2.TabIndex = 2;
             this.label2.Text = "Earnings Code";
             // 
@@ -505,7 +506,7 @@
             this.cbo_payroll_period.FormattingEnabled = true;
             this.cbo_payroll_period.Location = new System.Drawing.Point(183, 17);
             this.cbo_payroll_period.Name = "cbo_payroll_period";
-            this.cbo_payroll_period.Size = new System.Drawing.Size(185, 23);
+            this.cbo_payroll_period.Size = new System.Drawing.Size(185, 26);
             this.cbo_payroll_period.TabIndex = 1;
             this.cbo_payroll_period.SelectedIndexChanged += new System.EventHandler(this.cbo_payroll_period_SelectedIndexChanged);
             // 
@@ -514,13 +515,13 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(94, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 15);
+            this.label1.Size = new System.Drawing.Size(100, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Payroll Period";
             // 
             // p_OtherEarningEntry
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(1032, 519);

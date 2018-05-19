@@ -67,7 +67,7 @@ namespace Human_Resource_Information_System
             
             String query = "", empid = "", date_from = "", date_to = "", pay_code = "", table = "hr_other_earnings_files", filename = "", code = "", col = "", val = "", date_in = "";
             DataTable pay_period = null;
-
+            Double total_earnings = 0.00;
 
             query = "SELECT empid, firstname, lastname FROM rssys.hr_employee";
             cbo_employee.Invoke(new Action(() => {
@@ -145,7 +145,7 @@ namespace Human_Resource_Information_System
 
             foreach(DataRow _employees in employees.Rows)
             {
-                
+                total_earnings = 0.00;
                 String fname = _employees["firstname"].ToString();
                 String lname = _employees["lastname"].ToString();
                 String empno = _employees["empid"].ToString();
@@ -165,9 +165,12 @@ namespace Human_Resource_Information_System
                             foreach (DataRow _hee in hee.Rows)
                             {
                                 dis_earnings.AddCell(new PdfPCell(new Paragraph(_hee["amount"].ToString())) { PaddingLeft = 40f, Colspan = 2, Border = 0 });
+                                total_earnings += Convert.ToDouble(_hee["amount"].ToString());
                             }
                         }
+                        dis_earnings.AddCell(new PdfPCell(new Paragraph("Total Earnings : " + total_earnings.ToString("0.00"))) { Colspan = 2, Border = 0 });
                     }
+
                 }catch(Exception ex)
                 {
                     MessageBox.Show(ex.Message);

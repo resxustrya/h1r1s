@@ -122,5 +122,27 @@ namespace Human_Resource_Information_System
         {
 
         }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            int r = 0;
+            String code;
+            if (dgv_list.Rows.Count > 1)
+            {
+                r = dgv_list.CurrentRow.Index;
+                code = dgv_list["dgvl_code", r].Value.ToString();
+                DialogResult result = MessageBox.Show("Are you sure you want to cancel this entry?", "Confirmation", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    db.QueryBySQLCode("DELETE FROM rssys.hr_earning_entry WHERE entcode = '" + code + "'");
+                    disp_list();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("No records to be selected.");
+            }
+        }
     }
 }
