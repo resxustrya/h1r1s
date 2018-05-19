@@ -32,12 +32,14 @@ namespace Human_Resource_Information_System
 
         private void bg_worker_DoWork(object sender, DoWorkEventArgs e)
         {
-            String table = "hr_emp_payroll", col = "", val = "", emp_pay_code = "";
+            String table = "hr_emp_payroll", col = "", val = "", emp_pay_code = "", sss = "", philhealth = "", pagibig = "", other_earnings = "", other_deductions = "";
             String summ_code = "", empid = "", days_worked = "", absences = "", late = "", undertime = "", overtime = "", ppid = "";
             Double total_late = 0.00, total_under_time = 0.00, total_overtime = 0.00, legal_hol_ot = 0.00, special_hol_ot=0.00,dayoff_ot_total = 0.00;
             DataTable dtr = get_generated_dtr();
             Boolean success = false;
             int bar = 1;
+            
+            DataTable payroll =  db.QueryBySQLCode("SELECT DISTINCT(dtr.ppid), pp.d_sss_c,pp.d_philhealth,pp.d_pagibig from rssys.hr_dtr_sum_employees dtr LEFT JOIN rssys.hr_payrollpariod pp on dtr.ppid = pp.pay_code WHERE dtr.isgenerated = '0'");
 
             DataTable holidays = null;
             if (dtr.Rows.Count > 0)
@@ -90,10 +92,30 @@ namespace Human_Resource_Information_System
                             total_overtime = 0.00;
                         }
                         
-                        emp_pay_code = db.get_pk("emp_pay_code");
-                        col = "emp_pay_code,empid,days_worked,abcences,late,undertime,overtime,regular_ot_a,ppid,legal_hol_ot_a,special_hol_ot_a,dayoff_ot_a";
-                        val = "'" + emp_pay_code + "','" + empid + "','" + days_worked + "','" + absences + "','" + total_late.ToString("0.00") + "','" + total_under_time.ToString("0.00") + "','" + total_overtime.ToString("0.00") + "','" + total_overtime.ToString("0.00") + "','" + ppid + "','" +legal_hol_ot.ToString("0.00") + "','" + special_hol_ot.ToString("0.00") +"','" + dayoff_ot_total.ToString("0.00") + "'";
+                        DataTable emp_payrate = db.QueryBySQLCode("SELECT pay_rate FROM rssys.hr_employee WHERE empid = '" + empid + "'");
+                        
+                        if (payroll.Rows[0]["d_sss_c"].ToString() == "Y")
+                        {
+                            sss = get_sss_deduction(empid);
+                        }
 
+                        if (payroll.Rows[0]["d_philhealth"].ToString() == "Y")
+                        {
+                            philhealth = get_philhealth_deduction(emp_payrate.Rows[0]["pay_rate"].ToString());
+                        }
+
+                        if (payroll.Rows[0]["d_pagibig"].ToString() == "Y")
+                        {
+                            pagibig = get_pagibig_deduction(emp_payrate.Rows[0]["pay_rate"].ToString());
+                        }
+
+                        other_earnings = get_other_earnings(empid, ppid);
+                        other_deductions = get_other_deductions(empid, ppid);
+                        
+                        emp_pay_code = db.get_pk("emp_pay_code");
+                        col = "emp_pay_code,empid,days_worked,abcences,late,undertime,overtime,regular_ot_a,ppid,legal_hol_ot_a,special_hol_ot_a,dayoff_ot_a,sss_cont_a,philhealth_cont_a,pag_ibig_a,other_earnings,other_deduction";
+                        val = "'" + emp_pay_code + "','" + empid + "','" + days_worked + "','" + absences + "','" + total_late.ToString("0.00") + "','" + total_under_time.ToString("0.00") + "','" + total_overtime.ToString("0.00") + "','" + total_overtime.ToString("0.00") + "','" + ppid + "','" +legal_hol_ot.ToString("0.00") + "','" + special_hol_ot.ToString("0.00") +"','" + dayoff_ot_total.ToString("0.00") + "','" + sss + "','" + philhealth + "','" + pagibig + "','" + other_earnings + "','" + other_deductions + "'";
+                        
                         if (db.InsertOnTable(table, col, val))
                         {
                             col = "isgenerated='1'";
@@ -406,5 +428,80 @@ namespace Human_Resource_Information_System
             catch { }
 
         }
+
+        public String get_sss_deduction(String empid)
+        {
+            Double total = 0;
+            DataTable sss = null;
+            String code = "";
+            Double ee = 0.00, ec = 0.00, er = 0.00;
+            try
+            {
+                DataTable dt = db.QueryBySQLCode("SELECT sss_table FROM rssys.hr_employee WHERE empid = '" + empid + "' LIMIT 1");
+                if (dt.Rows.Count > 0)
+                {
+                    code = dt.Rows[0]["sss_table"].ToString();
+                    sss = db.QueryBySQLCode("SELECT * FROM rssys.hr_sss WHERE code = '" + code + "'");
+                    er = Convert.ToDouble(sss.Rows[0]["empshare_sc"].ToString());
+                    ee = Convert.ToDouble(sss.Rows[0]["empshare_ec"].ToString());
+                    ec = Convert.ToDouble(sss.Rows[0]["s_ec"].ToString());
+                    //total = er + ee + ec;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("get_sss" + ex.Message);
+            }
+            return ee.ToString("0.00");
+        }
+        public String get_philhealth_deduction(String pay_rate)
+        {
+            Double result = 0.00;
+            Double payrate = Convert.ToDouble(pay_rate);
+
+            result = (2.75 / 100) * payrate;
+            result = result / 2.00;
+            return result.ToString("0.00");
+        }
+
+        public String get_pagibig_deduction(String pay_rate)
+        {
+            Double result = 0;
+            Double payrate = Convert.ToDouble(pay_rate);
+
+            if (payrate <= 1500.00)
+            {
+                result = (1.00 / 100) * payrate;
+            }
+            else if (payrate > 1500.00)
+            {
+                result = (2.00 / 100) * payrate;
+            }
+
+            return result.ToString("0.00");
+        }
+
+        public String get_other_earnings(String empid, String ppid)
+        {
+            Double result = 0.00;
+            DataTable hee = db.QueryBySQLCode("SELECT amount FROM rssys.hr_earning_entry WHERE  payroll_period = '" + ppid + "' AND emp_no = '" + empid + "'");
+            foreach (DataRow _hee in hee.Rows)
+            {
+                result += Convert.ToDouble(_hee["amount"].ToString());
+            }
+            return result.ToString("0.00");
+        }
+        public String get_other_deductions(String empid, String ppid)
+        {
+            Double result = 0.00;
+            DataTable hee = db.QueryBySQLCode("SELECT amount FROM rssys.hr_deduction_entry WHERE  payroll_period = '" + ppid + "' AND emp_no = '" + empid + "'");
+            foreach (DataRow _hee in hee.Rows)
+            {
+                result += Convert.ToDouble(_hee["amount"].ToString());
+            }
+            return result.ToString("0.00");
+        }
+
     }
 }

@@ -120,7 +120,7 @@
             this.tpg_list.Padding = new System.Windows.Forms.Padding(4);
             this.tpg_list.Size = new System.Drawing.Size(1333, 638);
             this.tpg_list.TabIndex = 0;
-            this.tpg_list.Text = "Generated Payroll List";
+            this.tpg_list.Text = "Other Earnings PDF Reports";
             this.tpg_list.UseVisualStyleBackColor = true;
             // 
             // panel7

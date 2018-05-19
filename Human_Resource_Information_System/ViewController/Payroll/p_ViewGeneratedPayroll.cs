@@ -174,10 +174,13 @@ namespace Human_Resource_Information_System
                         txt_rate_type.Text = (payroll.Rows[0]["description"]??"0.00").ToString();
                         txt_dayswoked.Text = Convert.ToDouble((payroll.Rows[0]["days_worked"]??"0.00").ToString()).ToString("0.00");
                         txt_absent.Text = Convert.ToDouble((payroll.Rows[0]["abcences"]??"0").ToString()).ToString("0.00");
-                        if(payroll.Rows[0]["d_sss_c"].ToString() == "Y")
+
+                        /*
+                        if (payroll.Rows[0]["d_sss_c"].ToString() == "Y")
                         {
                             txt_sss_a.Text = get_sss_deduction(empid);
                         }
+                        
                         
                         if(payroll.Rows[0]["d_philhealth"].ToString() == "Y")
                         {
@@ -188,6 +191,7 @@ namespace Human_Resource_Information_System
                         {
                             txt_pagibig_a.Text = get_pagibig_deduction(txt_pay_rate.Text);
                         }
+                        */
 
                         if (payroll.Rows[0]["late"].ToString() == "" && payroll.Rows[0]["undertime"].ToString() == "")
                         {
@@ -353,11 +357,11 @@ namespace Human_Resource_Information_System
                     txt_night_diff_b.Text = (payroll.Rows[0]["night_diff_b"] ?? "0.00").ToString();
                     txt_other_earning.Text = (payroll.Rows[0]["other_earnings"]??"0.00").ToString();
                    
-                    //txt_sss_b.Text = (payroll.Rows[0]["sss_cont_b"]??"0.00").ToString();
+                    txt_sss_a.Text = (payroll.Rows[0]["sss_cont_a"]??"0.00").ToString();
                     //txt_sss_con_c.Text = (payroll.Rows[0]["sss_cont_c"]??"0.00").ToString();
-                    //txt_philhealth_a.Text = (payroll.Rows[0]["philhealth_cont_a"]??"0.00").ToString();
+                    txt_philhealth_a.Text = (payroll.Rows[0]["philhealth_cont_a"]??"0.00").ToString();
                     //txt_philhealth_b.Text = (payroll.Rows[0]["philhealth_cont_b"]??"0.00").ToString();
-                    //txt_pagibig_a.Text = (payroll.Rows[0]["pag_ibig_a"]??"0.00").ToString();
+                    txt_pagibig_a.Text = (payroll.Rows[0]["pag_ibig_a"]??"0.00").ToString();
                     //txt_pagibig_b.Text = payroll.Rows[0]["pag_ibig_b"].ToString();
                     txt_wtax.Text = (payroll.Rows[0]["w_tax"]??"0.00").ToString();
                     txt_other_deductions.Text = (payroll.Rows[0]["other_deduction"]??"0.00").ToString();
@@ -1117,15 +1121,15 @@ namespace Human_Resource_Information_System
 
         public String get_pagibig_deduction(String pay_rate)
         {
-            Double result = 0.00;
+            Double result = 0;
             Double payrate = Convert.ToDouble(pay_rate);
 
             if(payrate <= 1500.00)
             {
-                result = (1 / 100) * payrate;
+                result = (1.00 / 100) * payrate;
             }else if(payrate > 1500.00)
             {
-                result = (2 / 100) * payrate;
+                result = (2.00 / 100) * payrate;
             }
 
             return gm.toAccountingFormat(result);
