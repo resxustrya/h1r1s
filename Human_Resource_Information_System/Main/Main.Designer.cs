@@ -560,7 +560,7 @@
             this.dailyTimelogRecordToolStripMenuItem,
             this.absencesLateAndTardinessToolStripMenuItem});
             this.timekeepingToolStripMenuItem.Name = "timekeepingToolStripMenuItem";
-            this.timekeepingToolStripMenuItem.Size = new System.Drawing.Size(302, 26);
+            this.timekeepingToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
             this.timekeepingToolStripMenuItem.Text = "Timekeeping";
             // 
             // dTRToolStripMenuItem
@@ -603,7 +603,7 @@
             this.cummulativePayrollReportToolStripMenuItem,
             this.leaveBalancesReportToolStripMenuItem});
             this.payrollToolStripMenuItem.Name = "payrollToolStripMenuItem";
-            this.payrollToolStripMenuItem.Size = new System.Drawing.Size(302, 26);
+            this.payrollToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
             this.payrollToolStripMenuItem.Text = "Payroll";
             // 
             // witholdingTaxSummaryToolStripMenuItem
@@ -659,7 +659,7 @@
             // employeeRegisterToolStripMenuItem
             // 
             this.employeeRegisterToolStripMenuItem.Name = "employeeRegisterToolStripMenuItem";
-            this.employeeRegisterToolStripMenuItem.Size = new System.Drawing.Size(302, 26);
+            this.employeeRegisterToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
             this.employeeRegisterToolStripMenuItem.Text = "Employee Register";
             this.employeeRegisterToolStripMenuItem.Visible = false;
             this.employeeRegisterToolStripMenuItem.Click += new System.EventHandler(this.employeeRegisterToolStripMenuItem_Click);
@@ -667,70 +667,70 @@
             // payrollSummaryReportToolStripMenuItem
             // 
             this.payrollSummaryReportToolStripMenuItem.Name = "payrollSummaryReportToolStripMenuItem";
-            this.payrollSummaryReportToolStripMenuItem.Size = new System.Drawing.Size(302, 26);
+            this.payrollSummaryReportToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
             this.payrollSummaryReportToolStripMenuItem.Text = "Payroll Summary Report";
             this.payrollSummaryReportToolStripMenuItem.Click += new System.EventHandler(this.payrollSummaryReportToolStripMenuItem_Click);
             // 
             // payslipToolStripMenuItem
             // 
             this.payslipToolStripMenuItem.Name = "payslipToolStripMenuItem";
-            this.payslipToolStripMenuItem.Size = new System.Drawing.Size(302, 26);
+            this.payslipToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
             this.payslipToolStripMenuItem.Text = "Payslip";
             this.payslipToolStripMenuItem.Click += new System.EventHandler(this.payslipToolStripMenuItem_Click);
             // 
             // employeeListingToolStripMenuItem
             // 
             this.employeeListingToolStripMenuItem.Name = "employeeListingToolStripMenuItem";
-            this.employeeListingToolStripMenuItem.Size = new System.Drawing.Size(302, 26);
+            this.employeeListingToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
             this.employeeListingToolStripMenuItem.Text = "Employee Listing";
             this.employeeListingToolStripMenuItem.Click += new System.EventHandler(this.employeeListingToolStripMenuItem_Click);
             // 
             // otherIncomeToolStripMenuItem
             // 
             this.otherIncomeToolStripMenuItem.Name = "otherIncomeToolStripMenuItem";
-            this.otherIncomeToolStripMenuItem.Size = new System.Drawing.Size(302, 26);
+            this.otherIncomeToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
             this.otherIncomeToolStripMenuItem.Text = "Other Income/Earnings Summary";
             this.otherIncomeToolStripMenuItem.Click += new System.EventHandler(this.otherIncomeToolStripMenuItem_Click);
             // 
             // otherDeductionToolStripMenuItem
             // 
             this.otherDeductionToolStripMenuItem.Name = "otherDeductionToolStripMenuItem";
-            this.otherDeductionToolStripMenuItem.Size = new System.Drawing.Size(302, 26);
+            this.otherDeductionToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
             this.otherDeductionToolStripMenuItem.Text = "Other Deduction";
             this.otherDeductionToolStripMenuItem.Click += new System.EventHandler(this.otherDeductionToolStripMenuItem_Click);
             // 
             // employeeLoanSummaryToolStripMenuItem
             // 
             this.employeeLoanSummaryToolStripMenuItem.Name = "employeeLoanSummaryToolStripMenuItem";
-            this.employeeLoanSummaryToolStripMenuItem.Size = new System.Drawing.Size(302, 26);
+            this.employeeLoanSummaryToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
             this.employeeLoanSummaryToolStripMenuItem.Text = "Employee Loan History";
             // 
             // otherDeductionPerEmployeeToolStripMenuItem
             // 
             this.otherDeductionPerEmployeeToolStripMenuItem.Name = "otherDeductionPerEmployeeToolStripMenuItem";
-            this.otherDeductionPerEmployeeToolStripMenuItem.Size = new System.Drawing.Size(302, 26);
+            this.otherDeductionPerEmployeeToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
             this.otherDeductionPerEmployeeToolStripMenuItem.Text = "Other Deduction per Employee";
             this.otherDeductionPerEmployeeToolStripMenuItem.Click += new System.EventHandler(this.otherDeductionPerEmployeeToolStripMenuItem_Click);
             // 
             // sSSSummaryToolStripMenuItem
             // 
             this.sSSSummaryToolStripMenuItem.Name = "sSSSummaryToolStripMenuItem";
-            this.sSSSummaryToolStripMenuItem.Size = new System.Drawing.Size(302, 26);
-            this.sSSSummaryToolStripMenuItem.Text = "SSS Deductions Summary";
+            this.sSSSummaryToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
+            this.sSSSummaryToolStripMenuItem.Text = "SSS Contribution Summary";
             this.sSSSummaryToolStripMenuItem.Click += new System.EventHandler(this.sSSSummaryToolStripMenuItem_Click);
             // 
             // pToolStripMenuItem
             // 
             this.pToolStripMenuItem.Name = "pToolStripMenuItem";
-            this.pToolStripMenuItem.Size = new System.Drawing.Size(302, 26);
-            this.pToolStripMenuItem.Text = "HDMF Deductions Summary";
+            this.pToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
+            this.pToolStripMenuItem.Text = "HDMF Contributions Summary";
             this.pToolStripMenuItem.Click += new System.EventHandler(this.pToolStripMenuItem_Click);
             // 
             // philHealthDeductionsSummaryToolStripMenuItem
             // 
             this.philHealthDeductionsSummaryToolStripMenuItem.Name = "philHealthDeductionsSummaryToolStripMenuItem";
-            this.philHealthDeductionsSummaryToolStripMenuItem.Size = new System.Drawing.Size(302, 26);
-            this.philHealthDeductionsSummaryToolStripMenuItem.Text = "PhilHealth Deductions Summary";
+            this.philHealthDeductionsSummaryToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
+            this.philHealthDeductionsSummaryToolStripMenuItem.Text = "PhilHealth Contributions Summary";
             this.philHealthDeductionsSummaryToolStripMenuItem.Click += new System.EventHandler(this.philHealthDeductionsSummaryToolStripMenuItem_Click);
             // 
             // fmi_z000
