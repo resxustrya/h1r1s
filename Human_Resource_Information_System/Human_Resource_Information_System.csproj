@@ -516,6 +516,12 @@
     <Compile Include="Libraries\NumberToEnglish_orig.cs" />
     <Compile Include="Libraries\Print_Check.cs" />
     <Compile Include="Main\Program.cs" />
+    <Compile Include="ViewController\RPT\Payroll\hdmf_summary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewController\RPT\Payroll\hdmf_summary.Designer.cs">
+      <DependentUpon>hdmf_summary.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewController\RPT\Payroll\rpt_other_deductions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -533,6 +539,18 @@
     </Compile>
     <Compile Include="ViewController\RPT\Payroll\PaySlips.Designer.cs">
       <DependentUpon>PaySlips.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewController\RPT\Payroll\rpt_philhealth_summary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewController\RPT\Payroll\rpt_philhealth_summary.Designer.cs">
+      <DependentUpon>rpt_philhealth_summary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewController\RPT\Payroll\rpt_sss_summary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewController\RPT\Payroll\rpt_sss_summary.Designer.cs">
+      <DependentUpon>rpt_sss_summary.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewController\RPT\TimeKeeping\rpt_dtr_summary.cs">
       <SubType>Form</SubType>
@@ -894,6 +912,9 @@
     <EmbeddedResource Include="Main\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ViewController\RPT\Payroll\hdmf_summary.resx">
+      <DependentUpon>hdmf_summary.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewController\RPT\Payroll\rpt_other_deductions.resx">
       <DependentUpon>rpt_other_deductions.cs</DependentUpon>
     </EmbeddedResource>
@@ -902,6 +923,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewController\RPT\Payroll\PaySlips.resx">
       <DependentUpon>PaySlips.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewController\RPT\Payroll\rpt_philhealth_summary.resx">
+      <DependentUpon>rpt_philhealth_summary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewController\RPT\Payroll\rpt_sss_summary.resx">
+      <DependentUpon>rpt_sss_summary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewController\RPT\TimeKeeping\rpt_dtr_summary.resx">
       <DependentUpon>rpt_dtr_summary.cs</DependentUpon>
@@ -1015,8 +1042,11 @@
     <Folder Include="Model\Payroll\" />
     <Folder Include="Model\Timeclock\" />
     <Folder Include="ViewController\Reports\" />
+    <Folder Include="ViewController\RPT\Payroll\hdmf_summary\" />
     <Folder Include="ViewController\RPT\Payroll\other_deductions\" />
     <Folder Include="ViewController\RPT\Payroll\other_earnings\" />
+    <Folder Include="ViewController\RPT\Payroll\philhealth_summary\" />
+    <Folder Include="ViewController\RPT\Payroll\sss_summary\" />
     <Folder Include="ViewController\RPT\TimeKeeping\dtr_pdf\" />
     <Folder Include="ViewController\RPT\TimeKeeping\dtr_summary_pdf\" />
   </ItemGroup>

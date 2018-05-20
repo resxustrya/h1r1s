@@ -649,11 +649,6 @@ namespace Human_Resource_Information_System
             btn_color_reset();
 
             rpt_oe.MdiParent = this;
-
-            lbl_modname.Text = btn_10.Text;
-            btn_10.BackColor = panel2.BackColor;
-            colormain = panel2.BackColor;
-            color2 = Color.Peru;
             rpt_oe.Show();
             //RPT_RES_entry2 form = new RPT_RES_entry2("M102");
             //form.Show();
@@ -667,11 +662,6 @@ namespace Human_Resource_Information_System
             btn_color_reset();
 
             rpt_deductions.MdiParent = this;
-
-            lbl_modname.Text = btn_10.Text;
-            btn_10.BackColor = panel2.BackColor;
-            colormain = panel2.BackColor;
-            color2 = Color.Peru;
             rpt_deductions.Show();
 
             /*
@@ -693,11 +683,6 @@ namespace Human_Resource_Information_System
             btn_color_reset();
 
             rpt_dtr.MdiParent = this;
-
-            lbl_modname.Text = btn_10.Text;
-            btn_10.BackColor = panel2.BackColor;
-            colormain = panel2.BackColor;
-            color2 = Color.Peru;
 
             rpt_dtr.Show();
             /*
@@ -738,14 +723,7 @@ namespace Human_Resource_Information_System
             rpt_dtr_summary dtr = new rpt_dtr_summary();
             closechild();
             btn_color_reset();
-
             dtr.MdiParent = this;
-
-            lbl_modname.Text = btn_10.Text;
-            btn_10.BackColor = panel2.BackColor;
-            colormain = panel2.BackColor;
-            color2 = Color.Peru;
-
             dtr.Show();
         }
 
@@ -753,6 +731,33 @@ namespace Human_Resource_Information_System
         {
             m_overtimestart ot_start = new m_overtimestart();
             ot_start.Show();
+        }
+
+        private void sSSSummaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rpt_sss_summary rpt_sss = new rpt_sss_summary();
+            closechild();
+            btn_color_reset();
+            rpt_sss.MdiParent = this;
+            rpt_sss.Show();
+        }
+
+        private void pToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            hdmf_summary hdmf = new hdmf_summary();
+            closechild();
+            btn_color_reset();
+            hdmf.MdiParent = this;
+            hdmf.Show();
+        }
+
+        private void philHealthDeductionsSummaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rpt_philhealth_summary philhealth  = new rpt_philhealth_summary();
+            closechild();
+            btn_color_reset();
+            philhealth.MdiParent = this;
+            philhealth.Show();
         }
     }
 }

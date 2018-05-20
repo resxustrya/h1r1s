@@ -101,6 +101,9 @@
             this.otherDeductionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeLoanSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.otherDeductionPerEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sSSSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.philHealthDeductionsSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fmi_z000 = new System.Windows.Forms.ToolStripMenuItem();
             this.userRightsSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userConfigurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -541,7 +544,10 @@
             this.otherIncomeToolStripMenuItem,
             this.otherDeductionToolStripMenuItem,
             this.employeeLoanSummaryToolStripMenuItem,
-            this.otherDeductionPerEmployeeToolStripMenuItem});
+            this.otherDeductionPerEmployeeToolStripMenuItem,
+            this.sSSSummaryToolStripMenuItem,
+            this.pToolStripMenuItem,
+            this.philHealthDeductionsSummaryToolStripMenuItem});
             this.fmi_r000.Name = "fmi_r000";
             this.fmi_r000.Size = new System.Drawing.Size(72, 24);
             this.fmi_r000.Text = "Reports";
@@ -705,6 +711,27 @@
             this.otherDeductionPerEmployeeToolStripMenuItem.Size = new System.Drawing.Size(302, 26);
             this.otherDeductionPerEmployeeToolStripMenuItem.Text = "Other Deduction per Employee";
             this.otherDeductionPerEmployeeToolStripMenuItem.Click += new System.EventHandler(this.otherDeductionPerEmployeeToolStripMenuItem_Click);
+            // 
+            // sSSSummaryToolStripMenuItem
+            // 
+            this.sSSSummaryToolStripMenuItem.Name = "sSSSummaryToolStripMenuItem";
+            this.sSSSummaryToolStripMenuItem.Size = new System.Drawing.Size(302, 26);
+            this.sSSSummaryToolStripMenuItem.Text = "SSS Deductions Summary";
+            this.sSSSummaryToolStripMenuItem.Click += new System.EventHandler(this.sSSSummaryToolStripMenuItem_Click);
+            // 
+            // pToolStripMenuItem
+            // 
+            this.pToolStripMenuItem.Name = "pToolStripMenuItem";
+            this.pToolStripMenuItem.Size = new System.Drawing.Size(302, 26);
+            this.pToolStripMenuItem.Text = "HDMF Deductions Summary";
+            this.pToolStripMenuItem.Click += new System.EventHandler(this.pToolStripMenuItem_Click);
+            // 
+            // philHealthDeductionsSummaryToolStripMenuItem
+            // 
+            this.philHealthDeductionsSummaryToolStripMenuItem.Name = "philHealthDeductionsSummaryToolStripMenuItem";
+            this.philHealthDeductionsSummaryToolStripMenuItem.Size = new System.Drawing.Size(302, 26);
+            this.philHealthDeductionsSummaryToolStripMenuItem.Text = "PhilHealth Deductions Summary";
+            this.philHealthDeductionsSummaryToolStripMenuItem.Click += new System.EventHandler(this.philHealthDeductionsSummaryToolStripMenuItem_Click);
             // 
             // fmi_z000
             // 
@@ -1196,5 +1223,8 @@
         private System.Windows.Forms.ToolStripMenuItem payrollSummaryReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem employeeSummaryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem overtimeStartTimeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sSSSummaryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem philHealthDeductionsSummaryToolStripMenuItem;
     }
 }
