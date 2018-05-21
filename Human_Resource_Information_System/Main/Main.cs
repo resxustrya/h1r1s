@@ -759,5 +759,14 @@ namespace Human_Resource_Information_System
             philhealth.MdiParent = this;
             philhealth.Show();
         }
+
+        private void loanSummaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rpt_loan_summary loan = new rpt_loan_summary();
+            closechild();
+            btn_color_reset();
+            loan.MdiParent = this;
+            loan.Show();
+        }
     }
 }

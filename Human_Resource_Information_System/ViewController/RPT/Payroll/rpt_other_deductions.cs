@@ -38,6 +38,7 @@ namespace Human_Resource_Information_System
             pic_loading.Visible = false;
             gc.load_payroll_period(cbo_payollperiod);
             gc.load_employee(cbo_employee);
+            
             display_list();
         }
 

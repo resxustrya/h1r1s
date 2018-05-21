@@ -522,6 +522,12 @@
     <Compile Include="ViewController\RPT\Payroll\hdmf_summary.Designer.cs">
       <DependentUpon>hdmf_summary.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewController\RPT\Payroll\rpt_loan_summary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewController\RPT\Payroll\rpt_loan_summary.Designer.cs">
+      <DependentUpon>rpt_loan_summary.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewController\RPT\Payroll\rpt_other_deductions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -915,6 +921,9 @@
     <EmbeddedResource Include="ViewController\RPT\Payroll\hdmf_summary.resx">
       <DependentUpon>hdmf_summary.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ViewController\RPT\Payroll\rpt_loan_summary.resx">
+      <DependentUpon>rpt_loan_summary.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewController\RPT\Payroll\rpt_other_deductions.resx">
       <DependentUpon>rpt_other_deductions.cs</DependentUpon>
     </EmbeddedResource>
@@ -1043,6 +1052,7 @@
     <Folder Include="Model\Timeclock\" />
     <Folder Include="ViewController\Reports\" />
     <Folder Include="ViewController\RPT\Payroll\hdmf_summary\" />
+    <Folder Include="ViewController\RPT\Payroll\loan_summary\" />
     <Folder Include="ViewController\RPT\Payroll\other_deductions\" />
     <Folder Include="ViewController\RPT\Payroll\other_earnings\" />
     <Folder Include="ViewController\RPT\Payroll\philhealth_summary\" />

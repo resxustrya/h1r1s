@@ -133,6 +133,7 @@
             this.lbl_trnxdate = new System.Windows.Forms.Label();
             this.bgWorker = new System.ComponentModel.BackgroundWorker();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.loanSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.pnl_header.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -540,14 +541,15 @@
             this.employeeRegisterToolStripMenuItem,
             this.payrollSummaryReportToolStripMenuItem,
             this.payslipToolStripMenuItem,
+            this.otherDeductionPerEmployeeToolStripMenuItem,
             this.employeeListingToolStripMenuItem,
             this.otherIncomeToolStripMenuItem,
             this.otherDeductionToolStripMenuItem,
             this.employeeLoanSummaryToolStripMenuItem,
-            this.otherDeductionPerEmployeeToolStripMenuItem,
             this.sSSSummaryToolStripMenuItem,
             this.pToolStripMenuItem,
-            this.philHealthDeductionsSummaryToolStripMenuItem});
+            this.philHealthDeductionsSummaryToolStripMenuItem,
+            this.loanSummaryToolStripMenuItem});
             this.fmi_r000.Name = "fmi_r000";
             this.fmi_r000.Size = new System.Drawing.Size(72, 24);
             this.fmi_r000.Text = "Reports";
@@ -1090,6 +1092,13 @@
             this.splitter1.TabIndex = 27;
             this.splitter1.TabStop = false;
             // 
+            // loanSummaryToolStripMenuItem
+            // 
+            this.loanSummaryToolStripMenuItem.Name = "loanSummaryToolStripMenuItem";
+            this.loanSummaryToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
+            this.loanSummaryToolStripMenuItem.Text = "Loan Summary";
+            this.loanSummaryToolStripMenuItem.Click += new System.EventHandler(this.loanSummaryToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1226,5 +1235,6 @@
         private System.Windows.Forms.ToolStripMenuItem sSSSummaryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem philHealthDeductionsSummaryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loanSummaryToolStripMenuItem;
     }
 }

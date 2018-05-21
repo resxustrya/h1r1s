@@ -126,6 +126,28 @@ namespace Human_Resource_Information_System
 
             return dgv_copy;
         }
+
+        //LOAD LOAN TYPES
+
+        public void load_loan_type(ComboBox cbo)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                thisDatabase db = new thisDatabase();
+
+                dt = db.QueryOnTableWithParams("hr_loan_type", "code, description", "", " ORDER BY code ASC");
+                //dt = db.QueryBySQLCode("SELECT description,type_code FROM rssys.hr_payroll_classic");
+                cbo.DataSource = dt;
+                cbo.DisplayMember = "description";
+                cbo.ValueMember = "code";
+                cbo.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         //LOAD PAYROLL TYPE
 
         public void load_payroll_classic(ComboBox cbo)
