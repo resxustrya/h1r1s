@@ -470,15 +470,19 @@ namespace Human_Resource_Information_System
             Double result = 0;
             Double payrate = Convert.ToDouble(pay_rate);
 
-            if (payrate <= 1500.00)
+            if(payrate < 5000.00)
             {
-                result = (1.00 / 100) * payrate;
-            }
-            else if (payrate > 1500.00)
+                if(payrate <= 1500.00)
+                {
+                    result = (1 / 100) * payrate;
+                }else if(payrate > 1500.00)
+                {
+                    result = (2 / 100) * payrate;
+                }
+            }if(payrate >= 5000.00)
             {
-                result = (2.00 / 100) * payrate;
+                result = 100;
             }
-
             return result.ToString("0.00");
         }
 

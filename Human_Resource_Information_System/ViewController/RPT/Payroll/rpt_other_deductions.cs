@@ -106,7 +106,13 @@ namespace Human_Resource_Information_System
                 pay_code = cbo_payollperiod.SelectedValue.ToString();
             }));
 
-           
+            pay_period = get_date(pay_code);
+
+            if (pay_period.Rows.Count > 0)
+            {
+                date_from = gm.toDateString(pay_period.Rows[0]["date_from"].ToString(), "yyyy-MM-dd");
+                date_to = gm.toDateString(pay_period.Rows[0]["date_to"].ToString(), "yyyy-MM-dd");
+            }
 
             filename = RandomString(5) + "_" + DateTime.Now.ToString("yyyy-MM-dd");
             filename += ".pdf";
@@ -213,6 +219,17 @@ namespace Human_Resource_Information_System
             }));
 
             display_list();
+        }
+
+        private DataTable get_date(String code)
+        {
+            DataTable dt = null;
+            try
+            {
+                dt = db.QueryBySQLCode("SELECT date_from,date_to from rssys.hr_payrollpariod where pay_code='" + code + "'");
+            }
+            catch { }
+            return dt;
         }
         public string RandomString(int length)
         {

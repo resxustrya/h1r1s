@@ -94,7 +94,7 @@ namespace Human_Resource_Information_System
             DataTable pay_period = null;
             Double total = 0.00, ee = 0.00, er = 0.00, ec = 0.00;
 
-            query = "SELECT empid, firstname, lastname,sss_table FROM rssys.hr_employee";
+            query = "SELECT empid, firstname, lastname,pay_rate FROM rssys.hr_employee";
             cbo_employee.Invoke(new Action(() => {
                 if (cbo_employee.SelectedIndex != -1)
                 {
@@ -174,27 +174,40 @@ namespace Human_Resource_Information_System
             foreach (DataRow _employees in employees.Rows)
             {
                 total = 0;
+                ee = 0;
+                er = 0;
                 String fname = _employees["firstname"].ToString();
                 String lname = _employees["lastname"].ToString();
                 String empno = _employees["empid"].ToString();
-                String sss_table = _employees["sss_table"].ToString();
+                Double payrate = Convert.ToDouble(_employees["pay_rate"].ToString());
                 try
                 {
-                    DataTable sss = db.QueryBySQLCode("SELECT * FROM rssys.hr_sss WHERE code = '" + sss_table + "'");
-
-                    if (sss != null && sss.Rows.Count > 0)
+                    if (payrate < 5000.00)
                     {
-
-                        ee = Convert.ToDouble(sss.Rows[0]["empshare_ec"].ToString());
-                        er = Convert.ToDouble(sss.Rows[0]["empshare_sc"].ToString());
-                        ec = Convert.ToDouble(sss.Rows[0]["s_ec"].ToString());
-
-                        total = ee + er + ec;
-                        dis_earnings.AddCell(new PdfPCell(new Paragraph(fname + " " + lname)) { Border = 0 });
-                        dis_earnings.AddCell(new PdfPCell(new Paragraph(ee.ToString("0.00"))) { Border = 0 });
-                        dis_earnings.AddCell(new PdfPCell(new Paragraph(er.ToString("0.00"))) { Border = 0 });
-                        dis_earnings.AddCell(new PdfPCell(new Paragraph(total.ToString("0.00"))) { Border = 0 });
+                        if (payrate <= 1500.00)
+                        {
+                            ee = (1 / 100) * payrate;
+                            er = (2 / 100) * payrate;
+                            
+                        }
+                        else if (payrate > 1500.00)
+                        {
+                            ee = (2 / 100) * payrate;
+                            er = (2 / 100) * payrate;
+                            
+                        }
                     }
+                    if (payrate >= 5000.00)
+                    {
+                        ee = 100;
+                        er = 100;
+                    }
+                    total = ee + er;
+                    dis_earnings.AddCell(new PdfPCell(new Paragraph(fname + " " + lname)) { Border = 0 });
+                    dis_earnings.AddCell(new PdfPCell(new Paragraph(ee.ToString("0.00"))) { Border = 0 });
+                    dis_earnings.AddCell(new PdfPCell(new Paragraph(er.ToString("0.00"))) { Border = 0 });
+                    dis_earnings.AddCell(new PdfPCell(new Paragraph(total.ToString("0.00"))) { Border = 0 });
+                    
 
 
 

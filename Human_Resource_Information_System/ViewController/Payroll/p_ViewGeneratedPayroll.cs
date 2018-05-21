@@ -367,14 +367,14 @@ namespace Human_Resource_Information_System
                     txt_other_deductions.Text = (payroll.Rows[0]["other_deduction"]??"0.00").ToString();
                     txt_others.Text = (payroll.Rows[0]["others"]??"0.00").ToString();
                     txt_advance_loans.Text = (payroll.Rows[0]["advances_loans"]??"0.00").ToString();
-
-                    
-
-                    
         
                 }
                 calculate_gross();
                 calculate_net();
+                if(lbl_total_gross.Text == "0.00")
+                {
+                    lbl_total_net.Text = "0.00";
+                }
             }
             catch { }
         }
