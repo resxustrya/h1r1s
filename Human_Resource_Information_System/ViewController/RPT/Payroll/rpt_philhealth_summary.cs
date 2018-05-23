@@ -277,5 +277,48 @@ namespace Human_Resource_Information_System
 
             }
         }
+
+        private void btn_deletefile_Click(object sender, EventArgs e)
+        {
+            int r = -1;
+            String dtr_filename = "", rpt_id = "";
+            //String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr\\";
+            String sys_dir = fileloc_dtr + "\\ViewController\\RPT\\Payroll\\philhealth_summary\\";
+
+            try
+            {
+                if (dgvl_other_earnings.Rows.Count > 1)
+                {
+                    r = dgvl_other_earnings.CurrentRow.Index;
+
+                    try
+                    {
+                        dtr_filename = dgvl_other_earnings["filename", r].Value.ToString();
+                        rpt_id = dgvl_other_earnings["rpt_id", r].Value.ToString();
+                        DialogResult result = MessageBox.Show("Are you sure you want to delete this file?", "Confirmation", MessageBoxButtons.YesNo);
+                        if (result == DialogResult.Yes)
+                        {
+                            File.Delete(sys_dir + dtr_filename);
+                            String query = "DELETE FROM rssys.hr_rpt_files WHERE rpt_id = '" + rpt_id + "' AND rpt_type = 'PH'";
+                            db.QueryBySQLCode(query);
+                            MessageBox.Show("File successfully deleted");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Failed to remove file. It may not exist");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Empty files.");
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            display_list();
+        }
     }
 }

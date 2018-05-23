@@ -35,7 +35,35 @@ namespace Human_Resource_Information_System
 
         private void btn_cancel_Click(object sender, EventArgs e)
         {
+            int r = 0;
+            String code = "";
+            isnew = false;
 
+            if (dgv_list.Rows.Count > 1)
+            {
+                try
+                {
+                    r = dgv_list.CurrentRow.Index;
+                    cbo_employee.SelectedValue = dgv_list["dgvl_empno", r].Value.ToString();
+                    code = dgv_list["dgvl_code", r].Value.ToString();
+                    DialogResult result = MessageBox.Show("Are you sure you want to delete this item?", "Confirmation", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        db.QueryBySQLCode("DELETE FROM rssys.hr_loanhdr WHERE loan_code = '" + code + "'");
+                        MessageBox.Show("Item successfully deleted");
+                    }
+
+                }
+                catch
+                {
+                    MessageBox.Show("No selected item.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Empty List.");
+            }
+            disp_list();
         }
 
         private void btn_itemadd_Click(object sender, EventArgs e)

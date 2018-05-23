@@ -122,6 +122,7 @@
             this.btn_deletefile.Text = "Delete File";
             this.btn_deletefile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_deletefile.UseVisualStyleBackColor = false;
+            this.btn_deletefile.Click += new System.EventHandler(this.btn_deletefile_Click);
             // 
             // btn_print
             // 

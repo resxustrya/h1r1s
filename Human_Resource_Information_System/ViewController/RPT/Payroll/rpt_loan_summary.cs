@@ -51,15 +51,55 @@ namespace Human_Resource_Information_System
             pic_loading.Visible = true;
             bgworker.RunWorkerAsync();
         }
-
-        private void btn_print_Click(object sender, EventArgs e)
+      
+        private DataTable get_date(String code)
         {
+            DataTable dt = null;
+            try
+            {
+                dt = db.QueryBySQLCode("SELECT date_from,date_to from rssys.hr_payrollpariod where pay_code='" + code + "'");
+            }
+            catch { }
+            return dt;
+        }
+        private void display_list()
+        {
+            dgvl_loan_summary.Invoke(new Action(() => {
+                try { dgvl_loan_summary.Rows.Clear(); }
+                catch (Exception) { }
+                int i = 0;
+                String query = "SELECT * FROM rssys.hr_rpt_files WHERE rpt_type = 'LOAN' ORDER BY date_added";
 
+                try
+                {
+                    DataTable dt = db.QueryBySQLCode(query);
+
+                    for (int r = 0; r < dt.Rows.Count; r++)
+                    {
+                        i = dgvl_loan_summary.Rows.Add();
+                        DataGridViewRow row = dgvl_loan_summary.Rows[i];
+
+                        row.Cells["rpt_id"].Value = dt.Rows[r]["rpt_id"].ToString();
+                        row.Cells["filename"].Value = dt.Rows[r]["filename"].ToString();
+                        row.Cells["date_added"].Value = dt.Rows[r]["date_added"].ToString();
+
+                        i++;
+                    }
+                }
+                catch { }
+            }));
+        }
+        public string RandomString(int length)
+        {
+            Random random = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
         private void bgworker_DoWork(object sender, DoWorkEventArgs e)
         {
-            String query = "", empid = "",loan_type ="", date_from = "", date_to = "", pay_code = "", table = "hr_rpt_files", filename = "", code = "", col = "", val = "", date_in = "";
+            String query = "", empid = "", loan_type = "", date_from = "", date_to = "", pay_code = "", table = "hr_rpt_files", filename = "", code = "", col = "", val = "", date_in = "";
             DataTable pay_period = null;
 
             Double total = 0.00;
@@ -77,10 +117,10 @@ namespace Human_Resource_Information_System
 
             DataTable employees = db.QueryBySQLCode(query);
 
-            loan_query = "SELECT * FROM hr_loan_type";
+            loan_query = "SELECT * FROM rssys.hr_loan_type";
             cbo_loan_type.Invoke(new Action(() =>
             {
-                if(cbo_loan_type.SelectedIndex != -1)
+                if (cbo_loan_type.SelectedIndex != -1)
                 {
                     loan_type = cbo_loan_type.SelectedValue.ToString();
                     loan_query += " WHERE code = '" + loan_type + "'";
@@ -145,13 +185,9 @@ namespace Human_Resource_Information_System
             t.WidthPercentage = 100;
             t.SetWidths(widths);
 
-            PdfPTable dis_earnings = new PdfPTable(4);
-            float[] _w2 = new float[] { 70, 50, 50, 50 };
+            PdfPTable dis_earnings = new PdfPTable(1);
+            float[] _w2 = new float[] { 100f };
             dis_earnings.SetWidths(_w2);
-            dis_earnings.AddCell(new PdfPCell(new Paragraph("Employee Name")) { Border = 2 });
-            dis_earnings.AddCell(new PdfPCell(new Paragraph("EmployeE Share")) { Border = 2 });
-            dis_earnings.AddCell(new PdfPCell(new Paragraph("EmployeR Share")) { Border = 2 });
-            dis_earnings.AddCell(new PdfPCell(new Paragraph("Total Contribution")) { Border = 2 });
 
             foreach (DataRow _employees in employees.Rows)
             {
@@ -160,23 +196,27 @@ namespace Human_Resource_Information_System
                 String empno = _employees["empid"].ToString();
                 try
                 {
-                    DataTable has_earnings = db.QueryBySQLCode("SELECT emp_no FROM rssys.hr_loanhdr WHERE employee_no = '" + empno + "'");
-                    if (has_earnings != null && has_earnings.Rows.Count > 0)
+                    foreach(DataRow _loan_type in dt_loan_type.Rows)
                     {
-                        dis_earnings.AddCell(new PdfPCell(new Paragraph(fname + " " + lname)) { Colspan = 2, Border = 2 });
-
-                        DataTable hoe = db.QueryBySQLCode("SELECT DISTINCT(de.code) as code, de.description  FROM rssys.hr_loan_type de  LEFT JOIN rssys.hr_loanhdr od  ON de.code = od.loan_type WHERE od.employee_no = '" + empno + "'");
-
-                        foreach (DataRow _hoe in hoe.Rows)
+                        DataTable has_loan = db.QueryBySQLCode("SELECT employee_no FROM rssys.hr_loanhdr WHERE employee_no = '" + empno + "' AND loan_type = '" + _loan_type["code"].ToString() + "'");
+                        if (has_loan != null && has_loan.Rows.Count > 0)
                         {
-                            dis_earnings.AddCell(new PdfPCell(new Paragraph(_hoe["description"].ToString())) { PaddingLeft = 30f, Colspan = 2, Border = 0 });
-                            DataTable hee = db.QueryBySQLCode("SELECT * FROM rssys.hr_loanhdr WHERE loan_type = '" + _hoe["code"].ToString() +"' AND emp_no = '" + empno + "'");
-                            foreach (DataRow _hee in hee.Rows)
+                            dis_earnings.AddCell(new PdfPCell(new Paragraph(fname + " " + lname)) { Colspan = 2, Border = 2 });
+
+                            DataTable hoe = db.QueryBySQLCode("SELECT DISTINCT(de.code) as code, de.description  FROM rssys.hr_loan_type de  LEFT JOIN rssys.hr_loanhdr od  ON de.code = od.loan_type WHERE od.employee_no = '" + empno + "'");
+
+                            foreach (DataRow _hoe in hoe.Rows)
                             {
-                                dis_earnings.AddCell(new PdfPCell(new Paragraph(_hee["loan_amount"].ToString())) { PaddingLeft = 40f, Colspan = 2, Border = 0 });
+                                dis_earnings.AddCell(new PdfPCell(new Paragraph(_hoe["description"].ToString())) { PaddingLeft = 30f, Colspan = 2, Border = 0 });
+                                DataTable hee = db.QueryBySQLCode("SELECT * FROM rssys.hr_loanhdr WHERE loan_type = '" + _hoe["code"].ToString() + "' AND employee_no = '" + empno + "'");
+                                foreach (DataRow _hee in hee.Rows)
+                                {
+                                    dis_earnings.AddCell(new PdfPCell(new Paragraph(_hee["loan_amount"].ToString())) { PaddingLeft = 40f, Colspan = 2, Border = 0 });
+                                }
                             }
                         }
                     }
+                    
                 }
                 catch (Exception ex)
                 {
@@ -208,49 +248,95 @@ namespace Human_Resource_Information_System
 
             display_list();
         }
-        private DataTable get_date(String code)
+
+        private void btn_print_Click(object sender, EventArgs e)
         {
-            DataTable dt = null;
+            int r = -1;
+            String dtr_filename = "";
+            //String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr_summary\\";
+            String sys_dir = fileloc_dtr + "\\ViewController\\RPT\\Payroll\\loan_summary\\";
             try
             {
-                dt = db.QueryBySQLCode("SELECT date_from,date_to from rssys.hr_payrollpariod where pay_code='" + code + "'");
-            }
-            catch { }
-            return dt;
-        }
-        private void display_list()
-        {
-            dgvl_loan_summary.Invoke(new Action(() => {
-                try { dgvl_loan_summary.Rows.Clear(); }
-                catch (Exception) { }
-                int i = 0;
-                String query = "SELECT * FROM rssys.hr_rpt_files WHERE rpt_type = 'LOAN' ORDER BY date_added";
-
-                try
+                if (dgvl_loan_summary.Rows.Count > 1)
                 {
-                    DataTable dt = db.QueryBySQLCode(query);
+                    r = dgvl_loan_summary.CurrentRow.Index;
 
-                    for (int r = 0; r < dt.Rows.Count; r++)
+                    try
                     {
-                        i = dgvl_loan_summary.Rows.Add();
-                        DataGridViewRow row = dgvl_loan_summary.Rows[i];
+                        dtr_filename = dgvl_loan_summary["filename", r].Value.ToString();
 
-                        row.Cells["rpt_id"].Value = dt.Rows[r]["rpt_id"].ToString();
-                        row.Cells["filename"].Value = dt.Rows[r]["filename"].ToString();
-                        row.Cells["date_added"].Value = dt.Rows[r]["date_added"].ToString();
+                        try
+                        {
+                            System.Diagnostics.Process.Start("AcroRd3d2.exe", sys_dir + dtr_filename);
 
-                        i++;
+                        }
+                        catch (Exception ex)
+                        {
+                            System.Diagnostics.Process.Start("chrome.exe", sys_dir + dtr_filename);
+                        }
+                        catch
+                        {
+                            System.Diagnostics.Process.Start("iexplore.exe", sys_dir + dtr_filename);
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Select a filename");
                     }
                 }
-                catch { }
-            }));
+                else
+                {
+                    MessageBox.Show("Files is empty.");
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
-        public string RandomString(int length)
+
+        private void btn_deletefile_Click(object sender, EventArgs e)
         {
-            Random random = new Random();
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            return new string(Enumerable.Repeat(chars, length)
-              .Select(s => s[random.Next(s.Length)]).ToArray());
+            int r = -1;
+            String dtr_filename = "", rpt_id = "";
+            //String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr\\";
+            String sys_dir = fileloc_dtr + "\\ViewController\\RPT\\Payroll\\loan_summary\\";
+
+            try
+            {
+                if (dgvl_loan_summary.Rows.Count > 1)
+                {
+                    r = dgvl_loan_summary.CurrentRow.Index;
+
+                    try
+                    {
+                        dtr_filename = dgvl_loan_summary["filename", r].Value.ToString();
+                        rpt_id = dgvl_loan_summary["rpt_id", r].Value.ToString();
+                        DialogResult result = MessageBox.Show("Are you sure you want to delete this file?", "Confirmation", MessageBoxButtons.YesNo);
+                        if (result == DialogResult.Yes)
+                        {
+                            File.Delete(sys_dir + dtr_filename);
+                            String query = "DELETE FROM rssys.hr_rpt_files WHERE rpt_id = '" + rpt_id + "' AND rpt_type = 'LOAN'";
+                            db.QueryBySQLCode(query);
+                            MessageBox.Show("File successfully deleted");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Failed to remove file. It may not exist");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Empty files.");
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            display_list();
         }
     }
 }

@@ -157,6 +157,7 @@
             this.btn_deletefile.Text = "Delete File";
             this.btn_deletefile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_deletefile.UseVisualStyleBackColor = false;
+            this.btn_deletefile.Click += new System.EventHandler(this.btn_deletefile_Click);
             // 
             // btn_print
             // 
@@ -171,6 +172,7 @@
             this.btn_print.Text = "View";
             this.btn_print.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_print.UseVisualStyleBackColor = false;
+            this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
             // 
             // empname
             // 
@@ -192,6 +194,10 @@
             this.pay_period.HeaderText = "PAYROLL PERIOD";
             this.pay_period.Name = "pay_period";
             this.pay_period.ReadOnly = true;
+            // 
+            // bgworker
+            // 
+            this.bgworker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgworker_DoWork);
             // 
             // pnl_rpt_option_header
             // 
