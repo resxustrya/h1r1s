@@ -248,7 +248,7 @@ namespace Human_Resource_Information_System
         {
             int r = -1;
             String dtr_filename = "";
-            //String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr_summary\\";
+            //String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\other_earnings\\";
             String sys_dir = fileloc_dtr + "\\ViewController\\RPT\\Payroll\\other_earnings\\";
             try
             {
@@ -295,7 +295,7 @@ namespace Human_Resource_Information_System
         {
             int r = -1;
             String dtr_filename = "", earning_id = "";
-            //String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr\\";
+            //String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\other_earnings\\";
             String sys_dir = fileloc_dtr + "\\ViewController\\RPT\\Payroll\\other_earnings\\";
             try
             {

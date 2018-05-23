@@ -122,7 +122,7 @@ namespace Human_Resource_Information_System
             filename += ".pdf";
 
 
-            //System.IO.FileStream fs = new FileStream("\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\other_earnings\\" + filename, FileMode.Create);
+            //System.IO.FileStream fs = new FileStream("\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\hdmf_summary\\" + filename, FileMode.Create);
             System.IO.FileStream fs = new FileStream(fileloc_dtr + "\\ViewController\\RPT\\Payroll\\hdmf_summary\\" + filename, FileMode.Create);
 
             Document document = new Document(PageSize.LEGAL, 25, 25, 30, 30);
@@ -258,7 +258,7 @@ namespace Human_Resource_Information_System
         {
             int r = -1;
             String dtr_filename = "";
-            //String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr_summary\\";
+            //String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\hdmf_summary\\";
             String sys_dir = fileloc_dtr + "\\ViewController\\RPT\\Payroll\\hdmf_summary\\";
             try
             {
@@ -306,7 +306,7 @@ namespace Human_Resource_Information_System
         {
             int r = -1;
             String dtr_filename = "", rpt_id = "";
-            //String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr\\";
+            //String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\hdmf_summary\\";
             String sys_dir = fileloc_dtr + "\\ViewController\\RPT\\Payroll\\hdmf_summary\\";
 
             try
