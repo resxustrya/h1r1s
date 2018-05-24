@@ -768,5 +768,14 @@ namespace Human_Resource_Information_System
             loan.MdiParent = this;
             loan.Show();
         }
+
+        private void leaveSummaryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rpt_leaves_summary rpt_leaves = new rpt_leaves_summary();
+            closechild();
+            btn_color_reset();
+            rpt_leaves.MdiParent = this;
+            rpt_leaves.Show();
+        }
     }
 }

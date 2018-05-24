@@ -564,6 +564,12 @@
     <Compile Include="ViewController\RPT\TimeKeeping\rpt_dtr_summary.Designer.cs">
       <DependentUpon>rpt_dtr_summary.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewController\RPT\TimeKeeping\rpt_leaves_summary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewController\RPT\TimeKeeping\rpt_leaves_summary.Designer.cs">
+      <DependentUpon>rpt_leaves_summary.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewController\RPT\TimeKeeping\rpt_print_dtr.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -942,6 +948,9 @@
     <EmbeddedResource Include="ViewController\RPT\TimeKeeping\rpt_dtr_summary.resx">
       <DependentUpon>rpt_dtr_summary.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ViewController\RPT\TimeKeeping\rpt_leaves_summary.resx">
+      <DependentUpon>rpt_leaves_summary.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewController\RPT\TimeKeeping\rpt_print_dtr.resx">
       <DependentUpon>rpt_print_dtr.cs</DependentUpon>
     </EmbeddedResource>
@@ -1042,7 +1051,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="ViewController\RPT\Payroll\payslips\2YSN0DWWKB.pdf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -1059,6 +1067,7 @@
     <Folder Include="ViewController\RPT\Payroll\sss_summary\" />
     <Folder Include="ViewController\RPT\TimeKeeping\dtr_pdf\" />
     <Folder Include="ViewController\RPT\TimeKeeping\dtr_summary_pdf\" />
+    <Folder Include="ViewController\RPT\TimeKeeping\leave_summary\" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">

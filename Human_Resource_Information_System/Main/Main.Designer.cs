@@ -96,14 +96,15 @@
             this.employeeRegisterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.payrollSummaryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.payslipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.otherDeductionPerEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeListingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.otherIncomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.otherDeductionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeLoanSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.otherDeductionPerEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sSSSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.philHealthDeductionsSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loanSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fmi_z000 = new System.Windows.Forms.ToolStripMenuItem();
             this.userRightsSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userConfigurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -133,7 +134,7 @@
             this.lbl_trnxdate = new System.Windows.Forms.Label();
             this.bgWorker = new System.ComponentModel.BackgroundWorker();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.loanSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.leaveSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.pnl_header.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -549,7 +550,8 @@
             this.sSSSummaryToolStripMenuItem,
             this.pToolStripMenuItem,
             this.philHealthDeductionsSummaryToolStripMenuItem,
-            this.loanSummaryToolStripMenuItem});
+            this.loanSummaryToolStripMenuItem,
+            this.leaveSummaryToolStripMenuItem});
             this.fmi_r000.Name = "fmi_r000";
             this.fmi_r000.Size = new System.Drawing.Size(72, 24);
             this.fmi_r000.Text = "Reports";
@@ -680,6 +682,13 @@
             this.payslipToolStripMenuItem.Text = "Payslip";
             this.payslipToolStripMenuItem.Click += new System.EventHandler(this.payslipToolStripMenuItem_Click);
             // 
+            // otherDeductionPerEmployeeToolStripMenuItem
+            // 
+            this.otherDeductionPerEmployeeToolStripMenuItem.Name = "otherDeductionPerEmployeeToolStripMenuItem";
+            this.otherDeductionPerEmployeeToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
+            this.otherDeductionPerEmployeeToolStripMenuItem.Text = "Other Deduction per Employee";
+            this.otherDeductionPerEmployeeToolStripMenuItem.Click += new System.EventHandler(this.otherDeductionPerEmployeeToolStripMenuItem_Click);
+            // 
             // employeeListingToolStripMenuItem
             // 
             this.employeeListingToolStripMenuItem.Name = "employeeListingToolStripMenuItem";
@@ -707,13 +716,6 @@
             this.employeeLoanSummaryToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
             this.employeeLoanSummaryToolStripMenuItem.Text = "Employee Loan History";
             // 
-            // otherDeductionPerEmployeeToolStripMenuItem
-            // 
-            this.otherDeductionPerEmployeeToolStripMenuItem.Name = "otherDeductionPerEmployeeToolStripMenuItem";
-            this.otherDeductionPerEmployeeToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
-            this.otherDeductionPerEmployeeToolStripMenuItem.Text = "Other Deduction per Employee";
-            this.otherDeductionPerEmployeeToolStripMenuItem.Click += new System.EventHandler(this.otherDeductionPerEmployeeToolStripMenuItem_Click);
-            // 
             // sSSSummaryToolStripMenuItem
             // 
             this.sSSSummaryToolStripMenuItem.Name = "sSSSummaryToolStripMenuItem";
@@ -734,6 +736,13 @@
             this.philHealthDeductionsSummaryToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
             this.philHealthDeductionsSummaryToolStripMenuItem.Text = "PhilHealth Contributions Summary";
             this.philHealthDeductionsSummaryToolStripMenuItem.Click += new System.EventHandler(this.philHealthDeductionsSummaryToolStripMenuItem_Click);
+            // 
+            // loanSummaryToolStripMenuItem
+            // 
+            this.loanSummaryToolStripMenuItem.Name = "loanSummaryToolStripMenuItem";
+            this.loanSummaryToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
+            this.loanSummaryToolStripMenuItem.Text = "Loan Summary";
+            this.loanSummaryToolStripMenuItem.Click += new System.EventHandler(this.loanSummaryToolStripMenuItem_Click);
             // 
             // fmi_z000
             // 
@@ -1092,12 +1101,12 @@
             this.splitter1.TabIndex = 27;
             this.splitter1.TabStop = false;
             // 
-            // loanSummaryToolStripMenuItem
+            // leaveSummaryToolStripMenuItem
             // 
-            this.loanSummaryToolStripMenuItem.Name = "loanSummaryToolStripMenuItem";
-            this.loanSummaryToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
-            this.loanSummaryToolStripMenuItem.Text = "Loan Summary";
-            this.loanSummaryToolStripMenuItem.Click += new System.EventHandler(this.loanSummaryToolStripMenuItem_Click);
+            this.leaveSummaryToolStripMenuItem.Name = "leaveSummaryToolStripMenuItem";
+            this.leaveSummaryToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
+            this.leaveSummaryToolStripMenuItem.Text = "Leave Summary";
+            this.leaveSummaryToolStripMenuItem.Click += new System.EventHandler(this.leaveSummaryToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -1236,5 +1245,6 @@
         private System.Windows.Forms.ToolStripMenuItem pToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem philHealthDeductionsSummaryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loanSummaryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem leaveSummaryToolStripMenuItem;
     }
 }

@@ -107,20 +107,22 @@
             this.pnl_rpt_option_header.Controls.Add(this.pnl_rpt_option);
             this.pnl_rpt_option_header.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_rpt_option_header.Location = new System.Drawing.Point(0, 0);
+            this.pnl_rpt_option_header.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnl_rpt_option_header.Name = "pnl_rpt_option_header";
-            this.pnl_rpt_option_header.Size = new System.Drawing.Size(1203, 114);
+            this.pnl_rpt_option_header.Size = new System.Drawing.Size(1604, 140);
             this.pnl_rpt_option_header.TabIndex = 15;
             // 
             // pnl_rpt_option
             // 
-            this.pnl_rpt_option.BackColor = System.Drawing.Color.DarkKhaki;
+            this.pnl_rpt_option.BackColor = System.Drawing.Color.SteelBlue;
             this.pnl_rpt_option.Controls.Add(this.panel2);
             this.pnl_rpt_option.Controls.Add(this.grp_options);
             this.pnl_rpt_option.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_rpt_option.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnl_rpt_option.Location = new System.Drawing.Point(0, 0);
+            this.pnl_rpt_option.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnl_rpt_option.Name = "pnl_rpt_option";
-            this.pnl_rpt_option.Size = new System.Drawing.Size(1203, 112);
+            this.pnl_rpt_option.Size = new System.Drawing.Size(1604, 138);
             this.pnl_rpt_option.TabIndex = 8;
             // 
             // panel2
@@ -128,18 +130,20 @@
             this.panel2.Controls.Add(this.pic_loading);
             this.panel2.Controls.Add(this.btn_submit);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(630, 0);
+            this.panel2.Location = new System.Drawing.Point(840, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(148, 112);
+            this.panel2.Size = new System.Drawing.Size(197, 138);
             this.panel2.TabIndex = 4;
             // 
             // pic_loading
             // 
             this.pic_loading.ErrorImage = global::Human_Resource_Information_System.Properties.Resources.spin;
             this.pic_loading.Image = global::Human_Resource_Information_System.Properties.Resources.spin;
-            this.pic_loading.Location = new System.Drawing.Point(58, 60);
+            this.pic_loading.Location = new System.Drawing.Point(77, 74);
+            this.pic_loading.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pic_loading.Name = "pic_loading";
-            this.pic_loading.Size = new System.Drawing.Size(32, 26);
+            this.pic_loading.Size = new System.Drawing.Size(43, 32);
             this.pic_loading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_loading.TabIndex = 6;
             this.pic_loading.TabStop = false;
@@ -150,9 +154,10 @@
             this.btn_submit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_submit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_submit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_submit.Location = new System.Drawing.Point(6, 10);
+            this.btn_submit.Location = new System.Drawing.Point(8, 12);
+            this.btn_submit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_submit.Name = "btn_submit";
-            this.btn_submit.Size = new System.Drawing.Size(139, 43);
+            this.btn_submit.Size = new System.Drawing.Size(185, 53);
             this.btn_submit.TabIndex = 1;
             this.btn_submit.Text = "Generate DTR";
             this.btn_submit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -169,8 +174,10 @@
             this.grp_options.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grp_options.ForeColor = System.Drawing.SystemColors.Info;
             this.grp_options.Location = new System.Drawing.Point(0, 0);
+            this.grp_options.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grp_options.Name = "grp_options";
-            this.grp_options.Size = new System.Drawing.Size(630, 112);
+            this.grp_options.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grp_options.Size = new System.Drawing.Size(840, 138);
             this.grp_options.TabIndex = 3;
             this.grp_options.TabStop = false;
             this.grp_options.Text = "Other Options";
@@ -181,18 +188,20 @@
             this.cbo_payollperiod.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbo_payollperiod.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.cbo_payollperiod.FormattingEnabled = true;
-            this.cbo_payollperiod.Location = new System.Drawing.Point(119, 30);
+            this.cbo_payollperiod.Location = new System.Drawing.Point(159, 37);
+            this.cbo_payollperiod.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbo_payollperiod.Name = "cbo_payollperiod";
-            this.cbo_payollperiod.Size = new System.Drawing.Size(342, 23);
+            this.cbo_payollperiod.Size = new System.Drawing.Size(455, 26);
             this.cbo_payollperiod.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 33);
+            this.label1.Location = new System.Drawing.Point(15, 41);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(83, 15);
+            this.label1.Size = new System.Drawing.Size(100, 18);
             this.label1.TabIndex = 2;
             this.label1.Text = "Payroll Period";
             // 
@@ -202,18 +211,20 @@
             this.cbo_employee.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbo_employee.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.cbo_employee.FormattingEnabled = true;
-            this.cbo_employee.Location = new System.Drawing.Point(119, 63);
+            this.cbo_employee.Location = new System.Drawing.Point(159, 78);
+            this.cbo_employee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbo_employee.Name = "cbo_employee";
-            this.cbo_employee.Size = new System.Drawing.Size(342, 23);
+            this.cbo_employee.Size = new System.Drawing.Size(455, 26);
             this.cbo_employee.TabIndex = 1;
             // 
             // lbl_cbo_1
             // 
             this.lbl_cbo_1.AutoSize = true;
-            this.lbl_cbo_1.Location = new System.Drawing.Point(11, 68);
+            this.lbl_cbo_1.Location = new System.Drawing.Point(15, 84);
+            this.lbl_cbo_1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_cbo_1.Name = "lbl_cbo_1";
             this.lbl_cbo_1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lbl_cbo_1.Size = new System.Drawing.Size(62, 15);
+            this.lbl_cbo_1.Size = new System.Drawing.Size(74, 18);
             this.lbl_cbo_1.TabIndex = 1;
             this.lbl_cbo_1.Text = "Employee";
             // 
@@ -248,7 +259,7 @@
             // 
             this.txt_search.Location = new System.Drawing.Point(719, 11);
             this.txt_search.Name = "txt_search";
-            this.txt_search.Size = new System.Drawing.Size(179, 20);
+            this.txt_search.Size = new System.Drawing.Size(179, 22);
             this.txt_search.TabIndex = 71;
             this.txt_search.Tag = "Search Employee";
             // 
@@ -257,7 +268,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(233, 17);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 13);
+            this.label3.Size = new System.Drawing.Size(0, 17);
             this.label3.TabIndex = 70;
             // 
             // label4
@@ -265,7 +276,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(12, 17);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 13);
+            this.label4.Size = new System.Drawing.Size(0, 17);
             this.label4.TabIndex = 69;
             // 
             // dtp_to
@@ -273,7 +284,7 @@
             this.dtp_to.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_to.Location = new System.Drawing.Point(264, 12);
             this.dtp_to.Name = "dtp_to";
-            this.dtp_to.Size = new System.Drawing.Size(103, 20);
+            this.dtp_to.Size = new System.Drawing.Size(103, 22);
             this.dtp_to.TabIndex = 68;
             // 
             // dtp_frm
@@ -281,7 +292,7 @@
             this.dtp_frm.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_frm.Location = new System.Drawing.Point(124, 12);
             this.dtp_frm.Name = "dtp_frm";
-            this.dtp_frm.Size = new System.Drawing.Size(103, 20);
+            this.dtp_frm.Size = new System.Drawing.Size(103, 22);
             this.dtp_frm.TabIndex = 67;
             // 
             // groupBox6
@@ -371,8 +382,9 @@
             // 
             this.tpg_opt_1.Controls.Add(this.panel5);
             this.tpg_opt_1.Location = new System.Drawing.Point(4, 4);
+            this.tpg_opt_1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tpg_opt_1.Name = "tpg_opt_1";
-            this.tpg_opt_1.Size = new System.Drawing.Size(189, 491);
+            this.tpg_opt_1.Size = new System.Drawing.Size(255, 608);
             this.tpg_opt_1.TabIndex = 2;
             this.tpg_opt_1.UseVisualStyleBackColor = true;
             // 
@@ -382,8 +394,9 @@
             this.panel5.Controls.Add(this.groupBox4);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(189, 491);
+            this.panel5.Size = new System.Drawing.Size(255, 608);
             this.panel5.TabIndex = 0;
             // 
             // groupBox4
@@ -394,8 +407,10 @@
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.SystemColors.Info;
             this.groupBox4.Location = new System.Drawing.Point(0, 0);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(189, 488);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Size = new System.Drawing.Size(255, 601);
             this.groupBox4.TabIndex = 64;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Main Option";
@@ -405,9 +420,10 @@
             this.btn_deletefile.BackColor = System.Drawing.Color.Maroon;
             this.btn_deletefile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_deletefile.ForeColor = System.Drawing.SystemColors.Info;
-            this.btn_deletefile.Location = new System.Drawing.Point(8, 129);
+            this.btn_deletefile.Location = new System.Drawing.Point(11, 159);
+            this.btn_deletefile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_deletefile.Name = "btn_deletefile";
-            this.btn_deletefile.Size = new System.Drawing.Size(156, 72);
+            this.btn_deletefile.Size = new System.Drawing.Size(208, 89);
             this.btn_deletefile.TabIndex = 7;
             this.btn_deletefile.Text = "Delete File";
             this.btn_deletefile.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -419,9 +435,10 @@
             this.btn_print.BackColor = System.Drawing.Color.DarkSlateGray;
             this.btn_print.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_print.ForeColor = System.Drawing.SystemColors.Info;
-            this.btn_print.Location = new System.Drawing.Point(8, 38);
+            this.btn_print.Location = new System.Drawing.Point(11, 47);
+            this.btn_print.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_print.Name = "btn_print";
-            this.btn_print.Size = new System.Drawing.Size(156, 72);
+            this.btn_print.Size = new System.Drawing.Size(208, 89);
             this.btn_print.TabIndex = 3;
             this.btn_print.Text = "View";
             this.btn_print.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -437,12 +454,13 @@
             this.filename,
             this.date_created});
             this.dgvl_dtrfiles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvl_dtrfiles.Location = new System.Drawing.Point(3, 18);
+            this.dgvl_dtrfiles.Location = new System.Drawing.Point(4, 23);
+            this.dgvl_dtrfiles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvl_dtrfiles.Name = "dgvl_dtrfiles";
             this.dgvl_dtrfiles.ReadOnly = true;
             this.dgvl_dtrfiles.RowHeadersVisible = false;
             this.dgvl_dtrfiles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvl_dtrfiles.Size = new System.Drawing.Size(986, 419);
+            this.dgvl_dtrfiles.Size = new System.Drawing.Size(1317, 518);
             this.dgvl_dtrfiles.TabIndex = 1;
             // 
             // dtr_id
@@ -472,9 +490,11 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox2.Location = new System.Drawing.Point(0, 45);
+            this.groupBox2.Location = new System.Drawing.Point(0, 55);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(992, 440);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(1325, 545);
             this.groupBox2.TabIndex = 58;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Payroll Period List";
@@ -485,9 +505,10 @@
             this.panel7.Controls.Add(this.groupBox2);
             this.panel7.Controls.Add(this.panel4);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(3, 3);
+            this.panel7.Location = new System.Drawing.Point(4, 4);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(992, 485);
+            this.panel7.Size = new System.Drawing.Size(1325, 600);
             this.panel7.TabIndex = 0;
             // 
             // panel4
@@ -498,51 +519,57 @@
             this.panel4.Controls.Add(this.dateTimePicker2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(992, 45);
+            this.panel4.Size = new System.Drawing.Size(1325, 55);
             this.panel4.TabIndex = 59;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(233, 17);
+            this.label5.Location = new System.Drawing.Point(311, 21);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(20, 13);
+            this.label5.Size = new System.Drawing.Size(25, 17);
             this.label5.TabIndex = 70;
             this.label5.Text = "To";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(12, 17);
+            this.label19.Location = new System.Drawing.Point(16, 21);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(94, 13);
+            this.label19.Size = new System.Drawing.Size(124, 17);
             this.label19.TabIndex = 69;
             this.label19.Text = "Transaction Dates";
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(264, 12);
+            this.dateTimePicker1.Location = new System.Drawing.Point(352, 15);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(103, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(136, 22);
             this.dateTimePicker1.TabIndex = 68;
             // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(124, 12);
+            this.dateTimePicker2.Location = new System.Drawing.Point(165, 15);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(103, 20);
+            this.dateTimePicker2.Size = new System.Drawing.Size(136, 22);
             this.dateTimePicker2.TabIndex = 67;
             // 
             // tpg_list
             // 
             this.tpg_list.Controls.Add(this.panel7);
-            this.tpg_list.Location = new System.Drawing.Point(4, 22);
+            this.tpg_list.Location = new System.Drawing.Point(4, 25);
+            this.tpg_list.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tpg_list.Name = "tpg_list";
-            this.tpg_list.Padding = new System.Windows.Forms.Padding(3);
-            this.tpg_list.Size = new System.Drawing.Size(998, 491);
+            this.tpg_list.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tpg_list.Size = new System.Drawing.Size(1333, 608);
             this.tpg_list.TabIndex = 0;
             this.tpg_list.Text = "Generated Payroll List";
             this.tpg_list.UseVisualStyleBackColor = true;
@@ -552,18 +579,20 @@
             this.tbcntrl_main.Controls.Add(this.tpg_list);
             this.tbcntrl_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbcntrl_main.Location = new System.Drawing.Point(0, 0);
+            this.tbcntrl_main.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbcntrl_main.Name = "tbcntrl_main";
             this.tbcntrl_main.SelectedIndex = 0;
-            this.tbcntrl_main.Size = new System.Drawing.Size(1006, 517);
+            this.tbcntrl_main.Size = new System.Drawing.Size(1341, 637);
             this.tbcntrl_main.TabIndex = 1;
             // 
             // pnl_main
             // 
             this.pnl_main.Controls.Add(this.tbcntrl_main);
             this.pnl_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_main.Location = new System.Drawing.Point(197, 114);
+            this.pnl_main.Location = new System.Drawing.Point(263, 140);
+            this.pnl_main.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnl_main.Name = "pnl_main";
-            this.pnl_main.Size = new System.Drawing.Size(1006, 517);
+            this.pnl_main.Size = new System.Drawing.Size(1341, 637);
             this.pnl_main.TabIndex = 52;
             // 
             // tbcntrl_option
@@ -572,9 +601,10 @@
             this.tbcntrl_option.Controls.Add(this.tpg_opt_1);
             this.tbcntrl_option.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbcntrl_option.Location = new System.Drawing.Point(0, 0);
+            this.tbcntrl_option.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbcntrl_option.Name = "tbcntrl_option";
             this.tbcntrl_option.SelectedIndex = 0;
-            this.tbcntrl_option.Size = new System.Drawing.Size(197, 517);
+            this.tbcntrl_option.Size = new System.Drawing.Size(263, 637);
             this.tbcntrl_option.TabIndex = 1;
             // 
             // pnl_sidebar
@@ -582,20 +612,22 @@
             this.pnl_sidebar.BackColor = System.Drawing.Color.SteelBlue;
             this.pnl_sidebar.Controls.Add(this.tbcntrl_option);
             this.pnl_sidebar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnl_sidebar.Location = new System.Drawing.Point(0, 114);
+            this.pnl_sidebar.Location = new System.Drawing.Point(0, 140);
+            this.pnl_sidebar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnl_sidebar.Name = "pnl_sidebar";
-            this.pnl_sidebar.Size = new System.Drawing.Size(197, 517);
+            this.pnl_sidebar.Size = new System.Drawing.Size(263, 637);
             this.pnl_sidebar.TabIndex = 51;
             // 
             // rpt_print_dtr
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.ClientSize = new System.Drawing.Size(1203, 631);
+            this.ClientSize = new System.Drawing.Size(1604, 777);
             this.Controls.Add(this.pnl_main);
             this.Controls.Add(this.pnl_sidebar);
             this.Controls.Add(this.pnl_rpt_option_header);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "rpt_print_dtr";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Print Daily Time Record Report";
