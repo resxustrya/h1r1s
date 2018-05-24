@@ -171,6 +171,7 @@ namespace Human_Resource_Information_System
             dis_earnings.AddCell(new PdfPCell(new Paragraph("Employee Name")) { Border = 2 });
             dis_earnings.AddCell(new PdfPCell(new Paragraph("EmployeE Share")) { Border = 2 });
             dis_earnings.AddCell(new PdfPCell(new Paragraph("EmployeR Share")) { Border = 2 });
+
             dis_earnings.AddCell(new PdfPCell(new Paragraph("Total Contribution")) { Border = 2 });
 
             foreach (DataRow _employees in employees.Rows)

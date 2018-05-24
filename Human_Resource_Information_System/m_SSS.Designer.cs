@@ -666,7 +666,7 @@
             // 
             this.dgvl_empshare_sc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dgvl_empshare_sc.FillWeight = 51.61517F;
-            this.dgvl_empshare_sc.HeaderText = "EmployEE\'s share";
+            this.dgvl_empshare_sc.HeaderText = "EmployER\'s share";
             this.dgvl_empshare_sc.Name = "dgvl_empshare_sc";
             // 
             // dgvl_s_ec
@@ -680,7 +680,7 @@
             // 
             this.dgvl_empshare_ec.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dgvl_empshare_ec.FillWeight = 45.27816F;
-            this.dgvl_empshare_ec.HeaderText = "EmployER\'s share";
+            this.dgvl_empshare_ec.HeaderText = "EmployEE\'s share";
             this.dgvl_empshare_ec.Name = "dgvl_empshare_ec";
             // 
             // dgvl_total_cont

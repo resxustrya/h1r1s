@@ -57,6 +57,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tab_details = new System.Windows.Forms.TabControl();
             this.tpg_emp_info = new System.Windows.Forms.TabPage();
+            this.txt_sss_number = new System.Windows.Forms.TextBox();
             this.chk_fixed_rate = new System.Windows.Forms.CheckBox();
             this.label72 = new System.Windows.Forms.Label();
             this.label71 = new System.Windows.Forms.Label();
@@ -174,6 +175,9 @@
             this.label59 = new System.Windows.Forms.Label();
             this.label60 = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
+            this.tpg_contribution = new System.Windows.Forms.TabPage();
+            this.cbo_sss = new System.Windows.Forms.ComboBox();
+            this.label73 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label63 = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
@@ -198,10 +202,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txt_code = new System.Windows.Forms.TextBox();
             this.cbo_position = new System.Windows.Forms.ComboBox();
-            this.txt_sss_number = new System.Windows.Forms.TextBox();
-            this.tpg_contribution = new System.Windows.Forms.TabPage();
-            this.label73 = new System.Windows.Forms.Label();
-            this.cbo_sss = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tbcntrl_option.SuspendLayout();
             this.tpg_opt_1.SuspendLayout();
@@ -223,9 +223,9 @@
             this.tpg_background.SuspendLayout();
             this.tpg_contact.SuspendLayout();
             this.tpg_education.SuspendLayout();
+            this.tpg_contribution.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tpg_contribution.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -612,6 +612,13 @@
             this.tpg_emp_info.Size = new System.Drawing.Size(822, 325);
             this.tpg_emp_info.TabIndex = 0;
             this.tpg_emp_info.Text = "Employee Information";
+            // 
+            // txt_sss_number
+            // 
+            this.txt_sss_number.Location = new System.Drawing.Point(593, 14);
+            this.txt_sss_number.Name = "txt_sss_number";
+            this.txt_sss_number.Size = new System.Drawing.Size(203, 24);
+            this.txt_sss_number.TabIndex = 114;
             // 
             // chk_fixed_rate
             // 
@@ -1195,7 +1202,7 @@
             this.tpg_background.Location = new System.Drawing.Point(4, 27);
             this.tpg_background.Name = "tpg_background";
             this.tpg_background.Padding = new System.Windows.Forms.Padding(3);
-            this.tpg_background.Size = new System.Drawing.Size(822, 325);
+            this.tpg_background.Size = new System.Drawing.Size(822, 327);
             this.tpg_background.TabIndex = 1;
             this.tpg_background.Text = "Personal Background";
             this.tpg_background.Click += new System.EventHandler(this.tpg_background_Click);
@@ -1505,7 +1512,7 @@
             this.tpg_contact.Controls.Add(this.label56);
             this.tpg_contact.Location = new System.Drawing.Point(4, 27);
             this.tpg_contact.Name = "tpg_contact";
-            this.tpg_contact.Size = new System.Drawing.Size(822, 325);
+            this.tpg_contact.Size = new System.Drawing.Size(822, 327);
             this.tpg_contact.TabIndex = 2;
             this.tpg_contact.Text = "Contact Information";
             // 
@@ -1669,7 +1676,7 @@
             this.tpg_education.Controls.Add(this.label61);
             this.tpg_education.Location = new System.Drawing.Point(4, 27);
             this.tpg_education.Name = "tpg_education";
-            this.tpg_education.Size = new System.Drawing.Size(822, 325);
+            this.tpg_education.Size = new System.Drawing.Size(822, 327);
             this.tpg_education.TabIndex = 3;
             this.tpg_education.Text = "Educational background";
             this.tpg_education.Click += new System.EventHandler(this.tpg_education_Click);
@@ -1758,6 +1765,43 @@
             this.label61.TabIndex = 139;
             this.label61.Tag = "";
             this.label61.Text = "Primary";
+            // 
+            // tpg_contribution
+            // 
+            this.tpg_contribution.BackColor = System.Drawing.SystemColors.Info;
+            this.tpg_contribution.Controls.Add(this.cbo_sss);
+            this.tpg_contribution.Controls.Add(this.label73);
+            this.tpg_contribution.Location = new System.Drawing.Point(4, 27);
+            this.tpg_contribution.Name = "tpg_contribution";
+            this.tpg_contribution.Size = new System.Drawing.Size(822, 325);
+            this.tpg_contribution.TabIndex = 4;
+            this.tpg_contribution.Text = "Contribution Selection";
+            this.tpg_contribution.Click += new System.EventHandler(this.tpg_contribution_Click);
+            // 
+            // cbo_sss
+            // 
+            this.cbo_sss.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cbo_sss.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbo_sss.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbo_sss.FormattingEnabled = true;
+            this.cbo_sss.Items.AddRange(new object[] {
+            "AM",
+            "PM"});
+            this.cbo_sss.Location = new System.Drawing.Point(107, 27);
+            this.cbo_sss.Name = "cbo_sss";
+            this.cbo_sss.Size = new System.Drawing.Size(203, 26);
+            this.cbo_sss.TabIndex = 116;
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Location = new System.Drawing.Point(9, 30);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(93, 18);
+            this.label73.TabIndex = 115;
+            this.label73.Tag = "";
+            this.label73.Text = "SSS Bracket";
+            this.label73.Click += new System.EventHandler(this.label73_Click);
             // 
             // panel5
             // 
@@ -2012,50 +2056,6 @@
             this.cbo_position.Size = new System.Drawing.Size(243, 26);
             this.cbo_position.TabIndex = 53;
             // 
-            // txt_sss_number
-            // 
-            this.txt_sss_number.Location = new System.Drawing.Point(593, 14);
-            this.txt_sss_number.Name = "txt_sss_number";
-            this.txt_sss_number.Size = new System.Drawing.Size(203, 24);
-            this.txt_sss_number.TabIndex = 114;
-            // 
-            // tpg_contribution
-            // 
-            this.tpg_contribution.BackColor = System.Drawing.SystemColors.Info;
-            this.tpg_contribution.Controls.Add(this.cbo_sss);
-            this.tpg_contribution.Controls.Add(this.label73);
-            this.tpg_contribution.Location = new System.Drawing.Point(4, 27);
-            this.tpg_contribution.Name = "tpg_contribution";
-            this.tpg_contribution.Size = new System.Drawing.Size(822, 325);
-            this.tpg_contribution.TabIndex = 4;
-            this.tpg_contribution.Text = "Contribution Selection";
-            this.tpg_contribution.Click += new System.EventHandler(this.tpg_contribution_Click);
-            // 
-            // label73
-            // 
-            this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(9, 30);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(92, 18);
-            this.label73.TabIndex = 115;
-            this.label73.Tag = "";
-            this.label73.Text = "SSS number";
-            this.label73.Click += new System.EventHandler(this.label73_Click);
-            // 
-            // cbo_sss
-            // 
-            this.cbo_sss.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.cbo_sss.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbo_sss.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbo_sss.FormattingEnabled = true;
-            this.cbo_sss.Items.AddRange(new object[] {
-            "AM",
-            "PM"});
-            this.cbo_sss.Location = new System.Drawing.Point(107, 27);
-            this.cbo_sss.Name = "cbo_sss";
-            this.cbo_sss.Size = new System.Drawing.Size(203, 26);
-            this.cbo_sss.TabIndex = 116;
-            // 
             // m_employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -2096,11 +2096,11 @@
             this.tpg_contact.PerformLayout();
             this.tpg_education.ResumeLayout(false);
             this.tpg_education.PerformLayout();
+            this.tpg_contribution.ResumeLayout(false);
+            this.tpg_contribution.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tpg_contribution.ResumeLayout(false);
-            this.tpg_contribution.PerformLayout();
             this.ResumeLayout(false);
 
         }
