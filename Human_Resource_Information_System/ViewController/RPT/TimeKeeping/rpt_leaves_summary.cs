@@ -203,7 +203,7 @@ namespace Human_Resource_Information_System
                 {
                     foreach (DataRow _leave_type in dt_leave_type.Rows)
                     {
-                        DataTable has_leave = db.QueryBySQLCode("SELECT empid FROM rssys.hr_leaves WHERE empid = '" + empno + "' AND leave_type = '" + _leave_type["code"].ToString() + "'");
+                        DataTable has_leave = db.QueryBySQLCode("SELECT DISTINCT(empid) FROM rssys.hr_leaves WHERE empid = '" + empno + "' AND leave_type = '" + _leave_type["code"].ToString() + "'");
                         if (has_leave != null && has_leave.Rows.Count > 0)
                         {
                             dis_earnings.AddCell(new PdfPCell(new Paragraph(fname + " " + lname)) { Colspan = 2, Border = 2 });

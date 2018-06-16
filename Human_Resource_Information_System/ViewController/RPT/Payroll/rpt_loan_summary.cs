@@ -216,12 +216,12 @@ namespace Human_Resource_Information_System
                             }
                         }
                     }
-                    
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
+                empno = null;
             }
 
             document.Add(dis_earnings);

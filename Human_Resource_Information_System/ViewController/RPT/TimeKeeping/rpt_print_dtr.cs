@@ -89,16 +89,25 @@ namespace Human_Resource_Information_System
         {
             String result = "";
 
-            String query = "";
-            String time_from = "", time_to = "";
+            String time_to = "";
             TimeSpan total_late = new TimeSpan(0, 0, 0, 0, 0);
 
-            DataTable sched = db.QueryBySQLCode("SELECT shift_sched_from,shift_sched_to FROM rssys.hr_employee WHERE empid = '" + empid + "'");
+            DataTable sched = db.QueryBySQLCode("SELECT shift_sched_from,shift_sched_to,shift_sched_sat_from,shift_sched_sat_to FROM rssys.hr_employee WHERE empid = '" + empid + "'");
             if (sched.Rows.Count > 0)
             {
-                time_from = sched.Rows[0]["shift_sched_from"].ToString();
-                time_to = sched.Rows[0]["shift_sched_to"].ToString();
 
+                DateTime date = Convert.ToDateTime(datein);
+                String day_of_week = date.DayOfWeek.ToString();
+
+                if(day_of_week == "Saturday")
+                {
+                    time_to = sched.Rows[0]["shift_sched_sat_to"].ToString();
+                }
+                else
+                {
+                    time_to = sched.Rows[0]["shift_sched_to"].ToString();
+                }
+                
 
                 DateTime datetime_out = Convert.ToDateTime(datein + " " + timeout);
                 DateTime datetime_to = Convert.ToDateTime(datein + " " + time_to);
@@ -119,25 +128,30 @@ namespace Human_Resource_Information_System
         private String compute_late(String empid,String timein,String datein)
         {
             String result = "";
-
-           
-            String time_from = "", time_to = "";
+            String time_from = "";
             TimeSpan total_late = new TimeSpan(0, 0, 0, 0, 0);
 
-            DataTable sched = db.QueryBySQLCode("SELECT shift_sched_from,shift_sched_to FROM rssys.hr_employee WHERE empid = '" + empid + "'");
+            DataTable sched = db.QueryBySQLCode("SELECT shift_sched_from,shift_sched_to,shift_sched_sat_from,shift_sched_sat_to FROM rssys.hr_employee WHERE empid = '" + empid + "'");
             if (sched.Rows.Count > 0)
             {
-                time_from = sched.Rows[0]["shift_sched_from"].ToString();
-                time_to = sched.Rows[0]["shift_sched_to"].ToString();
+                DateTime date = Convert.ToDateTime(datein);
+                String day_of_week = date.DayOfWeek.ToString();
 
-                
+                if(day_of_week == "Saturday")
+                {
+                    time_from = sched.Rows[0]["shift_sched_sat_from"].ToString();
+                }
+                else
+                {
+                    time_from = sched.Rows[0]["shift_sched_from"].ToString();
+                }
 
                 DateTime datetime_in = Convert.ToDateTime(datein + " " + timein);
 
                 DateTime datetime_from = Convert.ToDateTime(datein + " " + time_from);
 
                 int res = DateTime.Compare(datetime_from, datetime_in);
-
+                
                 if (res < 0)
                 {
                     TimeSpan diff = datetime_in.Subtract(datetime_from);
@@ -162,17 +176,27 @@ namespace Human_Resource_Information_System
             String time_from = "", time_to = "";
             TimeSpan total_late = new TimeSpan(0, 0, 0, 0, 0);
             DataTable ot_time = db.QueryBySQLCode("SELECT time_start FROM rssys.hr_ot_start");
-            DataTable sched = db.QueryBySQLCode("SELECT shift_sched_from,shift_sched_to FROM rssys.hr_employee WHERE empid = '" + empid + "'");
+            DataTable sched = db.QueryBySQLCode("SELECT shift_sched_from,shift_sched_to,shift_sched_sat_from,shift_sched_sat_to FROM rssys.hr_employee WHERE empid = '" + empid + "'");
             if (sched.Rows.Count > 0)
             {
 
-                time_from = sched.Rows[0]["shift_sched_from"].ToString();
-                time_to = sched.Rows[0]["shift_sched_to"].ToString();
+                DateTime date = Convert.ToDateTime(datein);
+                String day_of_week = date.DayOfWeek.ToString();
+
+                if(day_of_week == "Saturday")
+                {
+                    time_to = sched.Rows[0]["shift_sched_sat_to"].ToString();
+                }
+                else
+                {
+                    time_to = sched.Rows[0]["shift_sched_to"].ToString();
+                }
                 String ot_time_start = ot_time.Rows[0]["time_start"].ToString();
 
 
                 DateTime datetime_out = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + timeout);
                 DateTime datetime_to = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + time_to);
+
                 DateTime ot_start = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + ot_time_start);
 
                 int ot_ok = DateTime.Compare(ot_start, datetime_out);
@@ -232,8 +256,8 @@ namespace Human_Resource_Information_System
         {
             int r = -1;
             String dtr_filename = "";
-            String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr\\";
-            //String sys_dir = fileloc_dtr + "\\ViewController\\RPT\\TimeKeeping\\dtr_pdf\\";
+            //String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr\\";
+            String sys_dir = fileloc_dtr + "\\ViewController\\RPT\\TimeKeeping\\dtr_pdf\\";
 
 
             try
@@ -280,7 +304,8 @@ namespace Human_Resource_Information_System
         {
             int r = -1;
             String dtr_filename = "", dtr_sum_id = "";
-            String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr\\";
+            //String sys_dir = "\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr\\";
+            String sys_dir = fileloc_dtr + "\\ViewController\\RPT\\TimeKeeping\\dtr_pdf\\";
             try
             {
                 if (dgvl_dtrfiles.Rows.Count > 1)
@@ -354,9 +379,9 @@ namespace Human_Resource_Information_System
                 filename = RandomString(5) + "_" + DateTime.Now.ToString("yyyy-MM-dd");
                 filename += ".pdf";
 
-                System.IO.FileStream fs = new FileStream("\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr\\" + filename, FileMode.Create);
+                //System.IO.FileStream fs = new FileStream("\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\dtr\\" + filename, FileMode.Create);
 
-                //System.IO.FileStream fs = new FileStream(fileloc_dtr + "\\ViewController\\RPT\\TimeKeeping\\dtr_pdf\\" + filename, FileMode.Create);
+                System.IO.FileStream fs = new FileStream(fileloc_dtr + "\\ViewController\\RPT\\TimeKeeping\\dtr_pdf\\" + filename, FileMode.Create);
                 Document document = new Document(PageSize.LEGAL, 25, 25, 30, 30);
 
                 PdfWriter.GetInstance(document, fs);
@@ -417,6 +442,7 @@ namespace Human_Resource_Information_System
                         t.AddCell(new PdfPCell(new Phrase("UT/OT")) { Colspan = 3, HorizontalAlignment = Element.ALIGN_CENTER });
 
 
+
                         t.AddCell(new PdfPCell(new Phrase("IN")) { HorizontalAlignment = Element.ALIGN_CENTER });
                         t.AddCell(new PdfPCell(new Phrase("OUT")) { HorizontalAlignment = Element.ALIGN_CENTER });
                         t.AddCell(new PdfPCell(new Phrase("IN")) { HorizontalAlignment = Element.ALIGN_CENTER });
@@ -428,8 +454,8 @@ namespace Human_Resource_Information_System
                         
 
                         query = "SELECT DISTINCT CONCAT(lastname,' ',firstname) AS name, t.source, e.empid, to_char(work_date, 'yyyy-MM-dd') AS work_date, (SELECT MIN(time_log) FROM rssys.hr_tito2 st WHERE work_date=t.work_date AND status='I' AND empid=t.empid) AS timein, (SELECT MAX(time_log) FROM rssys.hr_tito2 st WHERE work_date=t.work_date AND status='O' AND empid=t.empid) AS timeout FROM rssys.hr_tito2 t LEFT JOIN rssys.hr_employee e ON t.empid=e.empid WHERE e.empid = '" + empid + "' AND t.work_date BETWEEN '" + date_from + "' AND '" + date_to + "' ORDER BY work_date ";
+                        
 
-                       
                         DataTable dt = db.QueryBySQLCode(query);
 
                         String date_name = "", am_in = "", am_out = "", pm_in = "", pm_out = "", log_date = "", late = "", ut = "", ot_total = "";

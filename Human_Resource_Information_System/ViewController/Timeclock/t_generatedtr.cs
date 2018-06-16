@@ -53,13 +53,15 @@ namespace Human_Resource_Information_System
             String query = "";
             String timein = "", timeout = "";
             String time_from = "", time_to = "";
+            String sat_time_from = "";
+            String sat_time_to = "";
             TimeSpan total_late = new TimeSpan(0, 0, 0, 0, 0);
+            
+            
 
-            DataTable sched = db.QueryBySQLCode("SELECT shift_sched_from,shift_sched_to FROM rssys.hr_employee WHERE empid = '" + empid + "'");
+            DataTable sched = db.QueryBySQLCode("SELECT shift_sched_from,shift_sched_to,shift_sched_sat_from,shift_sched_sat_to FROM rssys.hr_employee WHERE empid = '" + empid + "'");
             if (sched.Rows.Count > 0)
             {
-                time_from = sched.Rows[0]["shift_sched_from"].ToString();
-                time_to = sched.Rows[0]["shift_sched_to"].ToString();
 
                 query = "SELECT DISTINCT e.empid,work_date,(SELECT MIN(time_log) FROM rssys.hr_tito2 st WHERE work_date=t.work_date AND status='I' AND empid=t.empid) AS timein, (SELECT MAX(time_log) FROM rssys.hr_tito2 st WHERE work_date=t.work_date AND status='O' AND empid=t.empid) AS timeout FROM rssys.hr_tito2 t LEFT JOIN rssys.hr_employee e ON t.empid=e.empid WHERE t.work_date BETWEEN '" + gm.toDateString(date_from, "") + "' AND '" + gm.toDateString(date_to, "") + "' AND t.empid ='" + empid + "' ORDER BY work_date";
 
@@ -70,6 +72,18 @@ namespace Human_Resource_Information_System
                     for (int r = 0; r < logs.Rows.Count; r++)
                     {
                         timein = logs.Rows[r]["timein"].ToString();
+
+                        DateTime date = Convert.ToDateTime(logs.Rows[r]["work_date"].ToString());
+                        String day_of_week = date.DayOfWeek.ToString();
+
+                        if(day_of_week == "Saturday")
+                        {
+                            time_from = sched.Rows[0]["shift_sched_sat_from"].ToString();
+                        }
+                        else
+                        {
+                            time_from = sched.Rows[0]["shift_sched_from"].ToString();
+                        }
 
                         DateTime datetime_in = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + timein);
 
@@ -99,12 +113,11 @@ namespace Human_Resource_Information_System
             String time_from = "", time_to = "";
             TimeSpan total_late = new TimeSpan(0, 0, 0, 0, 0);
 
-            DataTable sched = db.QueryBySQLCode("SELECT shift_sched_from,shift_sched_to FROM rssys.hr_employee WHERE empid = '" + empid + "'");
+            DataTable sched = db.QueryBySQLCode("SELECT shift_sched_from,shift_sched_to,shift_sched_sat_from,shift_sched_sat_to FROM rssys.hr_employee WHERE empid = '" + empid + "'");
             if (sched.Rows.Count > 0)
             {
                 time_from = sched.Rows[0]["shift_sched_from"].ToString();
                 time_to = sched.Rows[0]["shift_sched_to"].ToString();
-
                 
                 query = "SELECT DISTINCT e.empid,work_date,(SELECT MAX(time_log) FROM rssys.hr_tito2 st WHERE work_date=t.work_date AND status='O' AND empid=t.empid) AS timeout FROM rssys.hr_tito2 t LEFT JOIN rssys.hr_employee e ON t.empid=e.empid WHERE t.empid = '" + empid + "' AND t.work_date BETWEEN '" + gm.toDateString(date_from, "") + "' AND '" + gm.toDateString(date_to, "") + "' ORDER BY work_date";
                 //System.Diagnostics.Debug.Write(query);
@@ -121,8 +134,22 @@ namespace Human_Resource_Information_System
                         {
                             timeout = time_from;
                         }
-                        
-                        
+
+                        String work_date = logs.Rows[r]["work_date"].ToString();
+
+                        DateTime date = Convert.ToDateTime(work_date);
+                        String day_of_week = date.DayOfWeek.ToString();
+
+                        if (day_of_week == "Saturday")
+                        {
+                            time_to = sched.Rows[0]["shift_sched_sat_to"].ToString();
+                        }
+                        else
+                        {
+                            time_to = sched.Rows[0]["shift_sched_to"].ToString();
+                        }
+
+
                         DateTime datetime_out = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + timeout);
                         DateTime datetime_to = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + time_to);
                         int res = DateTime.Compare(datetime_to, datetime_out);
@@ -147,10 +174,10 @@ namespace Human_Resource_Information_System
 
             String query = "";
             String timein = "", timeout = "";
-            String time_from = "", time_to = "";
+            String time_from = "", time_to = "", work_date = "";
             TimeSpan total_late = new TimeSpan(0, 0, 0, 0, 0);
             DataTable ot_time = db.QueryBySQLCode("SELECT time_start FROM rssys.hr_ot_start");
-            DataTable sched = db.QueryBySQLCode("SELECT shift_sched_from,shift_sched_to FROM rssys.hr_employee WHERE empid = '" + empid + "'");
+            DataTable sched = db.QueryBySQLCode("SELECT shift_sched_from,shift_sched_to,shift_sched_sat_from,shift_sched_sat_to FROM rssys.hr_employee WHERE empid = '" + empid + "'");
             if (sched.Rows.Count > 0)
             {
 
@@ -172,10 +199,25 @@ namespace Human_Resource_Information_System
                     {
                         
                         timeout = logs.Rows[r]["timeout"].ToString();
-                        
+
+                        work_date = logs.Rows[r]["work_date"].ToString();
+
+                        DateTime date = Convert.ToDateTime(work_date);
+                        String day_of_week = date.DayOfWeek.ToString();
+
+                        if (day_of_week == "Saturday")
+                        {
+                            time_to = sched.Rows[0]["shift_sched_sat_to"].ToString();
+                        }
+                        else
+                        {
+                            time_to = sched.Rows[0]["shift_sched_to"].ToString();
+                        }
+
 
                         DateTime datetime_out = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + timeout);
                         DateTime datetime_to = Convert.ToDateTime(DateTime.Now.ToString("M/d/yyyy") + " " + time_to);
+
 
                         int ot_ok = DateTime.Compare(ot_start, datetime_out);
                         if(ot_ok < 0)

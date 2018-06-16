@@ -546,6 +546,12 @@
     <Compile Include="ViewController\RPT\Payroll\PaySlips.Designer.cs">
       <DependentUpon>PaySlips.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewController\RPT\Payroll\rpt_payroll_summary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewController\RPT\Payroll\rpt_payroll_summary.Designer.cs">
+      <DependentUpon>rpt_payroll_summary.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewController\RPT\Payroll\rpt_philhealth_summary.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -939,6 +945,9 @@
     <EmbeddedResource Include="ViewController\RPT\Payroll\PaySlips.resx">
       <DependentUpon>PaySlips.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ViewController\RPT\Payroll\rpt_payroll_summary.resx">
+      <DependentUpon>rpt_payroll_summary.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewController\RPT\Payroll\rpt_philhealth_summary.resx">
       <DependentUpon>rpt_philhealth_summary.cs</DependentUpon>
     </EmbeddedResource>
@@ -1063,6 +1072,7 @@
     <Folder Include="ViewController\RPT\Payroll\loan_summary\" />
     <Folder Include="ViewController\RPT\Payroll\other_deductions\" />
     <Folder Include="ViewController\RPT\Payroll\other_earnings\" />
+    <Folder Include="ViewController\RPT\Payroll\payroll_summary\" />
     <Folder Include="ViewController\RPT\Payroll\philhealth_summary\" />
     <Folder Include="ViewController\RPT\Payroll\sss_summary\" />
     <Folder Include="ViewController\RPT\TimeKeeping\dtr_pdf\" />

@@ -93,6 +93,7 @@
             this.leaveStatusReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cummulativePayrollReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.leaveBalancesReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.payrollSummaryReportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeRegisterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.payrollSummaryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.payslipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -105,6 +106,7 @@
             this.pToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.philHealthDeductionsSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loanSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.leaveSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fmi_z000 = new System.Windows.Forms.ToolStripMenuItem();
             this.userRightsSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userConfigurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -134,7 +136,7 @@
             this.lbl_trnxdate = new System.Windows.Forms.Label();
             this.bgWorker = new System.ComponentModel.BackgroundWorker();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.leaveSummaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_summary_report = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnl_header.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -605,7 +607,8 @@
             this.thMonthSummaryToolStripMenuItem,
             this.leaveStatusReportToolStripMenuItem,
             this.cummulativePayrollReportToolStripMenuItem,
-            this.leaveBalancesReportToolStripMenuItem});
+            this.leaveBalancesReportToolStripMenuItem,
+            this.payrollSummaryReportToolStripMenuItem1});
             this.payrollToolStripMenuItem.Name = "payrollToolStripMenuItem";
             this.payrollToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
             this.payrollToolStripMenuItem.Text = "Payroll";
@@ -659,6 +662,13 @@
             this.leaveBalancesReportToolStripMenuItem.Name = "leaveBalancesReportToolStripMenuItem";
             this.leaveBalancesReportToolStripMenuItem.Size = new System.Drawing.Size(302, 26);
             this.leaveBalancesReportToolStripMenuItem.Text = "Leave Balances Report";
+            // 
+            // payrollSummaryReportToolStripMenuItem1
+            // 
+            this.payrollSummaryReportToolStripMenuItem1.Name = "payrollSummaryReportToolStripMenuItem1";
+            this.payrollSummaryReportToolStripMenuItem1.Size = new System.Drawing.Size(302, 26);
+            this.payrollSummaryReportToolStripMenuItem1.Text = "Payroll Summary Report";
+            this.payrollSummaryReportToolStripMenuItem1.Click += new System.EventHandler(this.payrollSummaryReportToolStripMenuItem1_Click);
             // 
             // employeeRegisterToolStripMenuItem
             // 
@@ -744,6 +754,13 @@
             this.loanSummaryToolStripMenuItem.Text = "Loan Summary";
             this.loanSummaryToolStripMenuItem.Click += new System.EventHandler(this.loanSummaryToolStripMenuItem_Click);
             // 
+            // leaveSummaryToolStripMenuItem
+            // 
+            this.leaveSummaryToolStripMenuItem.Name = "leaveSummaryToolStripMenuItem";
+            this.leaveSummaryToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
+            this.leaveSummaryToolStripMenuItem.Text = "Leave Summary";
+            this.leaveSummaryToolStripMenuItem.Click += new System.EventHandler(this.leaveSummaryToolStripMenuItem_Click);
+            // 
             // fmi_z000
             // 
             this.fmi_z000.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -778,6 +795,7 @@
             // pnl_header
             // 
             this.pnl_header.BackColor = System.Drawing.SystemColors.Info;
+            this.pnl_header.Controls.Add(this.btn_summary_report);
             this.pnl_header.Controls.Add(this.btn_10);
             this.pnl_header.Controls.Add(this.btn_9);
             this.pnl_header.Controls.Add(this.btn_8);
@@ -1101,12 +1119,20 @@
             this.splitter1.TabIndex = 27;
             this.splitter1.TabStop = false;
             // 
-            // leaveSummaryToolStripMenuItem
+            // btn_summary_report
             // 
-            this.leaveSummaryToolStripMenuItem.Name = "leaveSummaryToolStripMenuItem";
-            this.leaveSummaryToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
-            this.leaveSummaryToolStripMenuItem.Text = "Leave Summary";
-            this.leaveSummaryToolStripMenuItem.Click += new System.EventHandler(this.leaveSummaryToolStripMenuItem_Click);
+            this.btn_summary_report.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_summary_report.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_summary_report.Image = global::Human_Resource_Information_System.Properties.Resources.Print;
+            this.btn_summary_report.Location = new System.Drawing.Point(1308, 0);
+            this.btn_summary_report.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_summary_report.Name = "btn_summary_report";
+            this.btn_summary_report.Size = new System.Drawing.Size(133, 63);
+            this.btn_summary_report.TabIndex = 29;
+            this.btn_summary_report.Text = "Payroll Summary Report";
+            this.btn_summary_report.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_summary_report.UseVisualStyleBackColor = true;
+            this.btn_summary_report.Click += new System.EventHandler(this.btn_summary_report_Click);
             // 
             // Main
             // 
@@ -1246,5 +1272,7 @@
         private System.Windows.Forms.ToolStripMenuItem philHealthDeductionsSummaryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loanSummaryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem leaveSummaryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem payrollSummaryReportToolStripMenuItem1;
+        private System.Windows.Forms.Button btn_summary_report;
     }
 }

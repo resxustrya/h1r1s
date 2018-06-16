@@ -777,5 +777,23 @@ namespace Human_Resource_Information_System
             rpt_leaves.MdiParent = this;
             rpt_leaves.Show();
         }
+
+        private void payrollSummaryReportToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            rpt_payroll_summary rpt_payrollsummary = new rpt_payroll_summary();
+            closechild();
+            btn_color_reset();
+            rpt_payrollsummary.MdiParent = this;
+            rpt_payrollsummary.Show();
+        }
+
+        private void btn_summary_report_Click(object sender, EventArgs e)
+        {
+            rpt_payroll_summary rpt_payrollsummary = new rpt_payroll_summary();
+            closechild();
+            btn_color_reset();
+            rpt_payrollsummary.MdiParent = this;
+            rpt_payrollsummary.Show();
+        }
     }
 }

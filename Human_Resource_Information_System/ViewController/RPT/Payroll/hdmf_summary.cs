@@ -125,7 +125,7 @@ namespace Human_Resource_Information_System
             //System.IO.FileStream fs = new FileStream("\\\\RIGHTAPPS\\RightApps\\Eastland\\payroll_reports\\hdmf_summary\\" + filename, FileMode.Create);
             System.IO.FileStream fs = new FileStream(fileloc_dtr + "\\ViewController\\RPT\\Payroll\\hdmf_summary\\" + filename, FileMode.Create);
 
-            Document document = new Document(PageSize.LEGAL, 25, 25, 30, 30);
+            Document document = new Document(PageSize.LEGAL);
 
             PdfWriter.GetInstance(document, fs);
             document.Open();
